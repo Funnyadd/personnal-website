@@ -22,7 +22,7 @@ const Navbar = () => {
             <NavBar className={scroll ? 'navbar navbar-expand-sm sticky' : 'navbar navbar-expand-sm'}>
                 <NavbarContainer className='container'>
                     <NavLogo>
-                        ADAM
+                        <img src='./personal-logo.png' id="navLogo" />
                     </NavLogo>
                     <MobileIcon onClick={handleClick} id="mobileBTN" className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon">{isMenuVisible  ? <FaTimes /> : <FaBars />}</span>
