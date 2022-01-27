@@ -30,9 +30,9 @@ const Navbar = () => {
                     <Nav className='navbar navbar-expand-sm'>
                         <NavInner className="navbar-collapse collapse" id="myNavbar" >
                             <NavMenu className='navbar-nav'>
-                                <NavItem>home</NavItem>
-                                <NavItem>about</NavItem>
-                                <NavItem>contact</NavItem>
+                                <NavItem to="/#home">home</NavItem>
+                                <NavItem to="/#about">about</NavItem>
+                                <NavItem to="/#contact">contact</NavItem>
                             </NavMenu>
                         </NavInner>
                     </Nav>

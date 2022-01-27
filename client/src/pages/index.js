@@ -10,7 +10,7 @@ const IndexPage = () => {
   
   return (
     <Layout>
-      <Seo title="Home" />
+      <Seo title="Adam Mihajlovic" />
       <Navbar />
       <section id="home">
         <Hero />
@@ -18,7 +18,9 @@ const IndexPage = () => {
       <section id="about">
         <About />
       </section>
+      <section id="contact">
 
+      </section>
     </Layout>
   )
 }

@@ -1,3 +1,4 @@
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 export const Nav = styled.nav`
@@ -87,7 +88,7 @@ export const NavMenu = styled.div`
     justify-content: flex-end;
 `
 
-export const NavItem = styled.button`
+export const NavItem = styled(Link)`
     overflow: visible;
     font-size: inherit;
     padding: 1px 6px;
@@ -106,6 +107,7 @@ export const NavItem = styled.button`
     font-weight: 500;
     margin: 10px 5px;
     transition: all 0.5s ease 0s;
+    text-decoration: none;
 
     &:hover {
         color: rgb(12, 148, 0);
