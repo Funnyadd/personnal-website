@@ -34,7 +34,8 @@
     "typewriter-effect": "^2.18.2"
   },
   "devDependencies": {
-    "prettier": "^2.5.1"
+    "prettier": "^2.5.1",
+    "sass": "^1.49.0"
   },
   "keywords": [
     "gatsby",
