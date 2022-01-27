@@ -23,10 +23,6 @@ export const NavBar = styled.div`
     padding: 20px 0px;
     z-index: 100;
     position: absolute;
-
-    @media screen and (max-width: 960px) {
-        transition: 0.8s all ease;
-    }
 `
 export const NavbarContainer = styled.div`
     background-color: transparent;

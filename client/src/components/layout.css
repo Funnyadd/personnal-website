@@ -33,10 +33,12 @@ section {
   padding-top: 50px;
 }
 
-.sticky {
-  position: fixed !important;
-  background-color: rgba(0, 0, 0, 0.8) !important;
-  padding: 0px !important;
+@media screen and (min-width: 576px) {
+  .sticky {
+    position: fixed !important;
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    padding: 0px !important;
+  }
 }
 
 #navLogo {
@@ -48,4 +50,12 @@ section {
   #navLogo {
     width: 40px;
   }
+}
+
+.navSticky {
+  width: 40px !important;
+}
+
+.smoothTransition {
+  transition: 0.8s all ease;
 }

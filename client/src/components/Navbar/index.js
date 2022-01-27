@@ -19,10 +19,10 @@ const Navbar = () => {
 
     return(
         <>
-            <NavBar className={scroll ? 'navbar navbar-expand-sm sticky' : 'navbar navbar-expand-sm'}>
+            <NavBar className={scroll ? 'navbar navbar-expand-sm sticky smoothTransition' : 'navbar navbar-expand-sm smoothTransition'}>
                 <NavbarContainer className='container'>
                     <NavLogo>
-                        <img src='./personal-logo.png' id="navLogo" />
+                        <img className={scroll ? 'navSticky smoothTransition' : 'smoothTransition'} src='./personal-logo.png' id="navLogo" alt="navbar-logo" />
                     </NavLogo>
                     <MobileIcon onClick={handleClick} id="mobileBTN" className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon">{isMenuVisible  ? <FaTimes /> : <FaBars />}</span>
