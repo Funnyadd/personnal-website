@@ -2,7 +2,7 @@
   "name": "personnal-website",
   "version": "1.0.0",
   "description": "personal website of Adam Mihajlovic",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
     "test": "node test",
     "start": "node start"
