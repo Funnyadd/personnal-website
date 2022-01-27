@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Teko&family=Ubuntu&display=swap');
+
+* {
+  color: #fff;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Poppins;
+}
+
+body {
+  background-color:#000;
+}
+
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+video {
+  height: auto;
+  position: fixed;
+  z-index: -1000;
+}
+
+section {
+  max-height: 100vh;
+}
+
+#about {
+  position: relative;
+  overflow: hidden;
+  background-color: rgb(5, 5, 5);
+  padding-top: 50px;
+}
+
+.sticky {
+  position: fixed !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  padding: 0px !important;
+}
