@@ -57,7 +57,7 @@ const About = () => {
                             <ImageContainer>
                                 <div>
                                     <RevealContainer className='animate'>
-                                        <Image src="./aboutMe-Photo.png" alt="Profile picture" />
+                                        <Image src="./profile-picture.png" alt="Profile picture" />
                                     </RevealContainer>
                                 </div>
                             </ImageContainer>
@@ -149,7 +149,7 @@ const About = () => {
                                         }
                                     </div>
                                     <div className='textContainer'>
-                                        <span className='text'>{numberOfYear(decoluminaireExperienceStartDateStr)} Years of Experience at Deco Luminaire</span>
+                                        <span className='text'>{numberOfYear(decoluminaireExperienceStartDateStr)} Years in the Lights Industry</span>
                                     </div>
                                 </CounterContainer>
                             </CounterComponent>
