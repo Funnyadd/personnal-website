@@ -132,6 +132,11 @@ export const CounterContainer = styled.div`
 export const TabContainer = styled.div`
     min-height: 400px;
     margin-top: 20px;
+
+    @media screen and (max-width: 576px) {
+        margin-top: 50px;
+        padding: 0px 20px;
+    }
 `
 
 export const TabSelectors = styled.div`

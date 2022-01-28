@@ -23,6 +23,7 @@ import Skill from './Skill';
 const About = () => {
     const birthDateStr = "2002-08-09"
     const experienceStartDateStr = "2018-6-05"
+    const decoluminaireExperienceStartDateStr = '2017-06-18'
 
     const numberOfYear = (dateString) => {
         var today = new Date()
@@ -39,7 +40,6 @@ const About = () => {
         var today = new Date()
         var startDate = new Date(dateString)
         var m = today.getMonth() - startDate.getMonth()
-        console.log(m)
         if (m <= 5 && m >= -5 ) {
             return true
         }
@@ -137,13 +137,19 @@ const About = () => {
                             <CounterComponent>
                                 <CounterContainer>
                                     <div className='valueContainer'>
-                                        <span className='value'>0</span>
+                                        <span className='value'>{numberOfYear(decoluminaireExperienceStartDateStr)}</span>
                                     </div>
                                     <div className='symbolContainer'>
-                                        <span className='symbol'>+</span>
+                                    {
+                                            checkIf6Months(decoluminaireExperienceStartDateStr)
+                                                ?
+                                                <span className='symbol'>+</span>
+                                                :
+                                                <></>
+                                        }
                                     </div>
                                     <div className='textContainer'>
-                                        <span className='text'>Text Here</span>
+                                        <span className='text'>{numberOfYear(decoluminaireExperienceStartDateStr)} Years of Experience at Deco Luminaire</span>
                                     </div>
                                 </CounterContainer>
                             </CounterComponent>
