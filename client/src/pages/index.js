@@ -19,7 +19,7 @@ const IndexPage = () => {
         <About />
       </section>
       <section id="contact">
-
+        <p>Contact section</p>
       </section>
     </Layout>
   )

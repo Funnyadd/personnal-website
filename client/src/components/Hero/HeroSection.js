@@ -66,10 +66,15 @@ export const SubHeading = styled.h2`
     color: rgb(204, 204, 204);
     text-transform: uppercase;
     letter-spacing: 4px;
+
+    @media (max-width: 400px) {
+        font-size: 16px;
+    }
 `
 
 export const Heading = styled.div`
     text-align: center;
+
 `
 
 export const HeadingText = styled.p`
@@ -81,6 +86,12 @@ export const HeadingText = styled.p`
         font-size: 40px;
         line-height: 50px;
     }
+
+    @media (max-width: 400px) {
+        font-size: 25px;
+        line-height: 30px;
+        margin: 0 0.7rem
+    }
 `
 
 export const Type = styled.div`
@@ -90,7 +101,19 @@ export const Type = styled.div`
 
     span {
         font-family: Teko;
-        font-size: 24px;
+        font-size: 30px;
+    }
+
+    @media (max-width: 850px) {
+        span {
+            font-size: 24px;
+        }  
+    }
+
+    @media (max-width: 400px) {
+        span {
+            font-size: 20px;
+        }   
     }
 `
 
