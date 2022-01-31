@@ -22,7 +22,7 @@ import Skill from './Skill';
 
 const About = () => {
     const birthDateStr = "2002-08-09"
-    const experienceStartDateStr = "2018-6-05"
+    const experienceStartDateStr = "2018-06-05"
     const decoluminaireExperienceStartDateStr = '2017-06-18'
 
     const numberOfYear = (dateString) => {

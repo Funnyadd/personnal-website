@@ -132,3 +132,41 @@ export const ResumeLink = styled.a`
         border-color: rgb(12, 148, 0);
     }
 `
+
+export const FloatingIcon = styled.div`
+    left: ${props => props.left + "%"};
+    bottom: ${props => props.bottom + "%"};
+    position: absolute;
+    height: 50px;
+
+    @keyframes up-animation {
+        0% {
+            transform: translateY(0px);
+        }
+        100% {
+            transform: translateY(-40px);
+        }
+    }
+
+    @keyframes down-animation {
+        0% {
+            transform: translateY(0px);
+        }
+        100% {
+            transform: translateY(40px);
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+        height: 30px;
+        width: 30px
+    }
+
+    &.move-up {
+        animation: 5s ease 0s infinite alternate none running up-animation
+    }
+
+    &.move-down {
+        animation: 5s ease 0s infinite alternate none running down-animation
+    }
+`

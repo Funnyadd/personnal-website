@@ -51,14 +51,14 @@ export const ImageContainer = styled.div`
 
     @keyframes colorChange {
         0% {
-            box-shadow: #20bf55 0px 28px 60px;
+            box-shadow: #10b568 0px 12px 60px;
         }
         100% {
-            box-shadow: #01baef 0px 28px 60px;
+            box-shadow: #4272e3 0px 12px 60px;
         }
     }
 
-    animation: 10s ease 0s infinite alternate none running colorChange;
+    animation: 5s ease 0s infinite alternate none running colorChange;
 `
 
 export const Image = styled.img`
