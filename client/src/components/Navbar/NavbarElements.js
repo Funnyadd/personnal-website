@@ -57,6 +57,7 @@ export const NavLogo = styled.div`
     align-items: center;
     flex: 0 0 20%;
     max-width: 20%;
+    z-index: 1000;
 
     @media screen and (max-width: 576px) {
         max-width: 100%;
