@@ -26,6 +26,10 @@ export const Heading = styled.h2`
     margin-bottom: 0.5rem;
     font-weight: 500;
     margin-top: 0;
+
+    @media screen and (max-width: 576px) {
+        padding: 0px 20px;
+    }
 `
 
 export const Seperator = styled.div`
@@ -33,12 +37,20 @@ export const Seperator = styled.div`
     width: 50px;
     background-color: rgb(12, 148, 0);
     margin-bottom: 20px;
+
+    @media screen and (max-width: 576px) {
+        margin: 0px 20px 20px 20px;
+    }
 `
 
 export const SummaryText = styled.p`
     font-size: 12px;
     font-weight: 300;
     color: rgb(197, 197, 197);
+
+    @media screen and (max-width: 576px) {
+        padding: 0px 20px;
+    }
 `
 
 export const ImageContainer = styled.div`

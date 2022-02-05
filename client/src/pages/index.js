@@ -11,7 +11,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <Seo title="Adam Mihajlovic" />
-      <Navbar />
+      <Navbar sections={ ['home', 'about', 'contact'] }/>
       <section id="home">
         <Hero />
       </section>

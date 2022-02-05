@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { FaBars, FaTimes} from "react-icons/fa"
 import { NavBar, Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavInner } from './NavbarElements'
 
-const Navbar = () => {
-    const [isMenuVisible, setIsMenuVisible] = useState(false);
+const Navbar = (props) => {
+    const navLabels = props.sections ? props.sections : ['home', 'about', 'services', 'portfolio', 'clients', 'blog', 'contact']
 
+    const [isMenuVisible, setIsMenuVisible] = useState(false);
     const [scroll, setScroll] = useState(false);
 
     useEffect(() => {
@@ -30,9 +31,13 @@ const Navbar = () => {
                     <Nav className='navbar navbar-expand-sm'>
                         <NavInner className="navbar-collapse collapse" id="myNavbar" >
                             <NavMenu className='navbar-nav'>
-                                <NavItem to="/#home">home</NavItem>
-                                <NavItem to="/#about">about</NavItem>
-                                <NavItem to="/#contact">contact</NavItem>
+                                {navLabels.map((value, index) => {
+                                    let link = `/#${value}`
+                                    return (
+                                        <NavItem key={index} to={link}>{value}</NavItem>
+                                    )
+                                })}
+                                
                             </NavMenu>
                         </NavInner>
                     </Nav>
