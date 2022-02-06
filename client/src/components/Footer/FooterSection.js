@@ -10,7 +10,7 @@ export const FooterMain = styled.div`
 
 export const SocialIcons = styled.div`
     .social_icon {
-        font-size: 25px;
+        font-size: 15px;
         color: #555;
         margin: 0 15px;
         cursor: pointer;
