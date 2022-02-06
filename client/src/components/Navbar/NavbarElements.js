@@ -82,6 +82,7 @@ export const MobileIcon = styled.button`
         top: 0;
         right: 0;
         font-size: 1.8rem;
+        z-index: 1100;
     }
 `
 
