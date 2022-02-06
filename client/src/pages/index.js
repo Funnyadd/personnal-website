@@ -5,6 +5,7 @@ import Seo from "../components/seo"
 import Hero from "../components/Hero"
 import Navbar from "../components/Navbar"
 import About from "../components/About"
+import Contact from "../components/Contact"
 
 const IndexPage = () => {
   
@@ -19,7 +20,7 @@ const IndexPage = () => {
         <About />
       </section>
       <section id="contact">
-        <p>Contact section</p>
+        <Contact />
       </section>
     </Layout>
   )

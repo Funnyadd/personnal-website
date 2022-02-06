@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 export const HeroContainer = styled.div`
     width: 100%;
@@ -19,6 +19,18 @@ export const Background = styled.video`
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
+`
+
+const gradientAnimation = keyframes`
+    0% {
+        background-position: 15% 0%;
+    }
+    50% {
+        background-position: 85% 100%;
+    }
+    100% {
+        background-position: 15% 0%;
+    }
 `
 
 export const HeadingBox = styled.div`
@@ -52,6 +64,7 @@ export const HeadingBox = styled.div`
             
         ) 
         0% 0% / 300% 300%;
+        /* animation: 5s ease-in-out 0s infinite normal none running ${gradientAnimation}; */
     }
 
     @media (max-width: 850px) {

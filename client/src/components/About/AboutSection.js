@@ -166,10 +166,17 @@ export const TabSelector = styled.button`
     border-image: initial;
     margin: 0px 10px 0px 0px;
     border-bottom: 2px solid rgb(255, 255, 255);
-    transition: all 0.5s ease 0s;
+    transition: 0.5s;
 
-    &:hover {
+    &:hover, &.active {
         border-bottom-color: rgb(12, 148, 0);
+    }
+    &:focus {
+        outline: none
+    }
+
+    @media (max-width: 767px) {
+        font-size: 18px;
     }
 `
 
@@ -178,7 +185,7 @@ export const Tabs = styled.div`
 `
 
 export const Tab = styled.div`
-    display: ${props => props.display === 'block' ? 'block' : 'none'};
+    display: none;
     
     @keyframes fadeIn {
         0% {

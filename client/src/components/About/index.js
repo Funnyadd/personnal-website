@@ -19,8 +19,34 @@ import {
     RevealContainer
 } from './AboutSection';
 import Skill from './Skill';
+import Timeline from './Timeline'
 
 const About = () => {
+    const [tab, setTab] = useState("skills");
+
+    const skills = [
+        {
+            header: 'React',
+            percentage: 55
+        },
+        {
+            header: 'JavaScript',
+            percentage: 75
+        },
+        {
+            header: 'Java',
+            percentage: 80
+        },
+        {
+            header: 'C#',
+            percentage: 70
+        },
+        {
+            header: 'MySQL',
+            percentage: 85
+        }
+    ];
+
     const birthDateStr = "2002-08-09"
     const experienceStartDateStr = "2018-06-05"
     const decoluminaireExperienceStartDateStr = '2017-06-18'
@@ -74,17 +100,88 @@ const About = () => {
                             </SummaryText>
                             <TabContainer>
                                 <TabSelectors>
-                                    <TabSelector>Skills</TabSelector>
-                                    <TabSelector>Experience</TabSelector>
-                                    <TabSelector>Education</TabSelector>
+                                <TabSelector className={tab === "skills" ? "active" : ""} onClick={() => setTab("skills")}>
+                                    Skills
+                                </TabSelector>
+                                <TabSelector className={tab === "experience" ? "active" : ""} onClick={() => setTab("experience")}>
+                                    Experience
+                                </TabSelector>
+                                <TabSelector className={tab === "education" ? "active" : ""} onClick={() => setTab("education")}>
+                                    Education
+                                </TabSelector>
                                 </TabSelectors>
                                 <Tabs>
-                                    <Tab display="block">
-                                        <Skill header="React" percentage="65"></Skill>
-                                        <Skill header="JavaScript" percentage="80"></Skill>
-                                        <Skill header="Java" percentage="90"></Skill>
-                                        <Skill header="C#" percentage="70"></Skill>
-                                        <Skill header="MySQL" percentage="90"></Skill>
+                                    <Tab style={{
+                                        display: tab === "skills" ? "block" : "none"
+                                    }}>
+                                        {skills.map((s, index) => {
+                                            return(
+                                                <Skill key={index} header={s.header} percentage={s.percentage}></Skill>
+                                            )
+                                        })}
+                                    </Tab>
+                                </Tabs>
+                                <Tabs>
+                                    <Tab style={{
+                                            display: tab === "experience" ? "block" : "none"
+                                        }}>
+                                        <Timeline data={{
+                                                "2001 - 2005" :  {
+                                                    title: "Junior Developer",
+                                                    institution: "Lorem Softwares",
+                                                    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting"
+                                                },
+                                                "2007 - 2010" : {
+                                                    title: "Senior Developer",
+                                                    institution: "Ipsum Technologies",
+                                                    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting"
+                                                },
+                                                "2012 - 2018" : {
+                                                    title: "Data Scientist",
+                                                    institution: "Dolor AI",
+                                                    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting"
+                                                },
+                                                "2018 - Now" : {
+                                                    title: "AI Scientist",
+                                                    institution: "Ipsum AI",
+                                                    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting"
+                                                }
+                                            }
+                                        }
+                                    />
+                                    </Tab>
+                                    <Tab style={{
+                                            display: tab === "education" ? "block" : "none"
+                                        }}>
+                                        <Timeline data={{
+                                                "2001 - 2005" :  {
+                                                    title: "High School Degree",
+                                                    institution: "Lorem High School",
+                                                    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting"
+                                                },
+                                                "2007 - 2010" : {
+                                                    title: "College Degree",
+                                                    institution: "Ipsum College",
+                                                    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting"
+                                                },
+                                                "2012 - 2018" : {
+                                                    title: "B.Sc in Computer Science",
+                                                    institution: "Dolor University",
+                                                    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting"
+                                                },
+                                                "2018 - Now" : {
+                                                    title: "PhD in AI",
+                                                    institution: "Amet University",
+                                                    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting"
+                                                },
+                                                "2019 - Now" : {
+                                                    title: "PhD in Data Science",
+                                                    institution: "Dolor University",
+                                                    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting"
+                                                },
+                                            }
+                                        }
+                                    />
                                     </Tab>
                                 </Tabs>
                             </TabContainer>
