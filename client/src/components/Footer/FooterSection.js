@@ -3,11 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const FooterMain = styled.div`
     background-color: #111;
-    height: 75px;
     flex-direction: column;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 10px 0;
 `
 
 export const SocialIcons = styled.div`
@@ -35,5 +35,11 @@ export const SocialIcon = styled(FontAwesomeIcon)`
 
 export const FooterText = styled.p`
     margin-top: 3px;
+    text-align: center;
     margin-bottom: 0;
+
+    @media (max-width: 576px) {
+        padding: 0 10px;
+
+    }
 `

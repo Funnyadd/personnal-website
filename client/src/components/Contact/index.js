@@ -56,7 +56,7 @@ const Contact = () => {
                         <Info>
                             <InfoTitle>Address</InfoTitle>
                             <InfoLinkContainer>
-                                <InfoLink href='https://maps.google.com/maps?width=500&amp;height=500&amp;hl=en&amp;q=Saint-Hubert%2C%20Canada&amp;ie=UTF8&amp;t=&amp;z=11&amp;iwloc=B&amp;output=embed'>Saint-Hubert Quebec, Canada</InfoLink>
+                                <InfoLink href='https://maps.google.com/maps?width=500&amp;height=500&amp;hl=en&amp;q=Saint-Hubert%2C%20Canada&amp;ie=UTF8&amp;t=&amp;iwloc=B'>Saint-Hubert Quebec, Canada</InfoLink>
                             </InfoLinkContainer>
                         </Info>
                     </InfoPart>

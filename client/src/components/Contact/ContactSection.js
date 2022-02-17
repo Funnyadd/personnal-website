@@ -14,7 +14,6 @@ export const ContactContainer = styled(Container)`
 
 export const ContactCol = styled(Col)`
     min-height: 600px;
-    max-height: 600px;
     padding: 0 !important;
     display: flex;
     align-items: center;

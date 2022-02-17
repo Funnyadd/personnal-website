@@ -68,6 +68,7 @@ export const NavLogo = styled.div`
 `
 
 export const MobileIcon = styled.button`
+    color: #fff;
     display: none;
     border: none !important;
     box-shadow: none !important;

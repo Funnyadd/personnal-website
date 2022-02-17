@@ -33,6 +33,18 @@ video {
   max-height: none;
 }
 
+#services {
+  position: relative;
+  overflow: hidden;
+  background-color: #111;
+  background-image: url("bg2.jpg");
+  background-size: cover;
+}
+
+#services .heading {
+  width: 100%;
+}
+
 #contact {
   position: relative;
   overflow: hidden;
