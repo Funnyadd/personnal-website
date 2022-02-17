@@ -1,6 +1,5 @@
 import React from 'react'
 import handleViewport from 'react-in-viewport'
-import 'animate.css/animate.css'
 
 class Animation_Container extends React.Component {
 

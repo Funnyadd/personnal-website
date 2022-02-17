@@ -45,6 +45,11 @@ video {
   width: 100%;
 }
 
+#portfolio {
+  background-color: #050505;
+  padding: 100px 0;
+}
+
 #contact {
   position: relative;
   overflow: hidden;
