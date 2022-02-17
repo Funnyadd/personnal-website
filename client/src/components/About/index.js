@@ -126,21 +126,21 @@ const About = () => {
                                             display: tab === "experience" ? "block" : "none"
                                         }}>
                                         <Timeline data={{
-                                                "2017 - 2019" :  {
-                                                    title: "Back-store Employee",
-                                                    institution: "Deco Luminaire",
-                                                    description: "Assembled lights to hang them in the showroom. Wrapped lights and furniture for customers. Organized store by returning merchandise to proper areas and restocked displays. Also, I learned proper work ethics which are still useful to this day. As a first job, it made me learn so much and think that this attitude with carry on to future job opportunities."
+                                                "2022 - 2022" : {
+                                                    title: "Intern Software Developer",
+                                                    institution: "Desjardins",
+                                                    description: "Developing software with Java SpringBoot. This is an intership which starts in March 2022 and ends in Mai 2022."
                                                 },
                                                 "2019 - 2022" : {
                                                     title: "Light Salesman",
                                                     institution: "Deco Luminaire",
                                                     description: "Educated customers on product features and technical details to highlight benefits. Negotiated prices and set up contracts to finalize sales agreements. Answered customer questions in-person, through email and over phone to maximize customer service."
                                                 },
-                                                "2022 - 2022" : {
-                                                    title: "Intern Software Developer",
-                                                    institution: "Desjardins",
-                                                    description: "Developing software with Java SpringBoot. This is an intership which starts in March 2022 and ends in Mai 2022."
-                                                },
+                                                "2017 - 2019" :  {
+                                                    title: "Back-store Employee",
+                                                    institution: "Deco Luminaire",
+                                                    description: "Assembled lights to hang them in the showroom. Wrapped lights and furniture for customers. Organized store by returning merchandise to proper areas and restocked displays. Also, I learned proper work ethics which are still useful to this day. As a first job, it made me learn so much and think that this attitude with carry on to future job opportunities."
+                                                }
                                             }
                                         }
                                     />
@@ -149,25 +149,25 @@ const About = () => {
                                             display: tab === "education" ? "block" : "none"
                                         }}>
                                         <Timeline data={{
-                                                "2008 - 2014" :  {
-                                                    title: "Elementary School",
-                                                    institution: "Des Milles-Fleurs",
-                                                    description: "Went to elementary school for 6 years and remember it to be a very fun time. This is when I knew that I wanted to be an engineer and make the future a better place for the next generations to come."
-                                                },
-                                                "2014 - 2019" : {
-                                                    title: "High School",
-                                                    institution: "Monseigneur-A.-M.-Parent",
-                                                    description: "Went to high school for 5 years and had even more fun then previously. Went to partys and enjoyed the high school life to the fullest while maintaining good grades. In my 5th year, I created a mirror which had a screen built-in with voice control commands to ask questions to the mirror or change what you saw on the screen itself."
+                                                 "2022 - Now" : {
+                                                    title: "Bachelor in Software Engineering",
+                                                    institution: "ETS University",
+                                                    description: "I am very excited for university. I will spend 4 years doing my bachelor and it will be rough but, lucky me, I am prepared!"
                                                 },
                                                 "2019 - 2022" : {
                                                     title: "Dec in Computer Science",
                                                     institution: "Champlain College Saint-Lambert",
                                                     description: "These 3 years at champlain college were amazing. I learned so much in computer science and I would say with confidence that it made me love software development even more. During these 3 years at the school, I learned many languages and frameworks and how they apply to real world situations."
                                                 },
-                                                "2022 - Now" : {
-                                                    title: "Bachelor in Software Engineering",
-                                                    institution: "ETS University",
-                                                    description: "I am very excited for university. I will spend 4 years doing my bachelor and it will be rough but, lucky me, I am prepared!"
+                                                "2014 - 2019" : {
+                                                    title: "High School",
+                                                    institution: "Monseigneur-A.-M.-Parent",
+                                                    description: "Went to high school for 5 years and had even more fun then previously. Went to parties and enjoyed the high school life to the fullest while maintaining good grades. In my 5th year, I created a mirror which had a screen built-in with voice control commands to ask questions to the mirror or change what you saw on the screen itself."
+                                                },
+                                                "2008 - 2014" :  {
+                                                    title: "Elementary School",
+                                                    institution: "Des Milles-Fleurs",
+                                                    description: "Went to elementary school for 6 years and remember it to be a very fun time. This is when I knew that I wanted to be an engineer and make the future a better place for the next generations to come."
                                                 }
                                             }
                                         }
