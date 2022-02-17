@@ -27,7 +27,7 @@ const About = () => {
     const skills = [
         {
             header: 'React',
-            percentage: 55
+            percentage: 70
         },
         {
             header: 'JavaScript',
@@ -96,7 +96,7 @@ const About = () => {
                             </Heading>
                             <Seperator />
                             <SummaryText>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                Ambitious student pursuing a computer Science degree eager to contribute developed knowledge in relation to the software development world. Skilled in many languages and currently learning more about JavaScript. Adaptable and driven with strong work ethic and motivation to thrive in team-based or individually motivated settings. 
                             </SummaryText>
                             <TabContainer>
                                 <TabSelectors>
@@ -126,26 +126,21 @@ const About = () => {
                                             display: tab === "experience" ? "block" : "none"
                                         }}>
                                         <Timeline data={{
-                                                "2001 - 2005" :  {
-                                                    title: "Junior Developer",
-                                                    institution: "Lorem Softwares",
-                                                    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting"
+                                                "2017 - 2019" :  {
+                                                    title: "Back-store Employee",
+                                                    institution: "Deco Luminaire",
+                                                    description: "Assembled lights to hang them in the showroom. Wrapped lights and furniture for customers. Organized store by returning merchandise to proper areas and restocked displays. Also, I learned proper work ethics which are still useful to this day. As a first job, it made me learn so much and think that this attitude with carry on to future job opportunities."
                                                 },
-                                                "2007 - 2010" : {
-                                                    title: "Senior Developer",
-                                                    institution: "Ipsum Technologies",
-                                                    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting"
+                                                "2019 - 2022" : {
+                                                    title: "Light Salesman",
+                                                    institution: "Deco Luminaire",
+                                                    description: "Educated customers on product features and technical details to highlight benefits. Negotiated prices and set up contracts to finalize sales agreements. Answered customer questions in-person, through email and over phone to maximize customer service."
                                                 },
-                                                "2012 - 2018" : {
-                                                    title: "Data Scientist",
-                                                    institution: "Dolor AI",
-                                                    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting"
+                                                "2022 - 2022" : {
+                                                    title: "Intern Software Developer",
+                                                    institution: "Desjardins",
+                                                    description: "Developing software with Java SpringBoot. This is an intership which starts in March 2022 and ends in Mai 2022."
                                                 },
-                                                "2018 - Now" : {
-                                                    title: "AI Scientist",
-                                                    institution: "Ipsum AI",
-                                                    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting"
-                                                }
                                             }
                                         }
                                     />
@@ -154,31 +149,26 @@ const About = () => {
                                             display: tab === "education" ? "block" : "none"
                                         }}>
                                         <Timeline data={{
-                                                "2001 - 2005" :  {
-                                                    title: "High School Degree",
-                                                    institution: "Lorem High School",
-                                                    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting"
+                                                "2008 - 2014" :  {
+                                                    title: "Elementary School",
+                                                    institution: "Des Milles-Fleurs",
+                                                    description: "Went to elementary school for 6 years and remember it to be a very fun time. This is when I knew that I wanted to be an engineer and make the future a better place for the next generations to come."
                                                 },
-                                                "2007 - 2010" : {
-                                                    title: "College Degree",
-                                                    institution: "Ipsum College",
-                                                    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting"
+                                                "2014 - 2019" : {
+                                                    title: "High School",
+                                                    institution: "Monseigneur-A.-M.-Parent",
+                                                    description: "Went to high school for 5 years and had even more fun then previously. Went to partys and enjoyed the high school life to the fullest while maintaining good grades. In my 5th year, I created a mirror which had a screen built-in with voice control commands to ask questions to the mirror or change what you saw on the screen itself."
                                                 },
-                                                "2012 - 2018" : {
-                                                    title: "B.Sc in Computer Science",
-                                                    institution: "Dolor University",
-                                                    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting"
+                                                "2019 - 2022" : {
+                                                    title: "Dec in Computer Science",
+                                                    institution: "Champlain College Saint-Lambert",
+                                                    description: "These 3 years at champlain college were amazing. I learned so much in computer science and I would say with confidence that it made me love software development even more. During these 3 years at the school, I learned many languages and frameworks and how they apply to real world situations."
                                                 },
-                                                "2018 - Now" : {
-                                                    title: "PhD in AI",
-                                                    institution: "Amet University",
-                                                    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting"
-                                                },
-                                                "2019 - Now" : {
-                                                    title: "PhD in Data Science",
-                                                    institution: "Dolor University",
-                                                    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting"
-                                                },
+                                                "2022 - Now" : {
+                                                    title: "Bachelor in Software Engineering",
+                                                    institution: "ETS University",
+                                                    description: "I am very excited for university. I will spend 4 years doing my bachelor and it will be rough but, lucky me, I am prepared!"
+                                                }
                                             }
                                         }
                                     />
@@ -255,13 +245,13 @@ const About = () => {
                             <CounterComponent>
                                 <CounterContainer>
                                     <div className='valueContainer'>
-                                        <span className='value'>0</span>
+                                        <span className='value'>8</span>
                                     </div>
                                     <div className='symbolContainer'>
                                         <span className='symbol'>+</span>
                                     </div>
                                     <div className='textContainer'>
-                                        <span className='text'>Text Here</span>
+                                        <span className='text'>8 Years performing Martial Arts</span>
                                     </div>
                                 </CounterContainer>
                             </CounterComponent>

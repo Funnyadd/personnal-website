@@ -20,12 +20,18 @@ export const ContactCol = styled(Col)`
     align-items: center;
 `
 
+export const Icon = styled.img`
+    height: 70px;
+    width: 70px;
+    object-fit: contain;
+`
+
 export const IconRow = styled(Row)`
-    margin-top: 150px;
+    margin-top: 150px !important;
 `
 
 export const IconCol = styled(Col)`
-    @media (max-width: 500px) {
+    @media (max-width: 768px) {
         margin-bottom: 140px;
     }
 `
@@ -38,7 +44,7 @@ export const IconContainer = styled.div`
     text-align: center;
     position: relative;
     bottom: 75px;
-    background: linear-gradient(120deg, #04e5e5, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    background: linear-gradient(120deg, rgb(12, 148, 20), rgb(63, 142, 222), rgb(35, 98, 234));
     background-size: 300% 300%;
     border-radius: 150px;
     transition: .5s;
@@ -47,6 +53,33 @@ export const IconContainer = styled.div`
 export const InfoPart = styled.div`
     min-height: 250px;
     background-color: #111;
+    border: 2px solid rgb(68, 68, 68);
+`
+
+export const Info = styled.div`
+    position: relative;
+    bottom: 30px;
+`
+
+export const InfoTitle = styled.h4`
+    font-size: 35px;
+    color: rgb(255, 255, 255);
+    font-family: Teko;
+    text-align: center;
+`
+
+export const InfoLinkContainer = styled.div`
+    text-align: center;
+`
+
+export const InfoLink = styled.a`
+    color: rgb(12, 148, 0);
+    transition: all 0.5s ease 0s;
+    text-decoration: none;
+
+    &:hover {
+        color: #ddd;
+    }
 `
 
 export const Map = styled.iframe`
@@ -92,7 +125,7 @@ export const Gradient = styled.div`
             10px 100%, 100% 100%, 100% 0%, 0% 0%);
         background: linear-gradient(
             120deg, 
-            rgb(12, 148, 0), 
+            rgb(12, 148, 40), 
             rgb(63, 142, 222),
             rgb(35, 98, 234)
             

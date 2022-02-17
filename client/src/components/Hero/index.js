@@ -45,7 +45,7 @@ const Hero = () => {
                           }}
                     />
                 </Type>
-                <ResumeLink href="#">
+                <ResumeLink href="https://1drv.ms/b/s!AuP8HC7p2sQZloda-tvIZ6mh1cpIww?e=kKFzII">
                     Download Resume
                 </ResumeLink>
             </HeadingBox>

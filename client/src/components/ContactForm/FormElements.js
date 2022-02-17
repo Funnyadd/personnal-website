@@ -1,5 +1,4 @@
 import styled, { keyframes } from 'styled-components'
-import { Alert } from 'react-bootstrap'
 
 export const Separator = styled.div`
     height: 5px;
@@ -96,9 +95,4 @@ export const Submit = styled.button`
         text-transform: uppercase;
         letter-spacing: 2px;
     }
-`
-
-export const SubmitConfirmation = styled(Alert)`
-    text-align: center;
-    display: ${ props => props.display };
 `
