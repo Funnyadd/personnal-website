@@ -1,12 +1,14 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import "./layout.css"
+import Footer from "./Footer"
 
 const Layout = ({ children }) => {
 
   return (
     <>
       <main>{children}</main>
+      <Footer />
     </>
   )
 }
