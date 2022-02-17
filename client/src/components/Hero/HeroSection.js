@@ -111,6 +111,7 @@ export const Type = styled.div`
     line-height: 50px;
     text-transform: uppercase;
     margin-left: 6px;
+    color: #fff;
 
     span {
         font-family: Teko;

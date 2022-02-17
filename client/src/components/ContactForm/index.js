@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ContactFormContainer, Heading, Separator, InputElement, Input, Submit, Textarea, SubmitConfirmation } from './FormElements'
+import { ContactFormContainer, Heading, Separator, InputElement, Input, Submit, Textarea } from './FormElements'
 
 const ContactForm = () => {
     const [show, setShow] = useState("none");
@@ -26,7 +26,7 @@ const ContactForm = () => {
                 message: "",
                 error: false
             });
-            setTimeout(() => setShow("none"), 5000);
+            setTimeout(() => setShow("none"), 3500);
         }
       }
 
@@ -44,7 +44,6 @@ const ContactForm = () => {
             Get In Touch
         </Heading>
         <Separator />
-        <SubmitConfirmation display={show} variant="success" onClose={() => setShow("none")} dismissible>Information sent!</SubmitConfirmation>
         <InputElement>
             <Input type="text" value={contactInfo.name}  className={`name ${check(contactInfo.name) ? "" : "error"}`} placeholder="Name" onChange={e => setContactInfo({...contactInfo, name: e.target.value})} />
         </InputElement>
@@ -57,11 +56,16 @@ const ContactForm = () => {
         <InputElement>
             <Textarea placeholder="Message" value={contactInfo.message}  className={`message ${check(contactInfo.message) ? "" : "error"}`} onChange={e => setContactInfo({...contactInfo, message: e.target.value})} />
         </InputElement>
-        <Submit onClick={() => formSubmit()}>
-            <span>
-                Submit
-            </span>
-        </Submit>
+        <div className='d-flex justify-content-between'>
+            <Submit onClick={() => formSubmit()}>
+                <span>
+                    Submit
+                </span>
+            </Submit>
+            <div className={show === "block" ? 'align-middle p-2 my-1 me-3 d-block' : 'align-middle p-2 my-1 me-3 d-none'}>
+                Sent!
+            </div>
+        </div>
     </ContactFormContainer>
   );
 };

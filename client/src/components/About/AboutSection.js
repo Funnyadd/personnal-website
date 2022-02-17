@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const AboutContainer = styled.div`
-    padding: 100px 0px;
 `
 
 export const LeftColumn = styled.div`
