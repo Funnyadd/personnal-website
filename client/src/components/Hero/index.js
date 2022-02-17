@@ -48,8 +48,6 @@ const Hero = () => {
             <FloatingIcon bottom={Math.random() * (upperSideMax - upperSideMin) + upperSideMin} left={70} className='move-up'><DiPython size="auto" fill="#FFE873" /></FloatingIcon>
             <FloatingIcon bottom={Math.random() * (lowerSideMax - lowerSideMin) + lowerSideMin} left={80} className='move-up'><SiGatsby size="auto" fill="#663399" /></FloatingIcon>
             <FloatingIcon bottom={Math.random() * (upperSideMax - upperSideMin) + upperSideMin} left={90} className='move-down'><FaNodeJs size="auto" fill="#3C873A" /></FloatingIcon>
-
-
         </HeroContainer>
         </>
     )
