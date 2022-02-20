@@ -62,10 +62,10 @@ export const ImageContainer = styled.div`
 
     @keyframes colorChange {
         0% {
-            box-shadow: #10b568 0px 12px 60px;
+            box-shadow: #10b568 0px 8px 50px;
         }
         100% {
-            box-shadow: #4272e3 0px 12px 60px;
+            box-shadow: #4272e3 0px 8px 50px;
         }
     }
 

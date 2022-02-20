@@ -20,22 +20,40 @@ const gradientAnimation = keyframes`
 export const ServiceElement = styled.div`
     margin-bottom: 20px;
     text-align: center;
+    transition: 0.3s;
     padding: 40px;
-    border-radius: 20px;
-    transition: .2s;
 
-    &:hover {
+    &::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        top: 0;
+        left: 2px;
+        position: absolute;
+        border-radius: 20px;
+        z-index: -1;
+        
         @keyframes colorChange {
-        0% {
-            box-shadow: #10b568 0px 28px 60px;
+            0% {
+                box-shadow: #10b568 0px 24px 45px;
+                
+            }
+            100% {
+                box-shadow: #4272e3 0px 24px 45px;
+            }
         }
-        100% {
-            box-shadow: #4272e3 0px 28px 60px;
-        }
-    }
 
         animation: 5s ease infinite alternate running colorChange;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    &:hover {
         transform: translateY(-10px);
+    }
+
+    &:hover::after {
+        opacity: 1;
     }
 `
 export const ServiceHeading = styled.h4`

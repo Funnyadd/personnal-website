@@ -56,7 +56,7 @@ const Services = () => {
                             <img src="./icons-services/sketch.png" alt="UI/UX Development" />
                         </ServiceIcon>
                         <ServiceHeading>
-                            Ui/UX Development
+                            UI/UX Development
                         </ServiceHeading>
                         <ServiceSeparator/>
                         <ServiceList>

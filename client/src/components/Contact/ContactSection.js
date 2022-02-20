@@ -35,6 +35,18 @@ export const IconCol = styled(Col)`
     }
 `
 
+const gradientAnimation = keyframes`
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 30% 30%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+`
+
 export const IconContainer = styled.div`
     width: 150px;
     height: 150px;
@@ -43,10 +55,17 @@ export const IconContainer = styled.div`
     text-align: center;
     position: relative;
     bottom: 75px;
-    background: linear-gradient(120deg, rgb(12, 148, 20), rgb(63, 142, 222), rgb(35, 98, 234));
     background-size: 300% 300%;
     border-radius: 150px;
     transition: .5s;
+    background: linear-gradient(
+            120deg, 
+            rgb(12, 148, 40), 
+            rgb(63, 142, 222),
+            rgb(35, 98, 234)
+        );
+    background-size: 300% 300%;
+    animation: ${gradientAnimation} 5s ease-in-out infinite;
 `
 
 export const InfoPart = styled.div`
@@ -85,18 +104,6 @@ export const Map = styled.iframe`
     border: none;
     height: 100%;
     width: 100%;
-`
-
-const gradientAnimation = keyframes`
-    0% {
-        background-position: 15% 0%;
-    }
-    50% {
-        background-position: 85% 100%;
-    }
-    100% {
-        background-position: 15% 0%;
-    }
 `
 
 export const Gradient = styled.div`

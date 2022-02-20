@@ -62,7 +62,7 @@ const ContactForm = () => {
                     Submit
                 </span>
             </Submit>
-            <div className={show === "block" ? 'align-middle p-2 my-1 me-3 d-block' : 'align-middle p-2 my-1 me-3 d-none'}>
+            <div className={show === "block" ? 'align-middle text-white p-2 my-1 me-3 d-block' : 'align-middle text-white p-2 my-1 me-3 d-none'}>
                 Sent!
             </div>
         </div>
