@@ -134,7 +134,7 @@ class PortfolioItem extends React.Component {
         if (this.props.type === "slider") {
             return (
                 <a href={this.props.link} target="_blank" rel="noopener noreferrer">
-                    <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.07}>
+                    <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1}>
                         <Item className="blue-shadow">
                             {this.showImage()}
                             <MobileContent>
@@ -151,7 +151,7 @@ class PortfolioItem extends React.Component {
         } else {
             return (
                 <a href={this.props.link} target="_blank" rel="noopener noreferrer">
-                    <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.07}>
+                    <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1}>
                         <Item className={`${this.props.index % 2 === 0 ? "move-up" : "move-down"}`} id={`portfolio-item-${this.props.index}`}>
                             {this.showImage()}
                             <MobileContent>

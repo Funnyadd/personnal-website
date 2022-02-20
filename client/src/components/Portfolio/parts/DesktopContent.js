@@ -81,14 +81,14 @@ class DesktopContent extends React.Component {
             }
         `
 
-        let b = baffle(document.querySelectorAll('.baffle'))
-        b.set({
-            speed: 50,
-            characters: "AaBbCcDeEeFfGgHhIiJjKkLlMmNnOpPpQqRrSsTtUuVvWwXxYyZ",
-            obfuscate: false,
-            update: true,
-            revealDuration: 1000,
-            revealDelay: 0}).start()
+        // let b = baffle(document.querySelectorAll('.baffle'))
+        // b.set({
+        //     speed: 50,
+        //     characters: "AaBbCcDeEeFfGgHhIiJjKkLlMmNnOpPpQqRrSsTtUuVvWwXxYyZ",
+        //     obfuscate: false,
+        //     update: true,
+        //     revealDuration: 1000,
+        //     revealDelay: 0}).start()
 
         if (this.state.show) {
             return (

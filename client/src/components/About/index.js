@@ -45,7 +45,18 @@ const About = () => {
             header: 'MySQL',
             percentage: 85
         }
-    ];
+    ]
+
+    const languages = [
+        {
+            header: 'French',
+            percentage: 100
+        },
+        {
+            header: 'English',
+            percentage: 80
+        }
+    ]
 
     const birthDateStr = "2002-08-09"
     const experienceStartDateStr = "2018-06-05"
@@ -109,6 +120,9 @@ const About = () => {
                                 <TabSelector className={tab === "education" ? "active" : ""} onClick={() => setTab("education")}>
                                     Education
                                 </TabSelector>
+                                <TabSelector className={tab === "languages" ? "active" : ""} onClick={() => setTab("languages")}>
+                                    Languages
+                                </TabSelector>
                                 </TabSelectors>
                                 <Tabs>
                                     <Tab style={{
@@ -117,6 +131,15 @@ const About = () => {
                                         {skills.map((s, index) => {
                                             return(
                                                 <Skill key={index} header={s.header} percentage={s.percentage}></Skill>
+                                            )
+                                        })}
+                                    </Tab>
+                                    <Tab style={{
+                                        display: tab === "languages" ? "block" : "none"
+                                    }}>
+                                        {languages.map((l, index) => {
+                                            return(
+                                                <Skill key={index} header={l.header} percentage={l.percentage}></Skill>
                                             )
                                         })}
                                     </Tab>

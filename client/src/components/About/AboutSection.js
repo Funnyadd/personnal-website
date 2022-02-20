@@ -62,10 +62,10 @@ export const ImageContainer = styled.div`
 
     @keyframes colorChange {
         0% {
-            box-shadow: #10b568 0px 8px 50px;
+            box-shadow: #10b568 0px 10px 50px;
         }
         100% {
-            box-shadow: #4272e3 0px 8px 50px;
+            box-shadow: #4272e3 0px 10px 50px;
         }
     }
 
@@ -176,6 +176,18 @@ export const TabSelector = styled.button`
 
     @media (max-width: 767px) {
         font-size: 18px;
+    }
+
+    @media (max-width: 420px) {
+        font-size: 16px;
+    }
+
+    @media (max-width: 376px) {
+        font-size: 14px;
+    }
+
+    @media (max-width: 340px) {
+        font-size: 12px;
     }
 `
 
