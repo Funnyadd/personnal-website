@@ -47,7 +47,7 @@ export const NavbarContainer = styled.div`
     }
 `
 
-export const NavLogo = styled.div`
+export const NavLogo = styled.a`
     color: #fff;
     background-color: transparent;
     justify-content: flex-start;
