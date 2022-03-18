@@ -21,7 +21,7 @@ export const SocialIcon = styled(FontAwesomeIcon)`
     transition: all 0.5s ease 0s;
 
     &:hover {
-        color: ${ props => props.hoverColor } !important;
+        color: ${ props => props.hovercolor } !important;
     }
 
     @media (max-width: 768px) {

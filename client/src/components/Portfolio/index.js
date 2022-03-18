@@ -9,46 +9,39 @@ import PortfolioItem from './parts/PortfolioItem.js'
 import { PortfolioContainer } from './PortfolioSection'
 
 class Portfolio extends React.Component {
-
-    constructor(props) {
-        super(props)
-        this.state = {
-            height: 0,
-            width: 0
-        }
-    }
-
-    updateDimensions = () => {
-        if (this.state.height !== window.innerHeight) {
-            this.setState({height: window.innerHeight})
-        }
-        if (this.state.width !== window.innerWidth) {
-            this.setState({width: window.innerWidth})
-        }
-    }
-
-    componentDidMount() {
-        this.setState({height: window.innerHeight, width: window.innerWidth})
-        window.addEventListener('resize', this.updateDimensions)
-    }
-    
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.updateDimensions)
-    }
-
     render() {
-
         const settings = {
             dots: true,
             swipe: true,
             infinite: true,
             speed: 500,
-            slidesToScroll:  this.state.width < 500 ? 1 : 2,
+            slidesToScroll: 2,
             arrows: false,
             autoplay: true,
             autoplaySpeed: 10000,
             loop: true,
-            slidesToShow: this.state.width < 500 ? 1 : this.state.width > 500 && this.state.width <= 1024 ? 3 : 4,
+            slidesToShow: 4,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                    }
+                },
+                {
+                    breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1
+                    }
+                }
+            ]
 
         }
 
