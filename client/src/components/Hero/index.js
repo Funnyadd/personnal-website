@@ -32,8 +32,8 @@ const Hero = () => {
                     Hello, I'm
                 </SubHeading>
                 <Heading>
-                    <HeadingText className="glitch" data-text="60$ Man">
-                        60$ Man
+                    <HeadingText className="glitch" data-text="Adam Mihajlovic">
+                        Adam Mihajlovic
                     </HeadingText>
                 </Heading>
                 <Type>

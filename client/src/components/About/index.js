@@ -54,13 +54,12 @@ const About = () => {
         },
         {
             header: 'English',
-            percentage: 80
+            percentage: 100
         }
     ]
 
     const birthDateStr = "2002-08-09"
     const experienceStartDateStr = "2018-06-05"
-    const decoluminaireExperienceStartDateStr = '2017-06-18'
 
     const numberOfYear = (dateString) => {
         var today = new Date()
@@ -149,10 +148,10 @@ const About = () => {
                                             display: tab === "experience" ? "block" : "none"
                                         }}>
                                         <Timeline data={{
-                                                "2022 - 2022" : {
+                                                "2022 - Now" : {
                                                     title: "Intern Software Developer",
                                                     institution: "Desjardins",
-                                                    description: "Developing software with Java SpringBoot. This is an intership which starts in March 2022 and ends in Mai 2022."
+                                                    description: "Developing software with Java Spring and Angular. This is an intership which starts in March 2022 and ends in Mai 2022."
                                                 },
                                                 "2019 - 2022" : {
                                                     title: "Light Salesman",
@@ -247,19 +246,13 @@ const About = () => {
                             <CounterComponent>
                                 <CounterContainer>
                                     <div className='valueContainer'>
-                                        <span className='value'>{numberOfYear(decoluminaireExperienceStartDateStr)}</span>
+                                        <span className='value'>{4}</span>
                                     </div>
                                     <div className='symbolContainer'>
-                                    {
-                                            checkIf6Months(decoluminaireExperienceStartDateStr)
-                                                ?
-                                                <span className='symbol'>+</span>
-                                                :
-                                                <></>
-                                        }
+                                        <span className='symbol'>+</span>
                                     </div>
                                     <div className='textContainer'>
-                                        <span className='text'>{numberOfYear(decoluminaireExperienceStartDateStr)} Years in the Lights Industry</span>
+                                        <span className='text'>{4} Years in the Interiror Design Industry</span>
                                     </div>
                                 </CounterContainer>
                             </CounterComponent>

@@ -65,9 +65,7 @@ class Portfolio extends React.Component {
         const items = [ {src: "./portfolio/petclinicProject.png", title: "Pet Clinic Project", category: "AngularJS + Java SpringBoot", link: "https://github.com/Funnyadd/champlain_petclinic"},
                         {src: "./portfolio/BC-Engine.png", title: "B&C Engine", category: "ReactJS + ExpressJS", link: "https://github.com/BC-Engine-Team/BC-Engine"},
                         {src: "./portfolio/wpfCalculator.png", title: "WPF Calculator", category: "C# + WPF (UI/UX Project)", link: "https://github.com/Funnyadd/WPF_Calculator"},
-                        {src: "./portfolio/personalWebsite.png", title: "Personal Website", category: "GatsbyJS (UI/UX Project)", link: "https://github.com/Funnyadd/personal-website"},
-                        {src: "./portfolio/empty.png", title: "Nothing Yet...", category: "", link: ""},
-                        {src: "./portfolio/empty.png", title: "Nothing Yet...", category: "", link: ""} ];
+                        {src: "./portfolio/personalWebsite.png", title: "Personal Website", category: "GatsbyJS (UI/UX Project)", link: "https://github.com/Funnyadd/personal-website"} ];
 
         return items.map((value, index) => {
           return (
