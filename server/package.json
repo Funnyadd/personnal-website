@@ -12,7 +12,7 @@
   "name": "server",
   "private": true,
   "version": "0.1.0",
-  "description": "A Strapi application",
+  "description": "Personnal Website",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
@@ -21,7 +21,7 @@
   },
   "devDependencies": {},
   "author": {
-    "name": "A Strapi developer"
+    "name": "Adam Mihajlovic"
   },
   "strapi": {
     "uuid": "cf230822-89e1-4ea6-bfa7-bad61cb64fa6",
