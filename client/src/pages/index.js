@@ -1,6 +1,5 @@
 
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import Seo from "../components/seo"
 import Layout from "../components/layout"
 import Hero from "../components/Hero"
@@ -11,35 +10,24 @@ import Services from "../components/Services"
 import Portfolio from "../components/Portfolio"
 
 const IndexPage = () => {
-  const { Nav } = useStaticQuery(graphql`
-    query {
-      allStrapiNav {
-        edges {
-          node {
-            navLinks
-          }
-        }
-      }
-    }
-  `)
 
   return (
     <Layout>
       <Seo seo={{ metaTitle: "Adam Mihajlovic", metaDescription: "website"}} />
-      <Navbar sections={ Nav }/>
-      <section id={ Nav[0] }>
+      <Navbar />
+      <section id="home">
         <Hero />
       </section>
-      <section id={ Nav[1] }>
+      <section id="about">
         <About />
       </section>
-      <section id={ Nav[2] }>
+      <section id="services">
         <Services />
       </section>
-      <section id={ Nav[3] }>
+      <section id="portfolio">
         <Portfolio />
       </section>
-      <section id={ Nav[4] }>
+      <section id="contact">
         <Contact />
       </section>
     </Layout>

@@ -23,18 +23,20 @@ import Skill from './Skill';
 import Timeline from './Timeline'
 
 const About = () => {
-    const { navigation } = useStaticQuery(graphql`
+    const navigation = useStaticQuery(graphql`
     {
         allStrapiAboutNavigationJsonnode {
             edges {
-            node {
-                strapi_json_value
+                node {
+                    strapi_json_value
                 }
             }
         }
     }
       
   `)
+
+  console.log(navigation)
 
     const [tab, setTab] = useState("skills");
 
@@ -124,13 +126,13 @@ const About = () => {
                             </SummaryText>
                             <TabContainer>
                                 <TabSelectors>
-                                    { navigation.map(t => {
+                                {/* { navigation.map(t => {
                                         return(
                                             <TabSelector className={tab === {t} ? "active" : ""} onClick={() => setTab({t})}>
                                                 {t}
                                             </TabSelector>
                                         )
-                                    })}
+                                    })} */}
                                 </TabSelectors>
                                 <Tabs>
                                     <Tab style={{
