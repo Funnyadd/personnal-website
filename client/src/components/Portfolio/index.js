@@ -20,25 +20,20 @@ class Portfolio extends React.Component {
             autoplay: true,
             autoplaySpeed: 10000,
             loop: true,
-            slidesToShow: 4,
+            slidesToShow: 3,
             responsive: [
                 {
                     breakpoint: 1024,
                     settings: {
-                        slidesToShow: 3,
+                        slidesToShow: 2,
+                        slidesToScroll: 1
                     }
                 },
                 {
-                    breakpoint: 600,
+                    breakpoint: 768,
                         settings: {
-                            slidesToShow: 2,
+                            slidesToShow: 1,
                             slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1
                     }
                 }
             ]
@@ -46,7 +41,7 @@ class Portfolio extends React.Component {
         }
 
         return (
-            <Col md={12} style={{padding: 0}}>
+            <Col md={12} style={{padding: 0}} className='container'>
                 <Container>
                     <AnimatedHeading text="Recent projects" />
                 </Container>
