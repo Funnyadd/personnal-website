@@ -36,9 +36,9 @@ const About = () => {
       
   `)
 
-  console.log(navigation)
+    const aboutNav = navigation.allStrapiAboutNavigationJsonnode.edges[0].node.strapi_json_value;
 
-    const [tab, setTab] = useState("skills");
+    const [tab, setTab] = useState("Skills");
 
     const skills = [
         {
@@ -126,17 +126,15 @@ const About = () => {
                             </SummaryText>
                             <TabContainer>
                                 <TabSelectors>
-                                {/* { navigation.map(t => {
+                                { aboutNav.map((t, index) => {
                                         return(
-                                            <TabSelector className={tab === {t} ? "active" : ""} onClick={() => setTab({t})}>
-                                                {t}
-                                            </TabSelector>
+                                            <TabSelector key={index} className={tab === {t} ? "active" : ""} onClick={() => setTab(t)}>{t}</TabSelector>
                                         )
-                                    })} */}
+                                    })}
                                 </TabSelectors>
                                 <Tabs>
                                     <Tab style={{
-                                        display: tab === "skills" ? "block" : "none"
+                                        display: tab === "Skills" ? "block" : "none"
                                     }}>
                                         {skills.map((s, index) => {
                                             return(
@@ -145,7 +143,7 @@ const About = () => {
                                         })}
                                     </Tab>
                                     <Tab style={{
-                                        display: tab === "languages" ? "block" : "none"
+                                        display: tab === "Languages" ? "block" : "none"
                                     }}>
                                         {languages.map((l, index) => {
                                             return(
@@ -156,7 +154,7 @@ const About = () => {
                                 </Tabs>
                                 <Tabs>
                                     <Tab style={{
-                                            display: tab === "experience" ? "block" : "none"
+                                            display: tab === "Experience" ? "block" : "none"
                                         }}>
                                         <Timeline data={{
                                                 "2022 - Now" : {
@@ -179,7 +177,7 @@ const About = () => {
                                     />
                                     </Tab>
                                     <Tab style={{
-                                            display: tab === "education" ? "block" : "none"
+                                            display: tab === "Education" ? "block" : "none"
                                         }}>
                                         <Timeline data={{
                                                  "2022 - Now" : {
