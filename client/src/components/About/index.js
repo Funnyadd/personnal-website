@@ -186,12 +186,7 @@ const About = () => {
                                                     title: "High School",
                                                     institution: "Monseigneur-A.-M.-Parent",
                                                     description: "Went to high school for 5 years and had even more fun then previously. Went to parties and enjoyed the high school life to the fullest while maintaining good grades. In my 5th year, I created a mirror which had a screen built-in with voice control commands to ask questions to the mirror or change what you saw on the screen itself."
-                                                },
-                                                "2008 - 2014" :  {
-                                                    title: "Elementary School",
-                                                    institution: "Des Milles-Fleurs",
-                                                    description: "Went to elementary school for 6 years and remember it to be a very fun time. This is when I knew that I wanted to be an engineer and make the future a better place for the next generations to come."
-                                                }
+                                                }                                      
                                             }
                                         }
                                     />

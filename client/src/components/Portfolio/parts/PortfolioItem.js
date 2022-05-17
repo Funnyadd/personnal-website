@@ -90,11 +90,11 @@ class PortfolioItem extends React.Component {
         `
         const Item = styled.div`
             position: relative;
-            min-height: 700px;
-            max-height: 700px;
+            min-height: 600px;
+            max-height: 600px;
             @media (max-width:1500px) {
-                min-height: 600px;
-                max-height: 600px;
+                min-height: 500px;
+                max-height: 500px;
             }
             @media (max-width:1024px) {
                 min-height: 400px;
@@ -121,14 +121,7 @@ class PortfolioItem extends React.Component {
                     opacity: 1 !important;
                 }
             }
-            &.blue-shadow {
-                box-shadow: 0 28px 60px rgb(4,229,229,.2);
-                transition: .5s;
-                &:hover {
-                    box-shadow: 0 28px 60px rgb(4,229,229,.5);
-                }
-                
-            }
+
         `
 
         if (this.props.type === "slider") {
