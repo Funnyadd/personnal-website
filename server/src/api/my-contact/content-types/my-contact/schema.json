@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "my_contacts",
+  "info": {
+    "singularName": "my-contact",
+    "pluralName": "my-contacts",
+    "displayName": "my contact"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "contacts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::contact.contact"
+    }
+  }
+}

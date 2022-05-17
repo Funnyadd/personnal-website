@@ -1,13 +1,15 @@
 import React from 'react';
-import ContactForm from '../ContactForm'
+// import ContactForm from '../ContactForm'
 import { AboutContainer } from '../About/AboutSection';
-import { FormContainer, Map, Gradient, ContactCol, FormRow, IconContainer, IconCol, IconRow, InfoPart, Info, InfoTitle, InfoLink, InfoLinkContainer, Icon } from './ContactSection';
+import { 
+    // FormContainer, Map, Gradient, ContactCol, FormRow, 
+    IconContainer, IconCol, IconRow, InfoPart, Info, InfoTitle, InfoLink, InfoLinkContainer, Icon } from './ContactSection';
 
 const Contact = () => {
   return(
     <>
         <AboutContainer className='container'>
-            <FormContainer>
+            {/* <FormContainer>
                 <FormRow>
                     <ContactCol md={6}>
                         <Gradient>
@@ -20,7 +22,7 @@ const Contact = () => {
                             src="https://maps.google.com/maps?width=500&amp;height=500&amp;hl=en&amp;q=Saint-Hubert%2C%20Canada&amp;ie=UTF8&amp;t=&amp;z=11&amp;iwloc=B&amp;output=embed"/>
                     </ContactCol>
                 </FormRow>
-            </FormContainer>
+            </FormContainer> */}
             <IconRow>
                 <IconCol md={4}>
                     <InfoPart>

@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "about_counters",
+  "info": {
+    "singularName": "about-counter",
+    "pluralName": "about-counters",
+    "displayName": "aboutCounter"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fullText": {
+      "type": "string"
+    },
+    "number": {
+      "type": "integer"
+    }
+  }
+}

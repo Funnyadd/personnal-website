@@ -1,6 +1,16 @@
-const fs = require("fs");
-const { pages, globals, leadFormSubmissions } = require("../data/data");
+"use strict";
+
+const fs = require("fs-extra");
+const path = require("path");
+const mime = require("mime-types");
 const set = require("lodash.set");
+const {
+  categories,
+  authors,
+  articles,
+  global,
+  about,
+} = require("../data/data.json");
 
 async function isFirstRun() {
   const pluginStore = strapi.store({
@@ -25,9 +35,9 @@ async function setPublicPermissions(newPermissions) {
 
   // Create the new permissions and link them to the public role
   const allPermissionsToCreate = [];
-  Object.keys(newPermissions).map(controller => {
+  Object.keys(newPermissions).map((controller) => {
     const actions = newPermissions[controller];
-    const permissionsToCreate = actions.map(action => {
+    const permissionsToCreate = actions.map((action) => {
       return strapi.query("plugin::users-permissions.permission").create({
         data: {
           action: `api::${controller}.${controller}.${action}`,
@@ -47,12 +57,11 @@ function getFileSizeInBytes(filePath) {
 }
 
 function getFileData(fileName) {
-  const filePath = `./data/uploads/${fileName}`;
-
+  const filePath = path.join("data", "uploads", fileName);
   // Parse the file metadata
   const size = getFileSizeInBytes(filePath);
   const ext = fileName.split(".").pop();
-  const mimeType = `image/${ext === "svg" ? "svg+xml" : ext}`;
+  const mimeType = mime.lookup(ext);
 
   return {
     path: filePath,
@@ -62,166 +71,189 @@ function getFileData(fileName) {
   };
 }
 
+async function uploadFile(file, name) {
+  return strapi
+    .plugin("upload")
+    .service("upload")
+    .upload({
+      files: file,
+      data: {
+        fileInfo: {
+          alternativeText: `An image uploaded to Strapi called ${name}`,
+          caption: name,
+          name,
+        },
+      },
+    });
+}
+
 // Create an entry and attach files if there are any
-async function createEntry(model, entry, files) {
+async function createEntry({ model, entry }) {
   try {
-    if (files) {
-      for (const [key, file] of Object.entries(files)) {
-        // Get file name without the extension
-        const [fileName] = file.name.split('.');
-        // Upload each individual file
-        const uploadedFile = await strapi
-          .plugin("upload")
-          .service("upload")
-          .upload({
-            files: file,
-            data: {
-              fileInfo: {
-                alternativeText: fileName,
-                caption: fileName,
-                name: fileName,
-              },
-            },
-          });
-
-        // Attach each file to its entry
-        set(entry, key, uploadedFile[0].id);
-      }
-    }
-
     // Actually create the entry in Strapi
-    const createdEntry = await strapi.entityService.create(
-      `api::${model}.${model}`,
-      {
-        data: entry,
-      }
-    );
-  } catch (e) {
-    console.log(e);
+    await strapi.entityService.create(`api::${model}.${model}`, {
+      data: entry,
+    });
+  } catch (error) {
+    console.error({ model, entry, error });
   }
 }
 
-async function importPages(pages) {
-  const getPageCover = (slug) => {
-    switch (slug) {
-      case "":
-        return getFileData("undraw-content-team.png");
-      default:
-        return null;
-    }
-  };
+async function checkFileExistsBeforeUpload(files) {
+  const existingFiles = [];
+  const uploadedFiles = [];
+  const filesCopy = [...files];
 
-  return pages.map(async (page) => {
-    const files = {};
-    const shareImage = getPageCover(page.slug);
-    if (shareImage) {
-      files["metadata.shareImage"] = shareImage;
-    }
-    // Check if dynamic zone has attached files
-    page.contentSections.forEach((section, index) => {
-      if (section.__component === "sections.hero") {
-        files[`contentSections.${index}.picture`] = getFileData(
-          "undraw-content-team.svg"
-        );
-      } else if (section.__component === "sections.feature-rows-group") {
-        const getFeatureMedia = (featureIndex) => {
-          switch (featureIndex) {
-            case 0:
-              return getFileData("undraw-design-page.svg");
-            case 1:
-              return getFileData("undraw-create-page.svg");
-            default:
-              return null;
-          }
-        };
-        section.features.forEach((feature, featureIndex) => {
-          files[`contentSections.${index}.features.${featureIndex}.media`] =
-            getFeatureMedia(featureIndex);
-        });
-      } else if (section.__component === "sections.feature-columns-group") {
-        const getFeatureMedia = (featureIndex) => {
-          switch (featureIndex) {
-            case 0:
-              return getFileData("preview.svg");
-            case 1:
-              return getFileData("devices.svg");
-            case 2:
-              return getFileData("palette.svg");
-            default:
-              return null;
-          }
-        };
-        section.features.forEach((feature, featureIndex) => {
-          files[`contentSections.${index}.features.${featureIndex}.icon`] =
-            getFeatureMedia(featureIndex);
-        });
-      } else if (section.__component === "sections.testimonials-group") {
-        section.logos.forEach((logo, logoIndex) => {
-          files[`contentSections.${index}.logos.${logoIndex}.logo`] =
-            getFileData("logo.png");
-        });
-        section.testimonials.forEach((testimonial, testimonialIndex) => {
-          files[
-            `contentSections.${index}.testimonials.${testimonialIndex}.logo`
-          ] = getFileData("logo.png");
-          files[
-            `contentSections.${index}.testimonials.${testimonialIndex}.picture`
-          ] = getFileData("user.png");
-        });
-      }
+  for (const fileName of filesCopy) {
+    // Check if the file already exists in Strapi
+    const fileWhereName = await strapi.query("plugin::upload.file").findOne({
+      where: {
+        name: fileName,
+      },
     });
 
-    await createEntry("page", page, files);
-  });
+    if (fileWhereName) {
+      // File exists, don't upload it
+      existingFiles.push(fileWhereName);
+    } else {
+      // File doesn't exist, upload it
+      const fileData = getFileData(fileName);
+      const fileNameNoExtension = fileName.split('.').shift()
+      const [file] = await uploadFile(fileData, fileNameNoExtension);
+      uploadedFiles.push(file);
+    }
+  }
+  const allFiles = [...existingFiles, ...uploadedFiles];
+  // If only one file then return only that file
+  return allFiles.length === 1 ? allFiles[0] : allFiles;
+}
+
+async function updateBlocks(blocks) {
+  const updatedBlocks = [];
+  for (const block of blocks) {
+    if (block.__component === "shared.media") {
+      const uploadedFiles = await checkFileExistsBeforeUpload([block.file]);
+      // Copy the block to not mutate directly
+      const blockCopy = { ...block };
+      // Replace the file name on the block with the actual file
+      blockCopy.file = uploadedFiles;
+      updatedBlocks.push(blockCopy);
+    } else if (block.__component === "shared.slider") {
+      // Get files already uploaded to Strapi or upload new files
+      const existingAndUploadedFiles = await checkFileExistsBeforeUpload(
+        block.files
+      );
+      // Copy the block to not mutate directly
+      const blockCopy = { ...block };
+      // Replace the file names on the block with the actual files
+      blockCopy.files = existingAndUploadedFiles;
+      // Push the updated block
+      updatedBlocks.push(blockCopy);
+    } else {
+      // Just push the block as is
+      updatedBlocks.push(block);
+    }
+  }
+
+  return updatedBlocks;
+}
+
+async function importArticles() {
+  for (const article of articles) {
+    const cover = await checkFileExistsBeforeUpload([`${article.slug}.jpg`]);
+    const updatedBlocks = await updateBlocks(article.blocks);
+
+    await createEntry({
+      model: "article",
+      entry: {
+        ...article,
+        cover,
+        blocks: updatedBlocks,
+        // Make sure it's not a draft
+        publishedAt: Date.now(),
+      },
+    });
+  }
 }
 
 async function importGlobal() {
-  // Add images
-  const files = {
-    favicon: getFileData("favicon.png"),
-    "metadata.shareImage": getFileData("undraw-content-team.png"),
-    "navbar.logo": getFileData("logo.png"),
-    "footer.logo": getFileData("logo.png"),
-  };
-
-  // Create entry
-  globals.forEach(async (locale) => {
-    await createEntry("global", locale, files);
+  const favicon = await checkFileExistsBeforeUpload(["favicon.png"]);
+  const shareImage = await checkFileExistsBeforeUpload(["default-image.png"])
+  return createEntry({
+    model: "global",
+    entry: {
+      ...global,
+      favicon,
+      // Make sure it's not a draft
+      publishedAt: Date.now(),
+      defaultSeo: {
+        ...global.defaultSeo,
+        shareImage
+      }
+    },
   });
 }
 
-async function importLeadFormSubmissionData() {
-  leadFormSubmissions.forEach(async (submission) => {
-    await createEntry("lead-form-submissions", submission);
+async function importAbout() {
+  const updatedBlocks = await updateBlocks(about.blocks);
+
+  await createEntry({
+    model: "about",
+    entry: {
+      ...about,
+      blocks: updatedBlocks,
+      // Make sure it's not a draft
+      publishedAt: Date.now(),
+    },
   });
+}
+
+async function importCategories() {
+  for (const category of categories) {
+    await createEntry({ model: "category", entry: category });
+  }
+}
+
+async function importAuthors() {
+  for (const author of authors) {
+    const avatar = await checkFileExistsBeforeUpload([author.avatar]);
+
+    await createEntry({
+      model: "author",
+      entry: {
+        ...author,
+        avatar,
+      },
+    });
+  }
 }
 
 async function importSeedData() {
   // Allow read of application content types
   await setPublicPermissions({
-    global: ["find"],
-    page: ["find", "findOne"],
-    "lead-form-submission": ["create"],
-  });
-
-  await strapi.query("plugin::i18n.locale").create({
-    data: {
-      name: "French (fr)",
-      code: "fr",
-    },
+    article: ["find", "findOne"],
+    category: ["find", "findOne"],
+    author: ["find", "findOne"],
+    global: ["find", "findOne"],
+    about: ["find", "findOne"],
   });
 
   // Create all entries
+  await importCategories();
+  await importAuthors();
+  await importArticles();
   await importGlobal();
-  await importPages(pages);
-  await importLeadFormSubmissionData();
+  await importAbout();
 }
 
 module.exports = async () => {
   const shouldImportSeedData = await isFirstRun();
+
   if (shouldImportSeedData) {
     try {
+      console.log("Setting up the template...");
       await importSeedData();
+      console.log("Ready to go");
     } catch (error) {
       console.log("Could not import seed data");
       console.error(error);

@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Personal website`,
@@ -28,6 +32,67 @@ module.exports = {
         display: `minimal-ui`,
         icon: `src/images/personal-logo.png`,
       },
-    }
+    },
+    {
+      resolve: "gatsby-source-strapi",
+      options: {
+        apiURL: process.env.STRAPI_API_URL || "http://localhost:1338",
+        accessToken: process.env.STRAPI_TOKEN,
+        collectionTypes: [
+          {
+            singularName: "nav",
+          },
+          {
+            singularName: "about-counter",
+          },
+          {
+            singularName: "education",
+          },
+          {
+            singularName: "experience",
+          },
+          {
+            singularName: "language",
+          },
+          {
+            singularName: "project",
+          },
+          {
+            singularName: "service",
+          },
+          {
+            singularName: "skill",
+          },
+        ],
+        singleTypes: [
+          {
+            singularName: "hero",
+          },
+          {
+            singularName: "about",
+          },
+          {
+            singularName: "my-contact",
+          },
+          {
+            singularName: "my-project",
+          },
+          {
+            singularName: "my-service",
+          },
+          {
+            singularName: "global",
+            queryParams: {
+              populate: {
+                favicon: "*",
+                defaultSeo: {
+                  populate: "*",
+                },
+              },
+            },
+          },
+        ],
+      },
+    },
   ],
 }

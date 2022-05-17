@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useStaticQuery, graphql } from "gatsby"
 import { 
     AboutContainer, 
     LeftColumn, 
@@ -22,6 +23,19 @@ import Skill from './Skill';
 import Timeline from './Timeline'
 
 const About = () => {
+    const { navigation } = useStaticQuery(graphql`
+    {
+        allStrapiAboutNavigationJsonnode {
+            edges {
+            node {
+                strapi_json_value
+                }
+            }
+        }
+    }
+      
+  `)
+
     const [tab, setTab] = useState("skills");
 
     const skills = [
@@ -110,18 +124,13 @@ const About = () => {
                             </SummaryText>
                             <TabContainer>
                                 <TabSelectors>
-                                <TabSelector className={tab === "skills" ? "active" : ""} onClick={() => setTab("skills")}>
-                                    Skills
-                                </TabSelector>
-                                <TabSelector className={tab === "experience" ? "active" : ""} onClick={() => setTab("experience")}>
-                                    Experience
-                                </TabSelector>
-                                <TabSelector className={tab === "education" ? "active" : ""} onClick={() => setTab("education")}>
-                                    Education
-                                </TabSelector>
-                                <TabSelector className={tab === "languages" ? "active" : ""} onClick={() => setTab("languages")}>
-                                    Languages
-                                </TabSelector>
+                                    { navigation.map(t => {
+                                        return(
+                                            <TabSelector className={tab === "skills" ? "active" : ""} onClick={() => setTab("skills")}>
+                                                Skills
+                                            </TabSelector>
+                                        )
+                                    })}
                                 </TabSelectors>
                                 <Tabs>
                                     <Tab style={{
