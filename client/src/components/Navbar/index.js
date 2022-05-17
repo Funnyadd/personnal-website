@@ -1,12 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { FaBars, FaTimes} from "react-icons/fa"
+import { useStaticQuery, graphql } from "gatsby"
 import { NavBar, Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavInner } from './NavbarElements'
 
-const Navbar = (props) => {
-    const navLabels = props.sections ? props.sections : ['home', 'about', 'services', 'portfolio', 'clients', 'blog', 'contact']
+const Navbar = () => {
+    const navName = useStaticQuery(graphql`
+        query {
+            allStrapiNav {
+                edges {
+                    node {
+                        navLinks
+                    }
+                }
+            }
+        }
+    `)
 
     const [isMenuVisible, setIsMenuVisible] = useState(false);
     const [scroll, setScroll] = useState(false);
+
+    const navLabels = []
+
+    navName.allStrapiNav.edges.forEach(element => {
+        navLabels.push(element.node.navLinks)
+    });
 
     useEffect(() => {
         window.addEventListener("scroll", () => {

@@ -1,7 +1,7 @@
 
 import React from "react"
-import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Layout from "../components/layout"
 import Hero from "../components/Hero"
 import Navbar from "../components/Navbar"
 import About from "../components/About"
@@ -10,11 +10,11 @@ import Services from "../components/Services"
 import Portfolio from "../components/Portfolio"
 
 const IndexPage = () => {
-  
+
   return (
     <Layout>
-      <Seo title="Adam Mihajlovic" />
-      <Navbar sections={ ['home', 'about', 'services', 'portfolio', 'contact'] }/>
+      <Seo seo={{ metaTitle: "Adam Mihajlovic", metaDescription: "website"}} />
+      <Navbar />
       <section id="home">
         <Hero />
       </section>
