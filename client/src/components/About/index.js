@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useStaticQuery, graphql } from "gatsby"
 import { 
     AboutContainer, 
     LeftColumn, 
@@ -23,22 +22,8 @@ import Skill from './Skill';
 import Timeline from './Timeline'
 
 const About = () => {
-    const navigation = useStaticQuery(graphql`
-    {
-        allStrapiAboutNavigationJsonnode {
-            edges {
-                node {
-                    strapi_json_value
-                }
-            }
-        }
-    }
-      
-  `)
 
-    const aboutNav = navigation.allStrapiAboutNavigationJsonnode.edges[0].node.strapi_json_value;
-
-    const [tab, setTab] = useState("Skills");
+    const [tab, setTab] = useState("skills");
 
     const skills = [
         {
@@ -126,15 +111,22 @@ const About = () => {
                             </SummaryText>
                             <TabContainer>
                                 <TabSelectors>
-                                { aboutNav.map((t, index) => {
-                                        return(
-                                            <TabSelector key={index} className={tab === {t} ? "active" : ""} onClick={() => setTab(t)}>{t}</TabSelector>
-                                        )
-                                    })}
+                                    <TabSelector className={tab === "skills" ? "active" : ""} onClick={() => setTab("skills")}>
+                                        Skills
+                                    </TabSelector>
+                                    <TabSelector className={tab === "experience" ? "active" : ""} onClick={() => setTab("experience")}>
+                                        Experience
+                                    </TabSelector>
+                                    <TabSelector className={tab === "education" ? "active" : ""} onClick={() => setTab("education")}>
+                                        Education
+                                    </TabSelector>
+                                    <TabSelector className={tab === "languages" ? "active" : ""} onClick={() => setTab("languages")}>
+                                        Languages
+                                    </TabSelector>
                                 </TabSelectors>
                                 <Tabs>
                                     <Tab style={{
-                                        display: tab === "Skills" ? "block" : "none"
+                                        display: tab === "skills" ? "block" : "none"
                                     }}>
                                         {skills.map((s, index) => {
                                             return(
@@ -143,7 +135,7 @@ const About = () => {
                                         })}
                                     </Tab>
                                     <Tab style={{
-                                        display: tab === "Languages" ? "block" : "none"
+                                        display: tab === "languages" ? "block" : "none"
                                     }}>
                                         {languages.map((l, index) => {
                                             return(
@@ -154,7 +146,7 @@ const About = () => {
                                 </Tabs>
                                 <Tabs>
                                     <Tab style={{
-                                            display: tab === "Experience" ? "block" : "none"
+                                            display: tab === "experience" ? "block" : "none"
                                         }}>
                                         <Timeline data={{
                                                 "2022 - Now" : {
@@ -177,7 +169,7 @@ const About = () => {
                                     />
                                     </Tab>
                                     <Tab style={{
-                                            display: tab === "Education" ? "block" : "none"
+                                            display: tab === "education" ? "block" : "none"
                                         }}>
                                         <Timeline data={{
                                                  "2022 - Now" : {
