@@ -126,8 +126,8 @@ const About = () => {
                                 <TabSelectors>
                                     { navigation.map(t => {
                                         return(
-                                            <TabSelector className={tab === "skills" ? "active" : ""} onClick={() => setTab("skills")}>
-                                                Skills
+                                            <TabSelector className={tab === {t} ? "active" : ""} onClick={() => setTab({t})}>
+                                                {t}
                                             </TabSelector>
                                         )
                                     })}
