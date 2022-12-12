@@ -5,7 +5,10 @@
   "main": "server/index.js",
   "scripts": {
     "test": "node test",
-    "start": "node start"
+    "start": "cd server && npm run start",
+    "build": "cd server && npm run build",
+    "develop": "cd server && npm run develop",
+    "install": "cd server && npm install"
   },
   "repository": {
     "type": "git",
