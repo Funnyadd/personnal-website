@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * nav service.
+ * nav service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;

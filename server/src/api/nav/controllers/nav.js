@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- *  nav controller
+ * nav controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
