@@ -1,1 +1,4 @@
 .vercel
+.tmp
+data.db
+/server/.tmp
