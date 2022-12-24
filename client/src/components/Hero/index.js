@@ -12,6 +12,7 @@ import {
     //FloatingIcon 
 } from './HeroSection'
 import Typewriter from 'typewriter-effect'
+import { useStaticQuery, graphql } from "gatsby"
 // import { FaDocker, FaJava, FaNodeJs, FaReact } from 'react-icons/fa'
 // import { SiCsharp, SiGatsby, SiJavascript } from 'react-icons/si'
 // import { DiMysql, DiPython } from 'react-icons/di'
@@ -21,32 +22,54 @@ const Hero = () => {
 //     const upperSideMax = 90;
 //     const lowerSideMin = 5;
 //     const lowerSideMax = 10;
+
+    const { strapiHero } = useStaticQuery(graphql`
+        query {
+            strapiHero {
+                BeforeName
+                name
+                quotes {
+                    strapi_json_value
+                }
+                Download {
+                    title
+                    url
+                }
+                Background {
+                    localFile {
+                        url
+                    }
+                }
+            }
+        }
+    `)
+
     return (
         <>
         <HeroContainer>
             <Background autoPlay muted loop id="backgroundVideo">
-                <source src="./background-loop.mp4" type="video/mp4" />
+                <source src={strapiHero.Background.localFile.url} type="video/mp4" />
             </Background>
             <HeadingBox>
                 <SubHeading>
-                    Hello, I'm
+                    {strapiHero.BeforeName}
                 </SubHeading>
                 <Heading>
-                    <HeadingText className="glitch" data-text="Adam Mihajlovic">
-                        Adam Mihajlovic
+                    <HeadingText className="glitch" data-text={strapiHero.name}>
+                        {strapiHero.name}
                     </HeadingText>
                 </Heading>
                 <Type>
                     <Typewriter
                         options={{
-                            strings: ['I am creative', 'I love to develop', 'I love design'],
+                            strings: strapiHero.quotes.strapi_json_value,
                             autoStart: true,
                             loop: true,
                           }}
                     />
                 </Type>
-                <ResumeLink href="https://1drv.ms/b/s!AuP8HC7p2sQZloda-tvIZ6mh1cpIww?e=kKFzII">
-                    Download Resume
+                <ResumeLink href={strapiHero.Download.url}>
+                    {strapiHero.Download.title}
                 </ResumeLink>
             </HeadingBox>
             {/* <FloatingIcon bottom={Math.random() * (upperSideMax - upperSideMin) + upperSideMin} left={10} className='move-up'><FaReact size="auto" fill="#61DBFB" /></FloatingIcon>

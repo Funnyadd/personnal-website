@@ -4,7 +4,7 @@
   "info": {
     "singularName": "nav",
     "pluralName": "navs",
-    "displayName": "nav",
+    "displayName": "Nav",
     "description": ""
   },
   "options": {
@@ -15,11 +15,11 @@
     "navLinks": {
       "type": "enumeration",
       "enum": [
-        "home",
-        "about",
-        "services",
-        "portfolio",
-        "contact"
+        "Home",
+        "About",
+        "Services",
+        "Portfolio",
+        "Contact"
       ]
     }
   }

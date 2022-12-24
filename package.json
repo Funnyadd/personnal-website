@@ -5,7 +5,10 @@
   "main": "server/index.js",
   "scripts": {
     "test": "node test",
-    "start": "node start"
+    "start": "cd server && npm run start",
+    "build": "cd server && npm run build",
+    "develop": "cd server && npm run develop",
+    "install": "cd server && npm install"
   },
   "repository": {
     "type": "git",
@@ -19,7 +22,7 @@
   "homepage": "https://github.com/Funnyadd/personal-website#readme",
   "dependencies": {
     "express": "^4.17.2",
-    "express-graphql": "^0.12.0",
+    "graphql-http": "^1.9.0",
     "graphql": "^16.3.0",
     "sass-loader": "^12.4.0"
   }

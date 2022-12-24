@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * my-contact service.
+ * my-contact service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;

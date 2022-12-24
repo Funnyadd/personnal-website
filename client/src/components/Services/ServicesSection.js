@@ -1,8 +1,17 @@
 import styled, { keyframes } from 'styled-components'
 
+export const BackgroundContainer = styled.div`
+    background-image: url(${props => props.url});
+    position: relative;
+    overflow: hidden;
+    background-color: #111;
+    background-size: cover;
+`
+
 export const ServiceContainer = styled.div`
     background-color: rgba(0,0,0,0.9);
     padding: 100px 0;
+    
 `
 
 const gradientAnimation = keyframes`
