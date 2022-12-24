@@ -100,7 +100,7 @@ class Timeline extends React.Component {
         return(
             <TimelineContainer>
                 <Details>
-                    <Years>{selector}</Years>
+                    <Years>{`${data[selector].startDate} - ${data[selector].endDate}`}</Years>
                     <Heading>{data[selector].title}</Heading>
                     <Company>{data[selector].institution}</Company>
                     <Text>

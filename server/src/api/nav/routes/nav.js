@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * nav router.
+ * nav router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "about-counter",
     "pluralName": "about-counters",
-    "displayName": "aboutCounter"
+    "displayName": "aboutCounter",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,8 +15,14 @@
     "fullText": {
       "type": "string"
     },
-    "number": {
-      "type": "integer"
+    "startDate": {
+      "type": "date"
+    },
+    "endDate": {
+      "type": "date"
+    },
+    "isAge": {
+      "type": "boolean"
     }
   }
 }
