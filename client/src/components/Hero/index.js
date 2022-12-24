@@ -55,8 +55,8 @@ const Hero = () => {
                     {strapiHero.BeforeName}
                 </SubHeading>
                 <Heading>
-                    <HeadingText className="glitch" data-text={strapiHero.beforeName}>
-                    {strapiHero.name}
+                    <HeadingText className="glitch" data-text={strapiHero.name}>
+                        {strapiHero.name}
                     </HeadingText>
                 </Heading>
                 <Type>
