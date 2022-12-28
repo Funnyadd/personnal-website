@@ -1,6 +1,39 @@
-# 🚀 Getting started with Strapi
+# 🚀 Running strapi on your local machine
 
 Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html) (CLI) which lets you scaffold and manage your project in seconds.
+
+## Setup
+
+In you environment variables you should have the following:
+```
+APP_KEYS=""
+HOST=127.0.0.1
+JWT_SECRET=""
+PORT=1338
+ADMIN_JWT_SECRET=""
+API_TOKEN_SALT=""
+CLOUDINARY_NAME=""
+CLOUDINARY_KEY=""
+CLOUDINARY_SECRET=""
+
+DATABASE_HOST=""
+DATABASE_PORT=
+DATABASE_NAME=""
+DATABASE_USERNAME=""
+DATABASE_PASSWORD=""
+```
+
+### `build`
+
+Build your admin panel. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-build)
+
+```
+npm run build
+# or
+yarn build
+```
+
+### Initialization
 
 ### `develop`
 
@@ -20,16 +53,6 @@ Start your Strapi application with autoReload disabled. [Learn more](https://doc
 npm run start
 # or
 yarn start
-```
-
-### `build`
-
-Build your admin panel. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-build)
-
-```
-npm run build
-# or
-yarn build
 ```
 
 ## ⚙️ Deployment
