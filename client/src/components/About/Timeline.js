@@ -1,10 +1,10 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react"
+import styled from "styled-components"
 class Timeline extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            selector: Object.keys(this.props.data)[0]
+            selector: Object.keys(this.props.data)[0],
         }
     }
 
@@ -25,29 +25,30 @@ class Timeline extends React.Component {
             bottom: 50px;
             left: 20px;
             &::before {
-                content: '';
+                content: "";
                 position: absolute;
                 height: 100%;
                 width: 20%;
-                background-color: rgba(255,255,255,.5);
+                background-color: rgba(255, 255, 255, 0.5);
                 z-index: -1;
                 margin: auto;
                 left: 40%;
                 border-radius: 20px;
             }
         `
-        
+
         const TimelineSelector = styled.button`
             width: 15px;
             height: 15px;
             border-radius: 7.5px;
             border: none;
             margin: 10px 0px;
-            transition: .5s;
+            transition: 0.5s;
             &:focus {
                 outline: none;
             }
-            &.active, &:hover {
+            &.active,
+            &:hover {
                 background-color: rgb(12, 148, 0);
             }
         `
@@ -82,37 +83,36 @@ class Timeline extends React.Component {
             font-size: 80px;
             position: absolute;
             top: -60px;
-            opacity: .1;
-            @media (max-width:767px) {
+            opacity: 0.1;
+            @media (max-width: 767px) {
                 font-size: 45px;
                 top: -35px;
             }
-            @media (max-width:1439px) {
+            @media (max-width: 1439px) {
                 font-size: 40px;
                 top: -38px;
             }
         `
 
-
         const selector = this.state.selector
         let { data } = this.props
 
-        return(
+        return (
             <TimelineContainer>
                 <Details>
                     <Years>{`${data[selector].startDate} - ${data[selector].endDate}`}</Years>
                     <Heading>{data[selector].title}</Heading>
                     <Company>{data[selector].institution}</Company>
-                    <Text>
-                        {data[selector].description}
-                    </Text>
+                    <Text>{data[selector].description}</Text>
                 </Details>
                 <TimelineSelectors>
                     {Object.keys(this.props.data).map((value, index) => (
                         <TimelineSelector
                             key={index}
-                            onClick={() => this.setState({selector : value})}
-                            className={this.state.selector === value ? "active" : ""}
+                            onClick={() => this.setState({ selector: value })}
+                            className={
+                                this.state.selector === value ? "active" : ""
+                            }
                         />
                     ))}
                 </TimelineSelectors>

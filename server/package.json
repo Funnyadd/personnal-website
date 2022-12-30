@@ -1,28 +1,22 @@
 {
   "dependencies": {
     "@strapi/plugin-graphql": "^4.5.5",
-    "@strapi/plugin-i18n": "4.5.5",
+    "@strapi/plugin-i18n": "^4.5.5",
     "@strapi/plugin-users-permissions": "4.5.5",
     "@strapi/provider-upload-cloudinary": "^4.5.5",
     "@strapi/strapi": "4.5.5",
     "@strapi/utils": "^4.5.5",
-    "fs-extra": "^10.0.0",
+    "babel-eslint": "^10.1.0",
+    "fs-extra": "^11.1.0",
     "lodash.set": "^4.3.2",
-    "mime-types": "^2.1.27",
+    "mime-types": "^2.1.35",
     "pg": "^8.8.0"
   },
-  "name": "server",
-  "private": true,
-  "version": "1.0.0",
-  "description": "Personnal Website",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi"
-  },
-  "author": {
-    "name": "Adam Mihajlovic"
   },
   "strapi": {
     "uuid": "cf230822-89e1-4ea6-bfa7-bad61cb64fa6",

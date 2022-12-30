@@ -1,7 +1,6 @@
-import styled from 'styled-components'
+import styled from "styled-components"
 
-export const AboutContainer = styled.div`
-`
+export const AboutContainer = styled.div``
 
 export const LeftColumn = styled.div`
     display: flex;
@@ -74,7 +73,7 @@ export const ImageContainer = styled.div`
 
 export const Image = styled.img`
     max-width: 400px;
-    
+
     @media screen and (max-width: 1400px) {
         max-width: 280px;
     }
@@ -137,7 +136,6 @@ export const CounterContainer = styled.div`
         margin: 50px 0px;
         text-align: center;
     }
-    
 `
 
 export const TabContainer = styled.div`
@@ -167,11 +165,12 @@ export const TabSelector = styled.button`
     border-bottom: 2px solid rgb(255, 255, 255);
     transition: 0.5s;
 
-    &:hover, &.active {
+    &:hover,
+    &.active {
         border-bottom-color: rgb(12, 148, 0);
     }
     &:focus {
-        outline: none
+        outline: none;
     }
 
     @media (max-width: 767px) {
@@ -197,7 +196,7 @@ export const Tabs = styled.div`
 
 export const Tab = styled.div`
     display: none;
-    
+
     @keyframes fadeIn {
         0% {
             opacity: 0;

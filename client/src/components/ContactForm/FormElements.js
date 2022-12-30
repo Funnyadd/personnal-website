@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes } from "styled-components"
 
 export const Separator = styled.div`
     height: 5px;
@@ -42,7 +42,7 @@ export const Input = styled.input`
     padding: 10px 5px;
     border-radius: 0;
     color: #fff;
-    transition: .5s;
+    transition: 0.5s;
     &:focus {
         border-bottom: 1px solid rgb(12, 148, 0);
         outline: none;
@@ -81,9 +81,9 @@ export const Submit = styled.button`
     position: relative;
     border: none;
     overflow: hidden;
-    transition: .5s;
+    transition: 0.5s;
     background-color: #000;
-    
+
     &:hover {
         background: #444;
     }

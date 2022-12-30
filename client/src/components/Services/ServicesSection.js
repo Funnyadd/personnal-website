@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes } from "styled-components"
 
 export const BackgroundContainer = styled.div`
     background-image: url(${props => props.url});
@@ -9,9 +9,8 @@ export const BackgroundContainer = styled.div`
 `
 
 export const ServiceContainer = styled.div`
-    background-color: rgba(0,0,0,0.9);
+    background-color: rgba(0, 0, 0, 0.9);
     padding: 100px 0;
-    
 `
 
 const gradientAnimation = keyframes`
@@ -33,7 +32,7 @@ export const ServiceElement = styled.div`
     padding: 40px;
 
     &::after {
-        content: '';
+        content: "";
         width: 100%;
         height: 100%;
         opacity: 0;
@@ -42,11 +41,10 @@ export const ServiceElement = styled.div`
         position: absolute;
         border-radius: 20px;
         z-index: -1;
-        
+
         @keyframes colorChange {
             0% {
                 box-shadow: #10b568 0px 24px 45px;
-                
             }
             100% {
                 box-shadow: #4272e3 0px 24px 45px;
@@ -88,11 +86,11 @@ export const ServiceIcon = styled.div`
     align-items: center;
     justify-content: center;
     background: linear-gradient(
-            120deg, 
-            rgb(12, 148, 40), 
-            rgb(63, 142, 222),
-            rgb(35, 98, 234)
-        );
+        120deg,
+        rgb(12, 148, 40),
+        rgb(63, 142, 222),
+        rgb(35, 98, 234)
+    );
     background-size: 300% 300%;
     animation: ${gradientAnimation} 5s ease-in-out infinite;
 
@@ -115,7 +113,7 @@ export const ServiceListElement = styled.li`
 
     &::before {
         display: inline-block;
-        content: '';
+        content: "";
         border-radius: 2.5px;
         height: 5px;
         width: 5px;
@@ -123,5 +121,4 @@ export const ServiceListElement = styled.li`
         position: relative;
         bottom: 2.5px;
     }
-
 `

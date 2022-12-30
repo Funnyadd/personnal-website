@@ -1,16 +1,13 @@
-import styled, { keyframes } from 'styled-components'
-import { Row, Col, Container } from 'react-bootstrap'
-import handleViewport from 'react-in-viewport'
-
+import styled, { keyframes } from "styled-components"
+import { Row, Col, Container } from "react-bootstrap"
+import handleViewport from "react-in-viewport"
 
 export const FormRow = styled(Row)`
     background-color: #111;
     padding: 0px !important;
 `
 
-export const ContactContainer = styled(Container)`
-
-`
+export const ContactContainer = styled(Container)``
 
 export const ContactCol = styled(Col)`
     min-height: 600px;
@@ -57,13 +54,13 @@ export const IconContainer = styled.div`
     bottom: 75px;
     background-size: 300% 300%;
     border-radius: 150px;
-    transition: .5s;
+    transition: 0.5s;
     background: linear-gradient(
-            120deg, 
-            rgb(12, 148, 40), 
-            rgb(63, 142, 222),
-            rgb(35, 98, 234)
-        );
+        120deg,
+        rgb(12, 148, 40),
+        rgb(63, 142, 222),
+        rgb(35, 98, 234)
+    );
     background-size: 300% 300%;
     animation: ${gradientAnimation} 5s ease-in-out infinite;
 `
@@ -124,19 +121,25 @@ export const Gradient = styled.div`
         left: 0px;
         right: 0px;
         bottom: 0px;
-        clip-path: polygon(0% 100%, 10px 100%, 10px 10px, 
-            calc(100% - 10px) 10px, 
-            calc(100% - 10px) calc(100% - 10px), 
-            10px calc(100% - 10px), 
-            10px 100%, 100% 100%, 100% 0%, 0% 0%);
+        clip-path: polygon(
+            0% 100%,
+            10px 100%,
+            10px 10px,
+            calc(100% - 10px) 10px,
+            calc(100% - 10px) calc(100% - 10px),
+            10px calc(100% - 10px),
+            10px 100%,
+            100% 100%,
+            100% 0%,
+            0% 0%
+        );
         background: linear-gradient(
-            120deg, 
-            rgb(12, 148, 40), 
-            rgb(63, 142, 222),
-            rgb(35, 98, 234)
-            
-        ) 
-        0% 0% / 300% 300%;
+                120deg,
+                rgb(12, 148, 40),
+                rgb(63, 142, 222),
+                rgb(35, 98, 234)
+            )
+            0% 0% / 300% 300%;
         /* animation: 5s ease-in-out 0s infinite normal none running ${gradientAnimation}; */
     }
 `
