@@ -10,7 +10,7 @@ import fetch from "isomorphic-fetch"
 const client = new ApolloClient({
     link: new HttpLink({
         fetch,
-        uri: `${process.env.STRAPI_URL}/graphql`,
+        uri: `${process.env.GATSBY_STRAPI_URL}/graphql`,
     }),
     cache: new InMemoryCache(),
 })
