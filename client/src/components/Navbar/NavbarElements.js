@@ -1,5 +1,5 @@
-import { Link } from 'gatsby'
-import styled from 'styled-components'
+import { Link } from "gatsby"
+import styled from "styled-components"
 
 export const Nav = styled.nav`
     flex: 0 0 80%;
@@ -77,7 +77,7 @@ export const MobileIcon = styled.button`
     &:hover {
         cursor: pointer;
     }
-    
+
     @media screen and (max-width: 576px) {
         display: block;
         position: absolute;

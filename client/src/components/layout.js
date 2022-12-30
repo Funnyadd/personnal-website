@@ -4,19 +4,16 @@ import "./layout.css"
 import Footer from "./Footer"
 
 const Layout = ({ children }) => {
-
-  return (
-    <>
-      <main>
-        {children}
-      </main>
-      <Footer />
-    </>
-  )
+    return (
+        <>
+            <main>{children}</main>
+            <Footer />
+        </>
+    )
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+    children: PropTypes.node.isRequired,
 }
 
 export default Layout

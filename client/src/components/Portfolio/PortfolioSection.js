@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const PortfolioContainer = styled.div`
     .slick-slide {
@@ -8,8 +8,8 @@ export const PortfolioContainer = styled.div`
 
     .slick-dots {
         bottom: 0;
-        
-        li button:before, 
+
+        li button:before,
         .slick-dots li.slick-active button:before {
             color: #04e5e5;
         }

@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import styled from "styled-components"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 export const FooterMain = styled.div`
     background-color: #111;
@@ -10,8 +10,7 @@ export const FooterMain = styled.div`
     padding: 10px 0;
 `
 
-export const SocialIcons = styled.div`
-`
+export const SocialIcons = styled.div``
 
 export const SocialIcon = styled(FontAwesomeIcon)`
     font-size: 20px;
@@ -21,7 +20,7 @@ export const SocialIcon = styled(FontAwesomeIcon)`
     transition: all 0.5s ease 0s;
 
     &:hover {
-        color: ${ props => props.hovercolor } !important;
+        color: ${props => props.hovercolor} !important;
     }
 
     @media (max-width: 768px) {
@@ -40,6 +39,5 @@ export const FooterText = styled.p`
 
     @media (max-width: 576px) {
         padding: 0 10px;
-
     }
 `

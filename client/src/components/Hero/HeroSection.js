@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes } from "styled-components"
 
 export const HeroContainer = styled.div`
     width: 100%;
@@ -50,27 +50,32 @@ export const HeadingBox = styled.div`
         left: 0px;
         right: 0px;
         bottom: 0px;
-        clip-path: polygon(0% 100%, 10px 100%, 10px 10px, 
-            calc(100% - 10px) 10px, 
-            calc(100% - 10px) calc(100% - 10px), 
-            10px calc(100% - 10px), 
-            10px 100%, 100% 100%, 100% 0%, 0% 0%);
+        clip-path: polygon(
+            0% 100%,
+            10px 100%,
+            10px 10px,
+            calc(100% - 10px) 10px,
+            calc(100% - 10px) calc(100% - 10px),
+            10px calc(100% - 10px),
+            10px 100%,
+            100% 100%,
+            100% 0%,
+            0% 0%
+        );
         border-radius: 5px;
         background: linear-gradient(
-            120deg, 
-            rgb(12, 148, 0), 
-            rgb(63, 142, 222),
-            rgb(35, 98, 234)
-            
-        ) 
-        0% 0% / 300% 300%;
+                120deg,
+                rgb(12, 148, 0),
+                rgb(63, 142, 222),
+                rgb(35, 98, 234)
+            )
+            0% 0% / 300% 300%;
         /* animation: 5s ease-in-out 0s infinite normal none running ${gradientAnimation}; */
     }
 
     @media (max-width: 850px) {
         height: 400px;
     }
-
 `
 
 export const SubHeading = styled.h2`
@@ -87,7 +92,6 @@ export const SubHeading = styled.h2`
 
 export const Heading = styled.div`
     text-align: center;
-
 `
 
 export const HeadingText = styled.p`
@@ -103,7 +107,7 @@ export const HeadingText = styled.p`
     @media (max-width: 400px) {
         font-size: 25px;
         line-height: 30px;
-        margin: 0 0.7rem
+        margin: 0 0.7rem;
     }
 `
 
@@ -121,13 +125,13 @@ export const Type = styled.div`
     @media (max-width: 850px) {
         span {
             font-size: 24px;
-        }  
+        }
     }
 
     @media (max-width: 400px) {
         span {
             font-size: 20px;
-        }   
+        }
     }
 `
 
@@ -173,14 +177,14 @@ export const FloatingIcon = styled.div`
 
     @media screen and (max-width: 576px) {
         height: 30px;
-        width: 30px
+        width: 30px;
     }
 
     &.move-up {
-        animation: 5s ease 0s infinite alternate none running up-animation
+        animation: 5s ease 0s infinite alternate none running up-animation;
     }
 
     &.move-down {
-        animation: 5s ease 0s infinite alternate none running down-animation
+        animation: 5s ease 0s infinite alternate none running down-animation;
     }
 `

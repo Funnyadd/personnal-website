@@ -1,7 +1,20 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/ssr-apis/
- */
+import React from "react"
+import {
+    ApolloProvider,
+    ApolloClient,
+    InMemoryCache,
+    HttpLink,
+} from "@apollo/client"
+import fetch from "isomorphic-fetch"
 
-// You can delete this file if you're not using it
+const client = new ApolloClient({
+    link: new HttpLink({
+        fetch,
+        uri: `${process.env.STRAPI_URL}/graphql`,
+    }),
+    cache: new InMemoryCache(),
+})
+
+export const wrapRootElement = ({ element }) => (
+    <ApolloProvider client={client}>{element}</ApolloProvider>
+)

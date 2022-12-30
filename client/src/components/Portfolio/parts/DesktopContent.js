@@ -1,5 +1,5 @@
-import React from 'react'
-import styled, { keyframes } from 'styled-components'
+import React from "react"
+import styled, { keyframes } from "styled-components"
 // import baffle from 'baffle';
 
 class DesktopContent extends React.Component {
@@ -7,16 +7,15 @@ class DesktopContent extends React.Component {
         super(props)
         this.state = {
             show: false,
-            enable: this.props.type === "slider" ? true : false
+            enable: this.props.type === "slider" ? true : false,
         }
     }
 
     enable = () => {
-        this.setState({enable: true})
+        this.setState({ enable: true })
     }
-    
-    render() {
 
+    render() {
         const Animation = keyframes`
             0% {
                 opacity: 0;
@@ -37,21 +36,25 @@ class DesktopContent extends React.Component {
             align-items: center;
             flex-direction: column;
             justify-content: flex-end;
-            transition: .5s;
+            transition: 0.5s;
             text-align: center;
             display: flex;
             &.active {
                 animation: ${Animation} 1s forwards;
-                background-image: linear-gradient(to top, rgba(4,229,229,1), rgba(255, 255, 255, 0));
+                background-image: linear-gradient(
+                    to top,
+                    rgba(4, 229, 229, 1),
+                    rgba(255, 255, 255, 0)
+                );
             }
         `
 
         return (
-            <Text 
-                onMouseEnter={() => this.setState({show: true})}
-                onMouseLeave={() => this.setState({show: false})}
+            <Text
+                onMouseEnter={() => this.setState({ show: true })}
+                onMouseLeave={() => this.setState({ show: false })}
                 className={this.state.show ? "active" : ""}
-                style={{display: this.state.enable ? "flex" : "none"}}
+                style={{ display: this.state.enable ? "flex" : "none" }}
             >
                 {this.show()}
             </Text>
@@ -59,13 +62,12 @@ class DesktopContent extends React.Component {
     }
 
     show() {
-
         const Heading = styled.h4`
             color: #fff;
             font-weight: 600;
             font-size: 25px;
             text-align: center;
-            @media (max-width:767px) {
+            @media (max-width: 767px) {
                 font-size: 20px;
             }
         `
@@ -76,7 +78,7 @@ class DesktopContent extends React.Component {
             font-weight: 400;
             text-transform: uppercase;
             text-align: center;
-            @media (max-width:767px) {
+            @media (max-width: 767px) {
                 font-size: 15px;
             }
         `
@@ -94,8 +96,8 @@ class DesktopContent extends React.Component {
             return (
                 <>
                     <Heading>
-                        <div className='baffle'>{this.props.text}</div>
-                        
+                        <div className="baffle">{this.props.text}</div>
+
                         {/* <Baffle
                             speed={50}
                             characters="AaBbCcDeEeFfGgHhIiJjKkLlMmNnOpPpQqRrSsTtUuVvWwXxYyZ"
@@ -108,7 +110,7 @@ class DesktopContent extends React.Component {
                         </Baffle> */}
                     </Heading>
                     <SubHeading>
-                        <div className='baffle'>{this.props.category}</div>
+                        <div className="baffle">{this.props.category}</div>
                         {/* <Baffle
                             speed={50}
                             characters="AaBbCcDeEeFfGgHhIiJjKkLlMmNnOpPpQqRrSsTtUuVvWwXxYyZ"
