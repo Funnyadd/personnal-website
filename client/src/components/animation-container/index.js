@@ -12,10 +12,7 @@ class Animation_Container extends React.Component {
     }
 
     componentDidUpdate() {
-        if (
-            this.state.inViewport !== this.props.inViewport &&
-            !this.state.animation_complete
-        ) {
+        if (this.state.inViewport !== this.props.inViewport && !this.state.animation_complete) {
             this.setState({ inViewport: this.props.inViewport })
             this.changeClass()
             this.setState({ animation_complete: true })
@@ -41,9 +38,7 @@ class Animation_Container extends React.Component {
         const { children, animation, id, height } = this.props
         return (
             <div
-                className={
-                    this.state.classChanged ? `animated ${animation}` : ""
-                }
+                className={this.state.classChanged ? `animated ${animation}` : ""}
                 style={{
                     opacity: this.state.classChanged ? 1 : 0,
                     height: height ? height : "auto",

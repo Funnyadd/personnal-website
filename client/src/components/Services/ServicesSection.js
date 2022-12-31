@@ -85,12 +85,7 @@ export const ServiceIcon = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(
-        120deg,
-        rgb(12, 148, 40),
-        rgb(63, 142, 222),
-        rgb(35, 98, 234)
-    );
+    background: linear-gradient(120deg, rgb(12, 148, 40), rgb(63, 142, 222), rgb(35, 98, 234));
     background-size: 300% 300%;
     animation: ${gradientAnimation} 5s ease-in-out infinite;
 

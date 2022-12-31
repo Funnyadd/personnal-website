@@ -139,13 +139,7 @@ const About = () => {
                             <ImageContainer>
                                 <div>
                                     <RevealContainer className="animate">
-                                        <Image
-                                            src={
-                                                strapiAbout.Photo.data
-                                                    .attributes.url
-                                            }
-                                            alt="Profile picture"
-                                        />
+                                        <Image src={strapiAbout.Photo.data.attributes.url} alt="Profile picture" />
                                     </RevealContainer>
                                 </div>
                             </ImageContainer>
@@ -159,140 +153,51 @@ const About = () => {
                             <TabContainer>
                                 <TabSelectors>
                                     {strapiAbout.navigation.map((e, index) => {
-                                        var value =
-                                            strapiAbout.navigation[index]
+                                        var value = strapiAbout.navigation[index]
                                         return (
-                                            <TabSelector
-                                                key={index}
-                                                className={
-                                                    tab === value
-                                                        ? "active"
-                                                        : ""
-                                                }
-                                                onClick={() => setTab(value)}
-                                            >
+                                            <TabSelector key={index} className={tab === value ? "active" : ""} onClick={() => setTab(value)}>
                                                 {value}
                                             </TabSelector>
                                         )
                                     })}
                                 </TabSelectors>
                                 <Tabs>
-                                    <Tab
-                                        style={{
-                                            display:
-                                                tab ===
-                                                strapiAbout.navigation[0]
-                                                    ? "block"
-                                                    : "none",
-                                        }}
-                                    >
-                                        {strapiAbout.skills.data.map(
-                                            (s, index) => {
-                                                return (
-                                                    <Skill
-                                                        key={index}
-                                                        header={
-                                                            s.attributes.title
-                                                        }
-                                                        percentage={
-                                                            s.attributes
-                                                                .percentage
-                                                        }
-                                                    ></Skill>
-                                                )
-                                            }
-                                        )}
+                                    <Tab style={{ display: tab === strapiAbout.navigation[0] ? "block" : "none" }}>
+                                        {strapiAbout.skills.data.map((s, index) => {
+                                            return <Skill key={index} header={s.attributes.title} percentage={s.attributes.percentage}></Skill>
+                                        })}
                                     </Tab>
-                                    <Tab
-                                        style={{
-                                            display:
-                                                tab ===
-                                                strapiAbout.navigation[3]
-                                                    ? "block"
-                                                    : "none",
-                                        }}
-                                    >
-                                        {strapiAbout.languages.data.map(
-                                            (l, index) => {
-                                                return (
-                                                    <Skill
-                                                        key={index}
-                                                        header={
-                                                            l.attributes.title
-                                                        }
-                                                        percentage={
-                                                            l.attributes
-                                                                .percentage
-                                                        }
-                                                    ></Skill>
-                                                )
-                                            }
-                                        )}
+                                    <Tab style={{ display: tab === strapiAbout.navigation[3] ? "block" : "none" }}>
+                                        {strapiAbout.languages.data.map((l, index) => {
+                                            return <Skill key={index} header={l.attributes.title} percentage={l.attributes.percentage}></Skill>
+                                        })}
                                     </Tab>
                                 </Tabs>
                                 <Tabs>
-                                    <Tab
-                                        style={{
-                                            display:
-                                                tab ===
-                                                strapiAbout.navigation[1]
-                                                    ? "block"
-                                                    : "none",
-                                        }}
-                                    >
+                                    <Tab style={{ display: tab === strapiAbout.navigation[1] ? "block" : "none" }}>
                                         <Timeline
-                                            data={strapiAbout.experiences.data.map(
-                                                e => {
-                                                    return {
-                                                        title: e.attributes
-                                                            .title,
-                                                        institution:
-                                                            e.attributes
-                                                                .instittution,
-                                                        description:
-                                                            e.attributes
-                                                                .description,
-                                                        startDate:
-                                                            e.attributes
-                                                                .startDate,
-                                                        endDate:
-                                                            e.attributes
-                                                                .endDate,
-                                                    }
+                                            data={strapiAbout.experiences.data.map(e => {
+                                                return {
+                                                    title: e.attributes.title,
+                                                    institution: e.attributes.instittution,
+                                                    description: e.attributes.description,
+                                                    startDate: e.attributes.startDate,
+                                                    endDate: e.attributes.endDate,
                                                 }
-                                            )}
+                                            })}
                                         />
                                     </Tab>
-                                    <Tab
-                                        style={{
-                                            display:
-                                                tab ===
-                                                strapiAbout.navigation[2]
-                                                    ? "block"
-                                                    : "none",
-                                        }}
-                                    >
+                                    <Tab style={{ display: tab === strapiAbout.navigation[2] ? "block" : "none" }}>
                                         <Timeline
-                                            data={strapiAbout.educations.data.map(
-                                                e => {
-                                                    return {
-                                                        title: e.attributes
-                                                            .title,
-                                                        institution:
-                                                            e.attributes
-                                                                .instittution,
-                                                        description:
-                                                            e.attributes
-                                                                .description,
-                                                        startDate:
-                                                            e.attributes
-                                                                .startDate,
-                                                        endDate:
-                                                            e.attributes
-                                                                .endDate,
-                                                    }
+                                            data={strapiAbout.educations.data.map(e => {
+                                                return {
+                                                    title: e.attributes.title,
+                                                    institution: e.attributes.instittution,
+                                                    description: e.attributes.description,
+                                                    startDate: e.attributes.startDate,
+                                                    endDate: e.attributes.endDate,
                                                 }
-                                            )}
+                                            })}
                                         />
                                     </Tab>
                                 </Tabs>
@@ -311,28 +216,18 @@ const About = () => {
                                         <CounterContainer>
                                             <div className="valueContainer">
                                                 <span className="value">
-                                                    {numberOfYear(
-                                                        c.attributes.startDate,
-                                                        c.attributes.endDate
-                                                    )}
+                                                    {numberOfYear(c.attributes.startDate, c.attributes.endDate)}
                                                 </span>
                                             </div>
                                             <div className="symbolContainer">
-                                                {checkIf6Months(
-                                                    c.attributes.startDate,
-                                                    c.attributes.isAge
-                                                ) ? (
-                                                    <span className="symbol">
-                                                        +
-                                                    </span>
-                                                ) : (
-                                                    <></>
-                                                )}
+                                                {checkIf6Months(c.attributes.startDate, c.attributes.isAge) 
+                                                ? 
+                                                <span className="symbol">+</span> 
+                                                : 
+                                                <></>}
                                             </div>
                                             <div className="textContainer">
-                                                <span className="text">
-                                                    {c.attributes.fullText}
-                                                </span>
+                                                <span className="text">{c.attributes.fullText}</span>
                                             </div>
                                         </CounterContainer>
                                     </CounterComponent>

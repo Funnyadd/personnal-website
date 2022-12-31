@@ -66,18 +66,12 @@ const Hero = () => {
         <>
             <HeroContainer>
                 <Background autoPlay muted loop id="backgroundVideo">
-                    <source
-                        src={strapiHero.Background.data.attributes.url}
-                        type="video/mp4"
-                    />
+                    <source src={strapiHero.Background.data.attributes.url} type="video/mp4" />
                 </Background>
                 <HeadingBox>
                     <SubHeading>{strapiHero.beforeName}</SubHeading>
                     <Heading>
-                        <HeadingText
-                            className="glitch"
-                            data-text={strapiHero.name}
-                        >
+                        <HeadingText className="glitch" data-text={strapiHero.name}>
                             {strapiHero.name}
                         </HeadingText>
                     </Heading>
@@ -90,9 +84,7 @@ const Hero = () => {
                             }}
                         />
                     </Type>
-                    <ResumeLink href={strapiHero.Download.url}>
-                        {strapiHero.Download.title}
-                    </ResumeLink>
+                    <ResumeLink href={strapiHero.Download.url}>{strapiHero.Download.title}</ResumeLink>
                 </HeadingBox>
                 {/* <FloatingIcon bottom={Math.random() * (upperSideMax - upperSideMin) + upperSideMin} left={10} className='move-up'><FaReact size="auto" fill="#61DBFB" /></FloatingIcon>
             <FloatingIcon bottom={Math.random() * (lowerSideMax - lowerSideMin) + lowerSideMin} left={20} className='move-up'><FaJava size="auto" fill="#f89820" /></FloatingIcon>

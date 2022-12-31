@@ -22,8 +22,7 @@ const NotFoundPage = () => (
         <Seo title="404: Not found" />
         <Heading>404: Not Found</Heading>
         <Text>
-            You just hit a route that doesn&#39;t exist... <br></br>Sorry for
-            that, please try to go back to <br></br>
+            You just hit a route that doesn&#39;t exist... <br></br>Sorry for that, please try to go back to <br></br>
             <a href="adammihajlovic.ca">adammihajlovic.ca</a>
         </Text>
     </Layout>

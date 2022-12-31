@@ -92,15 +92,13 @@ const Portfolio = () => {
                         {strapiMyProject.projects.data.map((p, index) => {
                             p = p.attributes
                             return (
-                                <PortfolioItem
-                                    key={index}
-                                    index={index}
-                                    image={p.source.data.attributes.url}
-                                    text={p.title}
-                                    category={p.category}
-                                    link={p.link}
-                                    type="slider"
-                                />
+                                <PortfolioItem 
+                                    key={index} 
+                                    index={index} 
+                                    image={p.source.data.attributes.url} 
+                                    text={p.title} category={p.category} 
+                                    link={p.link} 
+                                    type="slider" />
                             )
                         })}
                     </Slider>

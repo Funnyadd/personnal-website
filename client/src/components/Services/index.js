@@ -1,14 +1,5 @@
 import React from "react"
-import {
-    ServiceContainer,
-    ServiceElement,
-    ServiceIcon,
-    ServiceHeading,
-    ServiceSeparator,
-    ServiceList,
-    ServiceListElement,
-    BackgroundContainer,
-} from "./ServicesSection"
+import { ServiceContainer, ServiceElement, ServiceIcon, ServiceHeading, ServiceSeparator, ServiceList, ServiceListElement, BackgroundContainer } from "./ServicesSection"
 import { Container, Row, Col } from "react-bootstrap"
 import AnimatedHeading from "../animated-heading"
 import { gql, useQuery } from "@apollo/client"
@@ -63,9 +54,7 @@ const Services = () => {
     const strapiMyService = data.myService.data.attributes
 
     return (
-        <BackgroundContainer
-            url={strapiMyService.background.data.attributes.url}
-        >
+        <BackgroundContainer url={strapiMyService.background.data.attributes.url}>
             <ServiceContainer>
                 <Container>
                     <AnimatedHeading text={strapiMyService.title} />
@@ -76,29 +65,14 @@ const Services = () => {
                                 <Col key={index} md={4}>
                                     <ServiceElement>
                                         <ServiceIcon>
-                                            <img
-                                                src={
-                                                    e.image.data.attributes.url
-                                                }
-                                                alt={e.title}
-                                            />
+                                            <img src={e.image.data.attributes.url} alt={e.title} />
                                         </ServiceIcon>
-                                        <ServiceHeading>
-                                            {e.title}
-                                        </ServiceHeading>
+                                        <ServiceHeading>{e.title}</ServiceHeading>
                                         <ServiceSeparator />
                                         <ServiceList>
-                                            {e.descriptionElements.map(
-                                                (d, i) => {
-                                                    return (
-                                                        <ServiceListElement
-                                                            key={i}
-                                                        >
-                                                            - {d}
-                                                        </ServiceListElement>
-                                                    )
-                                                }
-                                            )}
+                                            {e.descriptionElements.map((d, i) => {
+                                                return <ServiceListElement key={i}>- {d}</ServiceListElement>
+                                            })}
                                         </ServiceList>
                                     </ServiceElement>
                                 </Col>

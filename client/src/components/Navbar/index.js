@@ -1,15 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { FaBars, FaTimes } from "react-icons/fa"
-import {
-    NavBar,
-    Nav,
-    NavbarContainer,
-    NavLogo,
-    MobileIcon,
-    NavMenu,
-    NavItem,
-    NavInner,
-} from "./NavbarElements"
+import { NavBar, Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavInner } from "./NavbarElements"
 import { useQuery, gql } from "@apollo/client"
 
 const Navbar = () => {
@@ -71,28 +62,10 @@ const Navbar = () => {
 
     return (
         <>
-            <NavBar
-                className={
-                    scroll
-                        ? "navbar navbar-expand-sm sticky smoothTransition"
-                        : "navbar navbar-expand-sm smoothTransition"
-                }
-            >
+            <NavBar className={scroll ? "navbar navbar-expand-sm sticky smoothTransition" : "navbar navbar-expand-sm smoothTransition"}>
                 <NavbarContainer className="container">
                     <NavLogo href={"/#" + navLabels[0]}>
-                        <img
-                            className={
-                                scroll
-                                    ? "navSticky smoothTransition"
-                                    : "smoothTransition"
-                            }
-                            src={
-                                data.global.data.attributes.favicon.data
-                                    .attributes.url
-                            }
-                            id="navLogo"
-                            alt="navbar-logo"
-                        />
+                        <img className={scroll ? "navSticky smoothTransition" : "smoothTransition"} src={data.global.data.attributes.favicon.data.attributes.url} id="navLogo" alt="navbar-logo" />
                     </NavLogo>
                     <MobileIcon
                         onClick={handleClick}
@@ -105,15 +78,10 @@ const Navbar = () => {
                         aria-expanded="false"
                         aria-label="Toggle navigation"
                     >
-                        <span className="navbar-toggler-icon">
-                            {isMenuVisible ? <FaTimes /> : <FaBars />}
-                        </span>
+                        <span className="navbar-toggler-icon">{isMenuVisible ? <FaTimes /> : <FaBars />}</span>
                     </MobileIcon>
                     <Nav className="navbar navbar-expand-sm">
-                        <NavInner
-                            className="navbar-collapse collapse"
-                            id="myNavbar"
-                        >
+                        <NavInner className="navbar-collapse collapse" id="myNavbar">
                             <NavMenu className="navbar-nav">
                                 {navLabels.map((value, index) => {
                                     let link = `/#${value}`
