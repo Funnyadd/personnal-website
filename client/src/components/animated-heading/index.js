@@ -37,7 +37,7 @@ class Animated_Heading extends React.Component {
         }
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
+    shouldComponentUpdate() {
         if (this.state.animation_complete && !this.props.inViewport) {
             return false
         } else {

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import "./HeroCSS.scss"
 import {
     HeroContainer,
@@ -23,13 +23,25 @@ const Hero = (props) => {
     //     const lowerSideMin = 5;
     //     const lowerSideMax = 10;
 
+    useEffect(() => {
+        document.body.addEventListener('mousemove', (e) => {
+            var amountMovedX = (e.clientX * -.1 / 8);
+            var amountMovedY = (e.clientY * -.1 / 8);
+            var x = document.getElementsByClassName("parallax-hero-item");
+            var i;
+            for (i = 0; i < x.length; i++) {
+              x[i].style.transform='translate(' + amountMovedX + 'px,' + amountMovedY + 'px)'
+            }
+        });
+    })
+
     return (
         <>
             <HeroContainer>
                 <Background autoPlay muted loop id="backgroundVideo">
                     <source src={strapiHero.Background.data.attributes.url} type="video/mp4" />
                 </Background>
-                <HeadingBox>
+                <HeadingBox className="parallax-hero-item">
                     <SubHeading>{strapiHero.beforeName}</SubHeading>
                     <Heading>
                         <HeadingText className="glitch" data-text={strapiHero.name}>

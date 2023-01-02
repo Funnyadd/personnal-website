@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState }  from "react"
 import Seo from "../components/seo"
 import Layout from "../components/layout"
 import Hero from "../components/Hero"
@@ -9,11 +9,24 @@ import Services from "../components/Services"
 import Portfolio from "../components/Portfolio"
 import { useQuery } from "@apollo/client"
 import { QUERY } from "../data/data"
+import PageRevealer from '../components/page-revealer'
 
 const Index = () => {
-    const { loading, error, data } = useQuery(QUERY)
+    const { loading, error, data } = useQuery(QUERY)    
+    const [isFrontPage, setIsFrontPage] = useState(true);
 
-    if (loading) return <div>Loading content...</div>
+    setTimeout(() => {
+        setIsFrontPage(false)
+    }, 2500)
+
+    if (loading || isFrontPage) {
+        return (
+            <div>
+                <PageRevealer />
+            </div>
+        )
+    }
+
     if (error) {
         return (
             <>
@@ -34,7 +47,7 @@ const Index = () => {
     const contact = data.contacts.data
 
     return (
-        <Layout>
+        <Layout data={global}>
             <Seo seo={{
                     metaTitle: global.defaultSeo.metaTitle,
                     metaDescription: global.defaultSeo.metaDescription,

@@ -13,6 +13,7 @@ export const QUERY = gql`
     global {
         data {
             attributes {
+            defaultSeo {
                 metaTitle
                 metaDescription
                 }

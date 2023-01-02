@@ -1,5 +1,6 @@
 import React from "react"
 import handleViewport from "react-in-viewport"
+import 'animate.css/animate.css'
 
 class Animation_Container extends React.Component {
     constructor(props) {
@@ -26,7 +27,7 @@ class Animation_Container extends React.Component {
         }, delay)
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
+    shouldComponentUpdate() {
         if (this.state.classChanged) {
             return false
         } else {
