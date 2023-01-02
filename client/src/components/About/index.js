@@ -20,104 +20,22 @@ import {
 } from "./AboutSection"
 import Skill from "./Skill"
 import Timeline from "./Timeline"
-import { useQuery, gql } from "@apollo/client"
 
-const About = () => {
-    const [tab, setTab] = useState("Skills")
-    const { loading, error, data } = useQuery(gql`
-        {
-            about {
-                data {
-                    attributes {
-                        title
-                        description
-                        Photo {
-                            data {
-                                attributes {
-                                    url
-                                }
-                            }
-                        }
-                        skills {
-                            data {
-                                attributes {
-                                    title
-                                    percentage
-                                }
-                            }
-                        }
-                        educations {
-                            data {
-                                attributes {
-                                    endDate
-                                    description
-                                    institution
-                                    title
-                                    startDate
-                                }
-                            }
-                        }
-                        about_counters {
-                            data {
-                                attributes {
-                                    endDate
-                                    startDate
-                                    fullText
-                                    isAge
-                                }
-                            }
-                        }
-                        experiences {
-                            data {
-                                attributes {
-                                    endDate
-                                    description
-                                    institution
-                                    startDate
-                                    title
-                                }
-                            }
-                        }
-                        languages {
-                            data {
-                                attributes {
-                                    percentage
-                                    title
-                                }
-                            }
-                        }
-                        navigation
-                    }
-                }
-            }
-        }
-    `)
+const About = (props) => {
+    const strapiAbout = props.data
 
-    if (loading) return <div>Loading content...</div>
-    if (error) {
-        return (
-            <>
-                <div>Something broke...</div>
-                {error.clientErrors.map((err, index) => (
-                    <p key={index}>{err.message}</p>
-                ))}
-            </>
-        )
-    }
-
-    const strapiAbout = data.about.data.attributes
+    const [tab, setTab] = useState("")
+    if(tab === "") setTab(strapiAbout.navigation[0])
 
     const numberOfYear = (startDateString, endDateString) => {
         var endDate = new Date()
-        if (endDateString != null) {
-            endDate = new Date(endDateString)
-        }
+        if (endDateString != null)  endDate = new Date(endDateString)
+
         var startDate = new Date(startDateString)
         var year = endDate.getFullYear() - startDate.getFullYear()
-        var m = endDate.getMonth() - startDate.getMonth()
-        if (m < 0 || (m === 0 && endDate.getDate() < startDate.getDate())) {
-            year--
-        }
+        var month = endDate.getMonth() - startDate.getMonth()
+
+        if (month < 0 || (month === 0 && endDate.getDate() < startDate.getDate())) year--
         return year
     }
 
@@ -153,10 +71,9 @@ const About = () => {
                             <TabContainer>
                                 <TabSelectors>
                                     {strapiAbout.navigation.map((e, index) => {
-                                        var value = strapiAbout.navigation[index]
                                         return (
-                                            <TabSelector key={index} className={tab === value ? "active" : ""} onClick={() => setTab(value)}>
-                                                {value}
+                                            <TabSelector key={index} className={tab === e ? "active" : ""} onClick={() => setTab(e)}>
+                                                {e}
                                             </TabSelector>
                                         )
                                     })}

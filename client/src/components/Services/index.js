@@ -2,56 +2,9 @@ import React from "react"
 import { ServiceContainer, ServiceElement, ServiceIcon, ServiceHeading, ServiceSeparator, ServiceList, ServiceListElement, BackgroundContainer } from "./ServicesSection"
 import { Container, Row, Col } from "react-bootstrap"
 import AnimatedHeading from "../animated-heading"
-import { gql, useQuery } from "@apollo/client"
 
-const Services = () => {
-    const { loading, error, data } = useQuery(gql`
-        {
-            myService {
-                data {
-                    attributes {
-                        title
-                        background {
-                            data {
-                                attributes {
-                                    url
-                                }
-                            }
-                        }
-                        services {
-                            data {
-                                attributes {
-                                    title
-                                    descriptionElements
-                                    image {
-                                        data {
-                                            attributes {
-                                                url
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    `)
-
-    if (loading) return <div>Loading content...</div>
-    if (error) {
-        return (
-            <>
-                <div>Something broke...</div>
-                {error.clientErrors.map((err, index) => (
-                    <p key={index}>{err.message}</p>
-                ))}
-            </>
-        )
-    }
-
-    const strapiMyService = data.myService.data.attributes
+const Services = (props) => {
+    const strapiMyService = props.data
 
     return (
         <BackgroundContainer url={strapiMyService.background.data.attributes.url}>

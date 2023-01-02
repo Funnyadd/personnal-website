@@ -7,50 +7,9 @@ import "slick-carousel/slick/slick-theme.css"
 import Slider from "react-slick"
 import PortfolioItem from "./parts/PortfolioItem.js"
 import { PortfolioContainer } from "./PortfolioSection"
-import { gql, useQuery } from "@apollo/client"
 
-const Portfolio = () => {
-    const { loading, error, data } = useQuery(gql`
-        {
-            myProject {
-                data {
-                    attributes {
-                        title
-                        projects {
-                            data {
-                                attributes {
-                                    title
-                                    category
-                                    link
-                                    source {
-                                        data {
-                                            attributes {
-                                                url
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    `)
-
-    if (loading) return <div>Loading content...</div>
-    if (error) {
-        return (
-            <>
-                <div>Something broke...</div>
-                {error.clientErrors.map((err, index) => (
-                    <p key={index}>{err.message}</p>
-                ))}
-            </>
-        )
-    }
-
-    const strapiMyProject = data.myProject.data.attributes
+const Portfolio = (props) => {
+    const strapiMyProject = props.data
 
     const settings = {
         dots: true,

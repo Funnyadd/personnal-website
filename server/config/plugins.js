@@ -21,7 +21,7 @@ module.exports = ({ env }) => ({
         depthLimit: 10,
         amountLimit: 100,
         apolloServer: {
-          tracing: false,
+          tracing: true,
           introspection: true,
         },
       },

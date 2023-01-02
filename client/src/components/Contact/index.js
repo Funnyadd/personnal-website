@@ -1,7 +1,6 @@
 import React from "react"
 // import ContactForm from '../ContactForm'
 import { AboutContainer } from "../About/AboutSection"
-import { useQuery, gql } from "@apollo/client"
 import {
     // FormContainer, Map, Gradient, ContactCol, FormRow,
     IconContainer,
@@ -15,35 +14,8 @@ import {
     Icon,
 } from "./ContactSection"
 
-const Contact = () => {
-    const { loading, error, data } = useQuery(gql`
-        {
-            contacts {
-                data {
-                    attributes {
-                        title
-                        value
-                        textValue
-                        source
-                    }
-                }
-            }
-        }
-    `)
-
-    if (loading) return <div>Loading content...</div>
-    if (error) {
-        return (
-            <>
-                <div>Something broke...</div>
-                {error.clientErrors.map((err, index) => (
-                    <p key={index}>{err.message}</p>
-                ))}
-            </>
-        )
-    }
-
-    const strapiMyContact = data.contacts.data
+const Contact = (props) => {
+    const strapiMyContact = props.data
 
     return (
         <>

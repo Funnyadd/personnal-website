@@ -12,55 +12,16 @@ import {
     //FloatingIcon
 } from "./HeroSection"
 import Typewriter from "typewriter-effect"
-import { useQuery, gql } from "@apollo/client"
 // import { FaDocker, FaJava, FaNodeJs, FaReact } from 'react-icons/fa'
 // import { SiCsharp, SiGatsby, SiJavascript } from 'react-icons/si'
 // import { DiMysql, DiPython } from 'react-icons/di'
 
-const Hero = () => {
+const Hero = (props) => {
+    const strapiHero = props.data
     //     const upperSideMin = 80;
     //     const upperSideMax = 90;
     //     const lowerSideMin = 5;
     //     const lowerSideMax = 10;
-
-    const { loading, error, data } = useQuery(gql`
-        {
-            hero {
-                data {
-                    attributes {
-                        BeforeName
-                        name
-                        quotes
-                        Download {
-                            title
-                            url
-                        }
-                        Background {
-                            data {
-                                attributes {
-                                    url
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    `)
-
-    if (loading) return <div>Loading content...</div>
-    if (error) {
-        return (
-            <>
-                <div>Something broke...</div>
-                {error.clientErrors.map((err, index) => (
-                    <p key={index}>{err.message}</p>
-                ))}
-            </>
-        )
-    }
-
-    const strapiHero = data.hero.data.attributes
 
     return (
         <>
