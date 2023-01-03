@@ -4,15 +4,25 @@
   "info": {
     "singularName": "my-project",
     "pluralName": "my-projects",
-    "displayName": "my project"
+    "displayName": "my project",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "projects": {
       "type": "relation",

@@ -1,18 +1,9 @@
 import React, { useState, useEffect } from "react"
 import { FaBars, FaTimes } from "react-icons/fa"
-import {
-    NavBar,
-    Nav,
-    NavbarContainer,
-    NavLogo,
-    MobileIcon,
-    NavMenu,
-    NavItem,
-    NavInner,
-} from "./NavbarElements"
-import { useQuery, gql } from "@apollo/client"
+import { NavBar, Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavInner } from "./NavbarElements"
 
-const Navbar = () => {
+const Navbar = (props) => {
+
     const [isMenuVisible, setIsMenuVisible] = useState(false)
     const [scroll, setScroll] = useState(false)
 
@@ -22,75 +13,19 @@ const Navbar = () => {
         })
     }, [])
 
-    const { loading, error, data } = useQuery(gql`
-        {
-            navs {
-                data {
-                    attributes {
-                        navLinks
-                    }
-                }
-            }
-            global {
-                data {
-                    attributes {
-                        favicon {
-                            data {
-                                attributes {
-                                    url
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    `)
-
-    if (loading) return <div>Loading content...</div>
-    if (error) {
-        return (
-            <>
-                <div>Something broke...</div>
-                {error.clientErrors.map((err, index) => (
-                    <p key={index}>{err.message}</p>
-                ))}
-            </>
-        )
-    }
-
-    const navLabels = []
-
-    data.navs.data.forEach(element => {
-        navLabels.push(element.attributes.navLinks)
-    })
-
     const handleClick = () => {
         setIsMenuVisible(!isMenuVisible)
     }
 
     return (
         <>
-            <NavBar
-                className={
-                    scroll
-                        ? "navbar navbar-expand-sm sticky smoothTransition"
-                        : "navbar navbar-expand-sm smoothTransition"
-                }
-            >
+            <NavBar className={scroll ? "navbar navbar-expand-sm sticky smoothTransition" : "navbar navbar-expand-sm smoothTransition"}>
                 <NavbarContainer className="container">
-                    <NavLogo href={"/#" + navLabels[0]}>
-                        <img
-                            className={
-                                scroll
-                                    ? "navSticky smoothTransition"
-                                    : "smoothTransition"
-                            }
-                            src={
-                                data.global.data.attributes.favicon.data
-                                    .attributes.url
-                            }
-                            id="navLogo"
+                    <NavLogo href={"/#" + props.navLabels[0]}>
+                        <img 
+                            className={scroll ? "navSticky smoothTransition" : "smoothTransition"} 
+                            src={props.favicon} 
+                            id="navLogo" 
                             alt="navbar-logo"
                         />
                     </NavLogo>
@@ -105,18 +40,15 @@ const Navbar = () => {
                         aria-expanded="false"
                         aria-label="Toggle navigation"
                     >
-                        <span className="navbar-toggler-icon">
-                            {isMenuVisible ? <FaTimes /> : <FaBars />}
-                        </span>
+                        <span className="navbar-toggler-icon">{isMenuVisible ? <FaTimes /> : <FaBars />}</span>
                     </MobileIcon>
                     <Nav className="navbar navbar-expand-sm">
-                        <NavInner
-                            className="navbar-collapse collapse"
-                            id="myNavbar"
-                        >
+                        <NavInner className="navbar-collapse collapse" id="myNavbar">
                             <NavMenu className="navbar-nav">
-                                {navLabels.map((value, index) => {
+                                {props.navLabels.map((value, index) => {
                                     let link = `/#${value}`
+                                    value = value.replace(" ", "\u00A0")
+
                                     return (
                                         <NavItem key={index} to={link}>
                                             {value}

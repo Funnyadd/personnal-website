@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useCallback } from "react"
 import {
     AboutContainer,
     LeftColumn,
@@ -16,108 +16,30 @@ import {
     TabSelectors,
     Tabs,
     Tab,
-    RevealContainer,
 } from "./AboutSection"
 import Skill from "./Skill"
 import Timeline from "./Timeline"
-import { useQuery, gql } from "@apollo/client"
+import Particles from "react-tsparticles";
+import { loadTrianglesPreset } from "tsparticles-preset-triangles";
+import AnimationContainer from "../animation-container";
+import CountUp from 'react-countup'
+import RevealContent from "../reveal-content";
 
-const About = () => {
-    const [tab, setTab] = useState("Skills")
-    const { loading, error, data } = useQuery(gql`
-        {
-            about {
-                data {
-                    attributes {
-                        title
-                        description
-                        Photo {
-                            data {
-                                attributes {
-                                    url
-                                }
-                            }
-                        }
-                        skills {
-                            data {
-                                attributes {
-                                    title
-                                    percentage
-                                }
-                            }
-                        }
-                        educations {
-                            data {
-                                attributes {
-                                    endDate
-                                    description
-                                    institution
-                                    title
-                                    startDate
-                                }
-                            }
-                        }
-                        about_counters {
-                            data {
-                                attributes {
-                                    endDate
-                                    startDate
-                                    fullText
-                                    isAge
-                                }
-                            }
-                        }
-                        experiences {
-                            data {
-                                attributes {
-                                    endDate
-                                    description
-                                    institution
-                                    startDate
-                                    title
-                                }
-                            }
-                        }
-                        languages {
-                            data {
-                                attributes {
-                                    percentage
-                                    title
-                                }
-                            }
-                        }
-                        navigation
-                    }
-                }
-            }
-        }
-    `)
+const About = (props) => {
+    const strapiAbout = props.data
 
-    if (loading) return <div>Loading content...</div>
-    if (error) {
-        return (
-            <>
-                <div>Something broke...</div>
-                {error.clientErrors.map((err, index) => (
-                    <p key={index}>{err.message}</p>
-                ))}
-            </>
-        )
-    }
-
-    const strapiAbout = data.about.data.attributes
+    const [tab, setTab] = useState("")
+    if(tab === "" || !strapiAbout.navigation.includes(tab)) setTab(strapiAbout.navigation[0])
 
     const numberOfYear = (startDateString, endDateString) => {
         var endDate = new Date()
-        if (endDateString != null) {
-            endDate = new Date(endDateString)
-        }
+        if (endDateString != null)  endDate = new Date(endDateString)
+
         var startDate = new Date(startDateString)
         var year = endDate.getFullYear() - startDate.getFullYear()
-        var m = endDate.getMonth() - startDate.getMonth()
-        if (m < 0 || (m === 0 && endDate.getDate() < startDate.getDate())) {
-            year--
-        }
+        var month = endDate.getMonth() - startDate.getMonth()
+
+        if (month < 0 || (month === 0 && endDate.getDate() < startDate.getDate())) year--
         return year
     }
 
@@ -130,26 +52,22 @@ const About = () => {
         return false
     }
 
+    const particlesInit = useCallback(async engine => {
+        await loadTrianglesPreset(engine)
+    }, []);
+
     return (
         <>
             <AboutContainer className="container">
                 <div className="row">
                     <LeftColumn className="col-md-6">
-                        <Content>
+                        <AnimationContainer animation="fadeIn" duration={2}>
                             <ImageContainer>
-                                <div>
-                                    <RevealContainer className="animate">
-                                        <Image
-                                            src={
-                                                strapiAbout.Photo.data
-                                                    .attributes.url
-                                            }
-                                            alt="Profile picture"
-                                        />
-                                    </RevealContainer>
-                                </div>
+                                    <RevealContent delay={500}>
+                                        <Image src={strapiAbout.Photo.data.attributes.url} alt="Profile picture" />
+                                    </RevealContent>
                             </ImageContainer>
-                        </Content>
+                        </AnimationContainer>
                     </LeftColumn>
                     <div className="col-md-6">
                         <Content>
@@ -159,140 +77,54 @@ const About = () => {
                             <TabContainer>
                                 <TabSelectors>
                                     {strapiAbout.navigation.map((e, index) => {
-                                        var value =
-                                            strapiAbout.navigation[index]
                                         return (
-                                            <TabSelector
-                                                key={index}
-                                                className={
-                                                    tab === value
-                                                        ? "active"
-                                                        : ""
-                                                }
-                                                onClick={() => setTab(value)}
-                                            >
-                                                {value}
+                                            <TabSelector key={index} className={tab === e ? "active" : ""} onClick={() => setTab(e)}>
+                                                {e}
                                             </TabSelector>
                                         )
                                     })}
                                 </TabSelectors>
                                 <Tabs>
-                                    <Tab
-                                        style={{
-                                            display:
-                                                tab ===
-                                                strapiAbout.navigation[0]
-                                                    ? "block"
-                                                    : "none",
-                                        }}
-                                    >
-                                        {strapiAbout.skills.data.map(
-                                            (s, index) => {
-                                                return (
-                                                    <Skill
-                                                        key={index}
-                                                        header={
-                                                            s.attributes.title
-                                                        }
-                                                        percentage={
-                                                            s.attributes
-                                                                .percentage
-                                                        }
-                                                    ></Skill>
-                                                )
-                                            }
-                                        )}
+                                    <Tab style={{ display: tab === strapiAbout.navigation[0] ? "block" : "none" }}>
+                                        {strapiAbout.skills.data.map((s, index) => {
+                                            s = s.attributes
+                                            return <Skill key={index} header={s.title} percentage={s.percentage}></Skill>
+                                        })}
                                     </Tab>
-                                    <Tab
-                                        style={{
-                                            display:
-                                                tab ===
-                                                strapiAbout.navigation[3]
-                                                    ? "block"
-                                                    : "none",
-                                        }}
-                                    >
-                                        {strapiAbout.languages.data.map(
-                                            (l, index) => {
-                                                return (
-                                                    <Skill
-                                                        key={index}
-                                                        header={
-                                                            l.attributes.title
-                                                        }
-                                                        percentage={
-                                                            l.attributes
-                                                                .percentage
-                                                        }
-                                                    ></Skill>
-                                                )
-                                            }
-                                        )}
+                                    <Tab style={{ display: tab === strapiAbout.navigation[3] ? "block" : "none" }}>
+                                        {strapiAbout.languages.data.map((l, index) => {
+                                            l = l.attributes
+                                            return <Skill key={index} header={l.title} percentage={l.percentage}></Skill>
+                                        })}
                                     </Tab>
                                 </Tabs>
                                 <Tabs>
-                                    <Tab
-                                        style={{
-                                            display:
-                                                tab ===
-                                                strapiAbout.navigation[1]
-                                                    ? "block"
-                                                    : "none",
-                                        }}
-                                    >
+                                    <Tab style={{ display: tab === strapiAbout.navigation[1] ? "block" : "none" }}>
                                         <Timeline
-                                            data={strapiAbout.experiences.data.map(
-                                                e => {
-                                                    return {
-                                                        title: e.attributes
-                                                            .title,
-                                                        institution:
-                                                            e.attributes
-                                                                .instittution,
-                                                        description:
-                                                            e.attributes
-                                                                .description,
-                                                        startDate:
-                                                            e.attributes
-                                                                .startDate,
-                                                        endDate:
-                                                            e.attributes
-                                                                .endDate,
-                                                    }
+                                            data={strapiAbout.experiences.data.map(e => {
+                                                e = e.attributes
+                                                return {
+                                                    title: e.title,
+                                                    institution: e.instittution,
+                                                    description: e.description,
+                                                    startDate: e.startDate,
+                                                    endDate: e.endDate,
                                                 }
-                                            )}
+                                            })}
                                         />
                                     </Tab>
-                                    <Tab
-                                        style={{
-                                            display:
-                                                tab ===
-                                                strapiAbout.navigation[2]
-                                                    ? "block"
-                                                    : "none",
-                                        }}
-                                    >
+                                    <Tab style={{ display: tab === strapiAbout.navigation[2] ? "block" : "none" }}>
                                         <Timeline
-                                            data={strapiAbout.educations.data.map(
-                                                e => {
-                                                    return {
-                                                        title: e.attributes
-                                                            .title,
-                                                        institution:
-                                                            e.attributes
-                                                                .instittution,
-                                                        description:
-                                                            e.attributes
-                                                                .description,
-                                                        startDate:
-                                                            e.attributes
-                                                                .startDate,
-                                                        endDate:
-                                                            e.attributes
-                                                                .endDate,
-                                                    }
+                                            data={strapiAbout.educations.data.map(e => {
+                                                e = e.attributes
+                                                return {
+                                                    title: e.title,
+                                                    institution: e.instittution,
+                                                    description: e.description,
+                                                    startDate: e.startDate,
+                                                    endDate: e.endDate,
                                                 }
-                                            )}
+                                            })}
                                         />
                                     </Tab>
                                 </Tabs>
@@ -302,40 +134,139 @@ const About = () => {
                 </div>
             </AboutContainer>
             <CounterRow>
+                <Particles 
+                    id="tsparticles"
+                    init={particlesInit}
+                    options={{
+                        fullScreen: { enable: false },
+                        preset: "triangles",
+                        particles: {
+                            number: {
+                                value: 100,
+                                density: {
+                                enable: true,
+                                value_area: 2000
+                                }
+                            },
+                            color: {
+                                value: ["#03afaf","#00e5ff"]
+                            },
+                            shape: {
+                                type: "circle",
+                                stroke: {
+                                width: 0,
+                                color: "#fff"
+                                }
+                            },
+                            opacity: {
+                                value: 0.5,
+                                random: false,
+                                anim: {
+                                enable: true,
+                                speed: 0.5,
+                                opacity_min: 0.1,
+                                sync: false
+                                }
+                            },
+                            size: {
+                                value: 8.017060304327615,
+                                random: true,
+                                anim: {
+                                    enable: true,
+                                    speed: 12.181158184520175,
+                                    size_min: 0.1,
+                                    sync: true
+                                }
+                            },
+                            line_linked: {
+                                enable: true,
+                                distance: 150,
+                                color: "#555",
+                                opacity: 0.5,
+                                width: 1
+                            },
+                            move: {
+                                enable: true,
+                                speed: 1,
+                                direction: "none",
+                                random: false,
+                                straight: false,
+                                out_mode: "bounce",
+                                bounce: false,
+                                attract: {
+                                    enable: false,
+                                    rotateX: 600,
+                                    rotateY: 1200
+                                }
+                            }
+                        },
+                        interactivity: {
+                            detect_on: "canvas",
+                            events: {
+                                onhover: {
+                                    enable: false,
+                                    mode: "repulse"
+                                },
+                                onclick: {
+                                    enable: false,
+                                    mode: "push"
+                                },
+                                resize: true
+                            },
+                            modes: {
+                                grab: {
+                                    distance: 400,
+                                    line_linked: {
+                                        opacity: 1
+                                    }
+                                },
+                                bubble: {
+                                    distance: 400,
+                                    size: 40,
+                                    duration: 2,
+                                    opacity: 8,
+                                    speed: 3
+                                },
+                                    repulse: {
+                                    distance: 200,
+                                    duration: 0.4
+                                },
+                                push: {
+                                    particles_nb: 4
+                                },
+                                remove: {
+                                    particles_nb: 2
+                                }
+                            },
+                            detectRetina: true,
+                        }
+                    }}
+                />
                 <div className="container">
                     <div className="row">
                         {strapiAbout.about_counters.data.map((c, index) => {
+                            c = c.attributes
                             return (
                                 <div key={index} className="col-md-3">
-                                    <CounterComponent>
-                                        <CounterContainer>
-                                            <div className="valueContainer">
-                                                <span className="value">
-                                                    {numberOfYear(
-                                                        c.attributes.startDate,
-                                                        c.attributes.endDate
-                                                    )}
-                                                </span>
-                                            </div>
-                                            <div className="symbolContainer">
-                                                {checkIf6Months(
-                                                    c.attributes.startDate,
-                                                    c.attributes.isAge
-                                                ) ? (
-                                                    <span className="symbol">
-                                                        +
-                                                    </span>
-                                                ) : (
-                                                    <></>
-                                                )}
-                                            </div>
-                                            <div className="textContainer">
-                                                <span className="text">
-                                                    {c.attributes.fullText}
-                                                </span>
-                                            </div>
-                                        </CounterContainer>
-                                    </CounterComponent>
+                                    <AnimationContainer animation="fadeIn" delay={1000} duration={3}>
+                                        <CounterComponent>
+                                            <CounterContainer>
+                                                <div className="valueContainer">
+                                                <CountUp className="value" start={0} delay={1} end={numberOfYear(c.startDate, c.endDate)} duration={5}/>
+                                                </div>
+                                                <div className="symbolContainer">
+                                                    {checkIf6Months(c.startDate, c.isAge) 
+                                                    ? 
+                                                    <span className="symbol">+</span> 
+                                                    : 
+                                                    <></>}
+                                                </div>
+                                                <div className="textContainer">
+                                                    <span className="text">{c.fullText}</span>
+                                                </div>
+                                            </CounterContainer>
+                                        </CounterComponent>
+                                    </AnimationContainer>
                                 </div>
                             )
                         })}

@@ -9,7 +9,7 @@ export const BackgroundContainer = styled.div`
 `
 
 export const ServiceContainer = styled.div`
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 100px 0;
 `
 
@@ -61,6 +61,7 @@ export const ServiceElement = styled.div`
 
     &:hover::after {
         opacity: 1;
+        background-color: rgba(0, 0, 0);
     }
 `
 export const ServiceHeading = styled.h4`
@@ -85,12 +86,7 @@ export const ServiceIcon = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(
-        120deg,
-        rgb(12, 148, 40),
-        rgb(63, 142, 222),
-        rgb(35, 98, 234)
-    );
+    background: linear-gradient(120deg, rgb(12, 148, 40), rgb(63, 142, 222), rgb(35, 98, 234));
     background-size: 300% 300%;
     animation: ${gradientAnimation} 5s ease-in-out infinite;
 

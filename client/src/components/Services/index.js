@@ -1,71 +1,16 @@
 import React from "react"
-import {
-    ServiceContainer,
-    ServiceElement,
-    ServiceIcon,
-    ServiceHeading,
-    ServiceSeparator,
-    ServiceList,
-    ServiceListElement,
-    BackgroundContainer,
-} from "./ServicesSection"
+import { ServiceContainer, ServiceElement, ServiceIcon, ServiceHeading, ServiceSeparator, ServiceList, ServiceListElement, BackgroundContainer } from "./ServicesSection"
 import { Container, Row, Col } from "react-bootstrap"
 import AnimatedHeading from "../animated-heading"
-import { gql, useQuery } from "@apollo/client"
+import AnimationContainer from "../animation-container"
 
-const Services = () => {
-    const { loading, error, data } = useQuery(gql`
-        {
-            myService {
-                data {
-                    attributes {
-                        title
-                        background {
-                            data {
-                                attributes {
-                                    url
-                                }
-                            }
-                        }
-                        services {
-                            data {
-                                attributes {
-                                    title
-                                    descriptionElements
-                                    image {
-                                        data {
-                                            attributes {
-                                                url
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    `)
+const Services = (props) => {
+    const strapiMyService = props.data
 
-    if (loading) return <div>Loading content...</div>
-    if (error) {
-        return (
-            <>
-                <div>Something broke...</div>
-                {error.clientErrors.map((err, index) => (
-                    <p key={index}>{err.message}</p>
-                ))}
-            </>
-        )
-    }
-
-    const strapiMyService = data.myService.data.attributes
+    const animations = ["fadeInLeft", "fadeInUp", "fadeInRight"]
 
     return (
-        <BackgroundContainer
-            url={strapiMyService.background.data.attributes.url}
-        >
+        <BackgroundContainer url={strapiMyService.background.data.attributes.url}>
             <ServiceContainer>
                 <Container>
                     <AnimatedHeading text={strapiMyService.title} />
@@ -74,33 +19,20 @@ const Services = () => {
                             e = e.attributes
                             return (
                                 <Col key={index} md={4}>
-                                    <ServiceElement>
-                                        <ServiceIcon>
-                                            <img
-                                                src={
-                                                    e.image.data.attributes.url
-                                                }
-                                                alt={e.title}
-                                            />
-                                        </ServiceIcon>
-                                        <ServiceHeading>
-                                            {e.title}
-                                        </ServiceHeading>
-                                        <ServiceSeparator />
-                                        <ServiceList>
-                                            {e.descriptionElements.map(
-                                                (d, i) => {
-                                                    return (
-                                                        <ServiceListElement
-                                                            key={i}
-                                                        >
-                                                            - {d}
-                                                        </ServiceListElement>
-                                                    )
-                                                }
-                                            )}
-                                        </ServiceList>
-                                    </ServiceElement>
+                                    <AnimationContainer animation={animations[index]} delay={(index + 1) * 200} duration={2}>
+                                        <ServiceElement>
+                                            <ServiceIcon>
+                                                <img src={e.image.data.attributes.url} alt={e.title} />
+                                            </ServiceIcon>
+                                            <ServiceHeading>{e.title}</ServiceHeading>
+                                            <ServiceSeparator />
+                                            <ServiceList>
+                                                {e.descriptionElements.map((d, i) => {
+                                                    return <ServiceListElement key={i}>- {d}</ServiceListElement>
+                                                })}
+                                            </ServiceList>
+                                        </ServiceElement>
+                                    </AnimationContainer>
                                 </Col>
                             )
                         })}

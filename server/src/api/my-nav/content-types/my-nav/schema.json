@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "my_navs",
+  "info": {
+    "singularName": "my-nav",
+    "pluralName": "my-navs",
+    "displayName": "My nav",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "navs": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "json"
+    }
+  }
+}

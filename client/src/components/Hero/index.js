@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import "./HeroCSS.scss"
 import {
     HeroContainer,
@@ -12,72 +12,39 @@ import {
     //FloatingIcon
 } from "./HeroSection"
 import Typewriter from "typewriter-effect"
-import { useQuery, gql } from "@apollo/client"
 // import { FaDocker, FaJava, FaNodeJs, FaReact } from 'react-icons/fa'
 // import { SiCsharp, SiGatsby, SiJavascript } from 'react-icons/si'
 // import { DiMysql, DiPython } from 'react-icons/di'
 
-const Hero = () => {
+const Hero = (props) => {
+    const strapiHero = props.data
     //     const upperSideMin = 80;
     //     const upperSideMax = 90;
     //     const lowerSideMin = 5;
     //     const lowerSideMax = 10;
 
-    const { loading, error, data } = useQuery(gql`
-        {
-            hero {
-                data {
-                    attributes {
-                        BeforeName
-                        name
-                        quotes
-                        Download {
-                            title
-                            url
-                        }
-                        Background {
-                            data {
-                                attributes {
-                                    url
-                                }
-                            }
-                        }
-                    }
-                }
+    useEffect(() => {
+        document.body.addEventListener('mousemove', (e) => {
+            var amountMovedX = (e.clientX * -.1 / 8);
+            var amountMovedY = (e.clientY * -.1 / 8);
+            var x = document.getElementsByClassName("parallax-hero-item");
+            var i;
+            for (i = 0; i < x.length; i++) {
+              x[i].style.transform='translate(' + amountMovedX + 'px,' + amountMovedY + 'px)'
             }
-        }
-    `)
-
-    if (loading) return <div>Loading content...</div>
-    if (error) {
-        return (
-            <>
-                <div>Something broke...</div>
-                {error.clientErrors.map((err, index) => (
-                    <p key={index}>{err.message}</p>
-                ))}
-            </>
-        )
-    }
-
-    const strapiHero = data.hero.data.attributes
+        });
+    })
 
     return (
         <>
             <HeroContainer>
                 <Background autoPlay muted loop id="backgroundVideo">
-                    <source
-                        src={strapiHero.Background.data.attributes.url}
-                        type="video/mp4"
-                    />
+                    <source src={strapiHero.Background.data.attributes.url} type="video/mp4" />
                 </Background>
-                <HeadingBox>
+                <HeadingBox className="parallax-hero-item">
                     <SubHeading>{strapiHero.beforeName}</SubHeading>
                     <Heading>
-                        <HeadingText
-                            className="glitch"
-                            data-text={strapiHero.name}
-                        >
+                        <HeadingText className="glitch" data-text={strapiHero.name}>
                             {strapiHero.name}
                         </HeadingText>
                     </Heading>
@@ -90,9 +57,7 @@ const Hero = () => {
                             }}
                         />
                     </Type>
-                    <ResumeLink href={strapiHero.Download.url}>
-                        {strapiHero.Download.title}
-                    </ResumeLink>
+                    <ResumeLink href={strapiHero.Download.url}>{strapiHero.Download.title}</ResumeLink>
                 </HeadingBox>
                 {/* <FloatingIcon bottom={Math.random() * (upperSideMax - upperSideMin) + upperSideMin} left={10} className='move-up'><FaReact size="auto" fill="#61DBFB" /></FloatingIcon>
             <FloatingIcon bottom={Math.random() * (lowerSideMax - lowerSideMin) + lowerSideMin} left={20} className='move-up'><FaJava size="auto" fill="#f89820" /></FloatingIcon>

@@ -1,10 +1,5 @@
 import React from "react"
-import {
-    ApolloProvider,
-    ApolloClient,
-    InMemoryCache,
-    HttpLink,
-} from "@apollo/client"
+import { ApolloProvider, ApolloClient, InMemoryCache, HttpLink } from "@apollo/client"
 import fetch from "isomorphic-fetch"
 
 const client = new ApolloClient({
@@ -15,6 +10,4 @@ const client = new ApolloClient({
     cache: new InMemoryCache(),
 })
 
-export const wrapRootElement = ({ element }) => (
-    <ApolloProvider client={client}>{element}</ApolloProvider>
-)
+export const wrapRootElement = ({ element }) => <ApolloProvider client={client}>{element}</ApolloProvider>

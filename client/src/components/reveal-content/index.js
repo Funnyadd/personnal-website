@@ -20,10 +20,7 @@ class RC extends React.Component {
         }
     }
     componentDidUpdate() {
-        if (
-            this.state.inViewport !== this.props.inViewport &&
-            !this.state.animation_complete
-        ) {
+        if (this.state.inViewport !== this.props.inViewport && !this.state.animation_complete) {
             this.setState({ inViewport: this.props.inViewport })
             let { delay } = this.props
             if (!delay) {
@@ -44,10 +41,7 @@ class RC extends React.Component {
             }, delay)
         }
 
-        if (
-            this.state.inViewport !== this.props.inViewport &&
-            this.state.running
-        ) {
+        if (this.state.inViewport !== this.props.inViewport && this.state.running) {
             this.setState({
                 animation_complete: true,
                 animate: false,
@@ -126,7 +120,7 @@ class RC extends React.Component {
             }
 
             &:before {
-                background-color: rgb(12, 148, 0);
+                background-color: #00e5ff;
             }
 
             &:after {
@@ -150,17 +144,7 @@ class RC extends React.Component {
 
         return (
             <div className={this.props.className}>
-                <RevealContainer
-                    className={
-                        !this.state.animation_complete
-                            ? this.state.animate && this.state.running
-                                ? "animate"
-                                : ""
-                            : "animation-complete"
-                    }
-                >
-                    {children}
-                </RevealContainer>
+                <RevealContainer className={!this.state.animation_complete ? (this.state.animate && this.state.running ? "animate" : "") : "animation-complete"}>{children}</RevealContainer>
             </div>
         )
     }

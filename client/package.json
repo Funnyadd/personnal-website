@@ -10,7 +10,10 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.17",
     "@popperjs/core": "^2.11.2",
+    "animate.css": "^4.1.1",
+    "animation.css": "^0.1.0",
     "babel-plugin-styled-components": "^2.0.7",
+    "baffle": "^0.3.6",
     "bootstrap": "^5.1.3",
     "dotenv": "^16.0.3",
     "gatsby": "^4.24.0",
@@ -24,21 +27,23 @@
     "jquery": "^3.6.0",
     "prop-types": "^15.8.0",
     "react": "^17.0.1",
-    "react-bootstrap": "^2.1.2",
+    "react-bootstrap": "^2.7.0",
+    "react-countup": "^6.4.0",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1",
-    "react-in-viewport": "^1.0.0-alpha.20",
+    "react-in-viewport": "^1.0.0-alpha.28",
     "react-is": "^17.0.2",
     "react-parallax-tilt": "^1.6.0",
     "react-slick": "^0.28.1",
+    "react-tsparticles": "^2.7.1",
     "sass-loader": "^12.4.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.6",
+    "tsparticles-preset-triangles": "^2.7.1",
     "typewriter-effect": "^2.18.2"
   },
   "devDependencies": {
-    "prettier": "^2.5.1",
     "sass": "^1.49.0"
   },
   "keywords": [
@@ -51,11 +56,9 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "gatsby develop",
+    "start": "gatsby start",
     "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "clean": "gatsby clean"
   },
   "repository": {
     "type": "git",

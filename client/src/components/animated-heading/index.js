@@ -14,10 +14,7 @@ class Animated_Heading extends React.Component {
     }
 
     componentDidUpdate() {
-        if (
-            this.state.inViewport !== this.props.inViewport &&
-            !this.state.force
-        ) {
+        if (this.state.inViewport !== this.props.inViewport && !this.state.force) {
             if (!this.state.animation_complete) {
                 this.setState({
                     inViewport: this.props.inViewport,
@@ -35,15 +32,12 @@ class Animated_Heading extends React.Component {
                 }, delay * 200 + 500)
             }
         }
-        if (
-            this.state.inViewport !== this.props.inViewport &&
-            this.state.force
-        ) {
+        if (this.state.inViewport !== this.props.inViewport && this.state.force) {
             this.setState({ animation_complete: true, force: false })
         }
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
+    shouldComponentUpdate() {
         if (this.state.animation_complete && !this.props.inViewport) {
             return false
         } else {
@@ -53,10 +47,7 @@ class Animated_Heading extends React.Component {
 
     render() {
         return (
-            <h2
-                style={{ textAlign: "center", marginBottom: "20px" }}
-                className="heading"
-            >
+            <h2 style={{ textAlign: "center", marginBottom: "20px" }} className="heading">
                 {this.animate()}
             </h2>
         )
@@ -79,9 +70,7 @@ class Animated_Heading extends React.Component {
             transition: 1s;
             opacity: 0;
             font-size: ${this.props.fontSize ? this.props.fontSize : "100px"};
-            line-height: ${this.props.lineHeight
-                ? this.props.lineHeight
-                : "90px"};
+            line-height: ${this.props.lineHeight ? this.props.lineHeight : "90px"};
             font-family: Teko;
             text-transform: uppercase;
             @media (max-width: 767px) {
@@ -114,18 +103,9 @@ class Animated_Heading extends React.Component {
                         key={i}
                         style={{
                             animationDelay: `${time * 100}ms`,
-                            color:
-                                index % 2 !== 0 || this.props.color
-                                    ? "rgb(12, 148, 0)"
-                                    : "#fff",
+                            color: index % 2 !== 0 || this.props.color ? "rgb(12, 148, 0)" : "#fff",
                         }}
-                        className={
-                            !this.state.animation_complete
-                                ? this.state.animate
-                                    ? "animate"
-                                    : ""
-                                : "animation_complete"
-                        }
+                        className={!this.state.animation_complete ? (this.state.animate ? "animate" : "") : "animation_complete"}
                     >
                         {v}
                     </AnimatedLetter>
@@ -134,18 +114,9 @@ class Animated_Heading extends React.Component {
                         <AnimatedLetter
                             style={{
                                 animationDelay: `${time * 100}ms`,
-                                color:
-                                    index % 2 !== 0 || this.props.color
-                                        ? "rgb(12, 148, 0)"
-                                        : "#fff",
+                                color: index % 2 !== 0 || this.props.color ? "rgb(12, 148, 0)" : "#fff",
                             }}
-                            className={
-                                !this.state.animation_complete
-                                    ? this.state.animate
-                                        ? "animate"
-                                        : ""
-                                    : "animation_complete"
-                            }
+                            className={!this.state.animation_complete ? (this.state.animate ? "animate" : "") : "animation_complete"}
                         >
                             {v}
                         </AnimatedLetter>

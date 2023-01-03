@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * nav service
+ * my-nav service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::nav.nav');
+module.exports = createCoreService('api::my-nav.my-nav');

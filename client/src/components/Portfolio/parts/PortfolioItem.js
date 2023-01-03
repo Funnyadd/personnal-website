@@ -12,9 +12,7 @@ class PortfolioItem extends React.Component {
     showContent() {
         setTimeout(() => {
             this.child.enable()
-            document
-                .getElementById(`portfolio-item-${this.props.index}`)
-                .classList.add("blue-shadow")
+            document.getElementById(`portfolio-item-${this.props.index}`).classList.add("blue-shadow")
         }, 800)
     }
 
@@ -36,10 +34,7 @@ class PortfolioItem extends React.Component {
             return <Image src={this.props.image} alt={this.props.text} />
         } else {
             return (
-                <RevealContent
-                    callParentMethod={true}
-                    parentMethod={this.showContent}
-                >
+                <RevealContent callParentMethod={true} parentMethod={this.showContent}>
                     <Image src={this.props.image} alt={this.props.text} />
                 </RevealContent>
             )
@@ -86,11 +81,7 @@ class PortfolioItem extends React.Component {
             display: flex;
             align-items: flex-end;
             visibility: visible;
-            background-image: linear-gradient(
-                to top,
-                rgba(4, 229, 229, 1),
-                rgba(255, 255, 255, 0)
-            );
+            background-image: linear-gradient(to top, rgba(4, 229, 229, 1), rgba(255, 255, 255, 0));
             @media (min-width: 1025px) {
                 display: none !important;
             }
@@ -132,63 +123,34 @@ class PortfolioItem extends React.Component {
 
         if (this.props.type === "slider") {
             return (
-                <a
-                    href={this.props.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
+                <a href={this.props.link} target="_blank" rel="noopener noreferrer">
                     <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1}>
                         <Item className="blue-shadow">
                             {this.showImage()}
                             <MobileContent>
                                 <Text>
                                     <Heading>{this.props.text}</Heading>
-                                    <SubHeading>
-                                        {this.props.category}
-                                    </SubHeading>
+                                    <SubHeading>{this.props.category}</SubHeading>
                                 </Text>
                             </MobileContent>
-                            <DesktopContent
-                                text={this.props.text}
-                                category={this.props.category}
-                                ref={cd => (this.child = cd)}
-                                type={this.props.type}
-                            />
+                            <DesktopContent text={this.props.text} category={this.props.category} ref={cd => (this.child = cd)} type={this.props.type} />
                         </Item>
                     </Tilt>
                 </a>
             )
         } else {
             return (
-                <a
-                    href={this.props.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
+                <a href={this.props.link} target="_blank" rel="noopener noreferrer">
                     <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1}>
-                        <Item
-                            className={`${
-                                this.props.index % 2 === 0
-                                    ? "move-up"
-                                    : "move-down"
-                            }`}
-                            id={`portfolio-item-${this.props.index}`}
-                        >
+                        <Item className={`${this.props.index % 2 === 0 ? "move-up" : "move-down"}`} id={`portfolio-item-${this.props.index}`}>
                             {this.showImage()}
                             <MobileContent>
                                 <Text>
                                     <Heading>{this.props.text}</Heading>
-                                    <SubHeading>
-                                        {this.props.category}
-                                    </SubHeading>
+                                    <SubHeading>{this.props.category}</SubHeading>
                                 </Text>
                             </MobileContent>
-                            <DesktopContent
-                                text={this.props.text}
-                                category={this.props.category}
-                                ref={cd => (this.child = cd)}
-                                type={this.props.type}
-                            />
+                            <DesktopContent text={this.props.text} category={this.props.category} ref={cd => (this.child = cd)} type={this.props.type} />
                         </Item>
                     </Tilt>
                 </a>
