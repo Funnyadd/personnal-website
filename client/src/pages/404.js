@@ -19,7 +19,6 @@ const Text = styled.p`
 
 const NotFoundPage = () => (
     <Layout>
-        <Seo title="404: Not found" />
         <Heading>404: Not Found</Heading>
         <Text>
             You just hit a route that doesn&#39;t exist... <br></br>Sorry for that, please try to go back to <br></br>
