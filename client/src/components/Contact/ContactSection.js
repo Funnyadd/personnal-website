@@ -118,7 +118,7 @@ export const Gradient = styled.div`
         bottom: 0px;
         clip-path: polygon(0% 100%, 10px 100%, 10px 10px, calc(100% - 10px) 10px, calc(100% - 10px) calc(100% - 10px), 10px calc(100% - 10px), 10px 100%, 100% 100%, 100% 0%, 0% 0%);
         background: linear-gradient(120deg, rgb(12, 148, 40), rgb(63, 142, 222), rgb(35, 98, 234)) 0% 0% / 300% 300%;
-        /* animation: 5s ease-in-out 0s infinite normal none running ${gradientAnimation}; */
+        animation: 5s ease-in-out 0s infinite normal none running ${gradientAnimation};
     }
 `
 

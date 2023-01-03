@@ -20,10 +20,12 @@ const Index = () => {
 
     const [language, setLanguage] = useState('en')
 
-    const handleClick = useCallback(
+    const changeLanguage = useCallback(
         () => {
-            localStorage.setItem('Language', localStorage.getItem('Language') === 'en' ? 'fr' : 'en');
+            localStorage.setItem('Language', 
+                localStorage.getItem('Language') === 'en' ? 'fr' : 'en');
             setLanguage(localStorage.getItem('Language'))
+            // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [language]
     )
 
@@ -32,17 +34,21 @@ const Index = () => {
             localStorage.setItem('Language', getLangs(navigator.language))
         }
         setLanguage(localStorage.getItem('Language'))
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    const { loading, error, data } = useQuery(QUERY(language))    
+
+    // Query
+    const { loadingData, error, data } = useQuery(QUERY(language))    
+
+    // We need 2500ms or more to contain the animation on the front page
+    const DELAY_ANIMATION = 2500
     const [isFrontPage, setIsFrontPage] = useState(true)
 
     setTimeout(() => {
         setIsFrontPage(false)
-    }, 2500)
+    }, DELAY_ANIMATION)
 
-    if (loading || isFrontPage) {
+    if (loadingData || isFrontPage) {
         return (
             <div>
                 <PageRevealer />
@@ -54,8 +60,8 @@ const Index = () => {
         return (
             <>
                 <div>Something broke...</div>
-                {error.clientErrors.map((err, index) => (
-                    <p key={index}>{err.message}</p>
+                {error.graphQLErrors.map(({ message }, index) => (
+                    <p key={index}>{message}</p>
                 ))}
             </>
         )
@@ -88,7 +94,7 @@ const Index = () => {
             <section id={navs[4]}>
                 <Contact data={contact} />
             </section>
-            <Footer changeLanguage={handleClick}/>
+            <Footer changeLanguage={changeLanguage}/>
         </Layout>
     )
 }
