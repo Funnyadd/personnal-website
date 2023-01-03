@@ -18,12 +18,12 @@ const Index = () => {
         else return 'en'
     }
 
-    const [language, setLanguage] = useState(getLangs(navigator.language))
+    const [language, setLanguage] = useState('en')
 
     const handleClick = useCallback(
         () => {
-            setLanguage(language === 'en' ? 'fr' : 'en')
-            localStorage.setItem( 'Language', getLangs(language));
+            localStorage.setItem('Language', localStorage.getItem('Language') === 'en' ? 'fr' : 'en');
+            setLanguage(localStorage.getItem('Language'))
         }, [language]
     )
 
@@ -31,9 +31,9 @@ const Index = () => {
         if(!localStorage.getItem('Language')) {
             localStorage.setItem('Language', getLangs(navigator.language))
         }
-        localStorage.setItem( 'Language', getLangs(language));
+        setLanguage(localStorage.getItem('Language'))
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [language])
+    }, [])
 
     const { loading, error, data } = useQuery(QUERY(language))    
     const [isFrontPage, setIsFrontPage] = useState(true)
