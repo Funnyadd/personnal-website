@@ -39,7 +39,7 @@ class Animation_Container extends React.Component {
         return (
             <div
                 style={{
-                    animation: this.state.classChanged ? `${animation} ${this.props.duration}s` : "",
+                    animation: this.state.classChanged ? `${animation} ${this.props.duration || 1}s` : "",
                     opacity: this.state.classChanged ? 1 : 0,
                     height: height ? height : "auto",
                 }}

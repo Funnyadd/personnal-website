@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_maps",
+  "info": {
+    "displayName": "Map"
+  },
+  "options": {},
+  "attributes": {
+    "city": {
+      "type": "string"
+    },
+    "Province": {
+      "type": "string"
+    },
+    "Country": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "z_index": {
+      "min": 8,
+      "max": 20,
+      "default": 10,
+      "type": "integer"
+    }
+  }
+}

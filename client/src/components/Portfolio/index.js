@@ -46,7 +46,7 @@ const Portfolio = (props) => {
                 <AnimatedHeading text={strapiMyProject.title} />
             </Container>
             <PortfolioContainer>
-                <AnimationContainer animation="fadeIn">
+                <AnimationContainer animation="fadeIn" duration={2}>
                     <Slider {...settings}>
                         {strapiMyProject.projects.data.map((p, index) => {
                             p = p.attributes

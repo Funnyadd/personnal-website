@@ -9,7 +9,7 @@ export const Separator = styled.div`
 `
 
 export const ContactFormContainer = styled.div`
-    padding: 50px;
+    padding: 0px 50px;
     width: 100%;
     position: relative;
     z-index: 5;

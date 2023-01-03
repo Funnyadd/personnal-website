@@ -1,29 +1,59 @@
 import React, { useState } from "react"
 import { ContactFormContainer, Heading, Separator, InputElement, Input, Submit, Textarea } from "./FormElements"
+import { useMutation , gql } from "@apollo/client"
 
-const ContactForm = () => {
+const ContactForm = (props) => {
+    const fields = props.data
     const [show, setShow] = useState("none")
     const [contactInfo, setContactInfo] = useState({
         name: "",
         email: "",
         phone: "",
-        message: "",
+        body: "",
         error: false,
     })
 
-    const formSubmit = () => {
-        if (contactInfo.name === "" || contactInfo.email === "" || contactInfo.message === "") {
+    const [createMessage] = useMutation(gql`
+        mutation CreateMessage ($name: String!, $email: String!, $phone: String!, $body: String!) {
+            createMessage(data: {
+                name: $name,
+                email: $email,
+                phone: $phone,
+                body: $body
+            }) {
+                data {
+                    attributes {
+                        name
+                        email
+                        phone
+                        body
+                    }
+                }
+            }
+        }`
+    );
+
+    const FormSubmit = () => {
+        if (contactInfo.name === "" || contactInfo.email === "" || contactInfo.body === "") {
             setContactInfo({
                 ...contactInfo,
                 error: true,
             })
         } else {
+            createMessage({ variables: { 
+                name: contactInfo.name ,
+                email: contactInfo.email,
+                phone: contactInfo.phone,
+                body: contactInfo.body
+
+            } })
+
             setShow("block")
             setContactInfo({
                 name: "",
                 email: "",
                 phone: "",
-                message: "",
+                body: "",
                 error: false,
             })
             setTimeout(() => setShow("none"), 3500)
@@ -31,23 +61,20 @@ const ContactForm = () => {
     }
 
     const check = val => {
-        if (contactInfo.error && val === "") {
-            return false
-        } else {
-            return true
-        }
+        if (contactInfo.error && val === "") return false
+        else return true
     }
 
     return (
         <ContactFormContainer>
-            <Heading>Get In Touch</Heading>
+            <Heading>{fields.title}</Heading>
             <Separator />
             <InputElement>
                 <Input
                     type="text"
                     value={contactInfo.name}
                     className={`name ${check(contactInfo.name) ? "" : "error"}`}
-                    placeholder="Name"
+                    placeholder={fields.nameField}
                     onChange={e => setContactInfo({ ...contactInfo, name: e.target.value })}
                 />
             </InputElement>
@@ -56,7 +83,7 @@ const ContactForm = () => {
                     type="text"
                     value={contactInfo.email}
                     className={`email ${check(contactInfo.email) ? "" : "error"}`}
-                    placeholder="Email"
+                    placeholder={fields.emailField}
                     onChange={e =>
                         setContactInfo({
                             ...contactInfo,
@@ -70,7 +97,7 @@ const ContactForm = () => {
                     type="text"
                     value={contactInfo.phone}
                     className="phone"
-                    placeholder="Phone"
+                    placeholder={fields.phoneField}
                     onChange={e =>
                         setContactInfo({
                             ...contactInfo,
@@ -81,22 +108,22 @@ const ContactForm = () => {
             </InputElement>
             <InputElement>
                 <Textarea
-                    placeholder="Message"
-                    value={contactInfo.message}
+                    placeholder={fields.messageField}
+                    value={contactInfo.body}
                     className={`message ${check(contactInfo.message) ? "" : "error"}`}
                     onChange={e =>
                         setContactInfo({
                             ...contactInfo,
-                            message: e.target.value,
+                            body: e.target.value,
                         })
                     }
                 />
             </InputElement>
             <div className="d-flex justify-content-between">
-                <Submit onClick={() => formSubmit()}>
-                    <span>Submit</span>
+                <Submit onClick={() => FormSubmit()}>
+                    <span>{fields.submitButton}</span>
                 </Submit>
-                <div className={show === "block" ? "align-middle text-white p-2 my-1 me-3 d-block" : "align-middle text-white p-2 my-1 me-3 d-none"}>Sent!</div>
+                <div className={show === "block" ? "align-middle text-white p-2 my-1 me-3 d-block" : "align-middle text-white p-2 my-1 me-3 d-none"}>{fields.confirmation}!</div>
             </div>
         </ContactFormContainer>
     )

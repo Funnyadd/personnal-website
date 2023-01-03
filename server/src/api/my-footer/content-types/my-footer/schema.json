@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "my_footers",
+  "info": {
+    "singularName": "my-footer",
+    "pluralName": "my-footers",
+    "displayName": "my Footer"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "copyrights": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    }
+  }
+}

@@ -19,12 +19,19 @@ const Index = () => {
     }
 
     const [language, setLanguage] = useState('en')
+    const [isReloadingLang, setIsReloadingLang] = useState(false)
 
     const changeLanguage = useCallback(
         () => {
             localStorage.setItem('Language', 
                 localStorage.getItem('Language') === 'en' ? 'fr' : 'en');
             setLanguage(localStorage.getItem('Language'))
+
+            setIsReloadingLang(true)
+            setTimeout(() => {
+                setIsReloadingLang(false)
+            }, 2500)
+
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [language]
     )
@@ -47,10 +54,16 @@ const Index = () => {
         setIsFrontPage(false)
     }, 2500)
     
-    if (loading || isFrontPage) {
+    if (loading || isFrontPage || isReloadingLang) {
         return (
             <div>
-                <PageRevealer />
+                <PageRevealer text={isReloadingLang ? 
+                (
+                    language === 'en' ? 
+                    "Changing Language" :
+                    "Changement de la langue"
+                ) : "Adam Mihajlovic"
+            } />
             </div>
         )
     }
@@ -72,7 +85,7 @@ const Index = () => {
     const about = data.about.data.attributes
     const services = data.myService.data.attributes
     const projects = data.myProject.data.attributes
-    const contact = data.contacts.data
+    const contact = data.myContact.data.attributes
 
     return (
         <Layout data={global}>
