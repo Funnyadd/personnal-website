@@ -120,7 +120,7 @@ class RC extends React.Component {
             }
 
             &:before {
-                background-color: rgb(12, 148, 0);
+                background-color: #00e5ff;
             }
 
             &:after {

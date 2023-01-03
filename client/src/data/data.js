@@ -1,181 +1,184 @@
 import { gql } from "@apollo/client"
 
-export const QUERY = gql`
-{
-    myNav {
-        data {
-        attributes {
-            navs
-        }
-        }
-    }
-
-    global {
-        data {
-            attributes {
-            defaultSeo {
-                metaTitle
-                metaDescription
-                }
-            favicon {
+export const QUERY = (locale) => {
+    return(gql`
+        {
+            myNav (locale: "${locale}") {
                 data {
-                attributes {
-                    url
-                }
+                    attributes {
+                        navs
+                    }
                 }
             }
-            }
-        }
-    }
 
-    hero {
-        data {
-            attributes {
-                BeforeName
-                name
-                quotes
-                Download {
-                    title
-                    url
-                }
-                Background {
-                    data {
+            global (locale: "${locale}") {
+                data {
+                    attributes {
+                    defaultSeo {
+                        metaTitle
+                        metaDescription
+                        }
+                    favicon {
+                        data {
                         attributes {
                             url
                         }
+                        }
+                    }
                     }
                 }
             }
-        }
-    }
-    
-    about {
-        data {
-            attributes {
-                title
-                description
-                Photo {
-                    data {
-                        attributes {
-                            url
-                        }
-                    }
-                }
-                skills {
-                    data {
-                        attributes {
-                            title
-                            percentage
-                        }
-                    }
-                }
-                educations {
-                    data {
-                        attributes {
-                            endDate
-                            description
-                            institution
-                            title
-                            startDate
-                        }
-                    }
-                }
-                about_counters {
-                    data {
-                        attributes {
-                            endDate
-                            startDate
-                            fullText
-                            isAge
-                        }
-                    }
-                }
-                experiences {
-                    data {
-                        attributes {
-                            endDate
-                            description
-                            institution
-                            startDate
-                            title
-                        }
-                    }
-                }
-                languages {
-                    data {
-                        attributes {
-                            percentage
-                            title
-                        }
-                    }
-                }
-                navigation
-            }
-        }
-    }
 
-    myService {
-        data {
-            attributes {
-                title
-                background {
-                    data {
-                        attributes {
+            hero (locale: "${locale}") {
+                data {
+                    attributes {
+                        BeforeName
+                        name
+                        quotes
+                        Download {
+                            title
                             url
                         }
-                    }
-                }
-                services {
-                    data {
-                        attributes {
-                            title
-                            descriptionElements
-                            image {
-                                data {
-                                    attributes {
-                                        url
-                                    }
+                        Background {
+                            data {
+                                attributes {
+                                    url
                                 }
                             }
                         }
                     }
                 }
             }
-        }
-    }  
+            
+            about (locale: "${locale}") {
+                data {
+                    attributes {
+                        title
+                        description
+                        Photo {
+                            data {
+                                attributes {
+                                    url
+                                }
+                            }
+                        }
+                        skills {
+                            data {
+                                attributes {
+                                    title
+                                    percentage
+                                }
+                            }
+                        }
+                        educations {
+                            data {
+                                attributes {
+                                    endDate
+                                    description
+                                    institution
+                                    title
+                                    startDate
+                                }
+                            }
+                        }
+                        about_counters {
+                            data {
+                                attributes {
+                                    endDate
+                                    startDate
+                                    fullText
+                                    isAge
+                                }
+                            }
+                        }
+                        experiences {
+                            data {
+                                attributes {
+                                    endDate
+                                    description
+                                    institution
+                                    startDate
+                                    title
+                                }
+                            }
+                        }
+                        languages {
+                            data {
+                                attributes {
+                                    percentage
+                                    title
+                                }
+                            }
+                        }
+                        navigation
+                    }
+                }
+            }
 
-    myProject {
-        data {
-            attributes {
-                title
-                projects {
-                    data {
-                        attributes {
-                            title
-                            category
-                            link
-                            source {
-                                data {
-                                    attributes {
-                                        url
+            myService (locale: "${locale}") {
+                data {
+                    attributes {
+                        title
+                        background {
+                            data {
+                                attributes {
+                                    url
+                                }
+                            }
+                        }
+                        services {
+                            data {
+                                attributes {
+                                    title
+                                    descriptionElements
+                                    image {
+                                        data {
+                                            attributes {
+                                                url
+                                            }
+                                        }
                                     }
                                 }
                             }
                         }
                     }
                 }
-            }
-        }
-    } 
+            }  
 
-    contacts {
-        data {
-            attributes {
-                title
-                value
-                textValue
-                source
+            myProject (locale: "${locale}") {
+                data {
+                    attributes {
+                        title
+                        projects {
+                            data {
+                                attributes {
+                                    title
+                                    category
+                                    link
+                                    source {
+                                        data {
+                                            attributes {
+                                                url
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } 
+
+            contacts (locale: "${locale}") {
+                data {
+                    attributes {
+                        title
+                        value
+                        textValue
+                        source
+                    }
+                }
             }
-        }
-    }
-}`
+        }`
+    )
+}

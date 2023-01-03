@@ -1,92 +1,42 @@
 import React from "react"
 import { Helmet } from "react-helmet"
-import { useQuery, gql } from "@apollo/client"
 
-const Seo = ({ seo = {} }) => {
-    const { loading, error, data } = useQuery(gql`
-        {
-            global {
-                data {
-                    attributes {
-                        siteName
-                        siteDescription
-                        favicon {
-                            data {
-                                attributes {
-                                    url
-                                }
-                            }
-                        }
-                        defaultSeo {
-                            metaTitle
-                            metaDescription
-                            shareImage {
-                                data {
-                                    attributes {
-                                        url
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    `)
-
-    if (loading) return <div>Loading content...</div>
-    if (error) {
-        return (
-            <>
-                <div>Something broke...</div>
-                {error.clientErrors.map((err, index) => (
-                    <p key={index}>{err.message}</p>
-                ))}
-            </>
-        )
-    }
-
-    const { siteName, defaultSeo, favicon } = data.global.data.attributes
-
-    // Merge default and page-specific SEO values
-    const fullSeo = { ...defaultSeo, ...seo }
-
-    // Add site name to title
-    fullSeo.metaTitle = `${fullSeo.metaTitle} | ${siteName}`
+const Seo = (props) => {
+    const seo = props.data.defaultSeo
 
     const getMetaTags = () => {
         const tags = []
 
-        if (fullSeo.metaTitle) {
+        if (seo.metaTitle) {
             tags.push(
                 {
                     property: "og:title",
-                    content: fullSeo.metaTitle,
+                    content: seo.metaTitle,
                 },
                 {
                     name: "twitter:title",
-                    content: fullSeo.metaTitle,
+                    content: seo.metaTitle,
                 }
             )
         }
-        if (fullSeo.metaDescription) {
+        if (seo.metaDescription) {
             tags.push(
                 {
                     name: "description",
-                    content: fullSeo.metaDescription,
+                    content: seo.metaDescription,
                 },
                 {
                     property: "og:description",
-                    content: fullSeo.metaDescription,
+                    content: seo.metaDescription,
                 },
                 {
                     name: "twitter:description",
-                    content: fullSeo.metaDescription,
+                    content: seo.metaDescription,
                 }
             )
         }
-        if (fullSeo.shareImage) {
-            const imageUrl = fullSeo.shareImage.data.attributes.url
+        if (seo.shareImage) {
+            const imageUrl = seo.shareImage.data.attributes.url
             tags.push(
                 {
                     name: "image",
@@ -102,7 +52,7 @@ const Seo = ({ seo = {} }) => {
                 }
             )
         }
-        if (fullSeo.article) {
+        if (seo.article) {
             tags.push({
                 property: "og:type",
                 content: "article",
@@ -117,11 +67,11 @@ const Seo = ({ seo = {} }) => {
 
     return (
         <Helmet
-            title={fullSeo.metaTitle}
+            title={seo.metaTitle}
             link={[
                 {
                     rel: "icon",
-                    href: favicon.data.attributes.url,
+                    href: props.data.favicon.data.attributes.url,
                 },
             ]}
             meta={metaTags}

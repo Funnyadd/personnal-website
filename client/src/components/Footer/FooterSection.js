@@ -32,6 +32,28 @@ export const SocialIcon = styled(FontAwesomeIcon)`
     }
 `
 
+export const LanguageButton = styled.button`
+    border: none;
+    background: none;
+    margin: 0px 10px;
+    cursor: pointer;
+    transition: all 0.5s ease 0s;
+    width: 24px;
+
+    img {
+        width: 24px;
+        padding-bottom: 0.5rem;
+
+        @media (max-width: 768px) {
+            width: 28px;
+        }
+
+        @media (max-width: 576px) {
+            width: 32px;
+        }
+    }
+`
+
 export const FooterText = styled.p`
     margin-top: 3px;
     text-align: center;

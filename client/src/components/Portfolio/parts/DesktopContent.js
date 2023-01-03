@@ -1,6 +1,6 @@
 import React from "react"
 import styled, { keyframes } from "styled-components"
-// import baffle from 'baffle';
+import BaffleText from '../../baffle-text'
 
 class DesktopContent extends React.Component {
     constructor(props) {
@@ -79,44 +79,22 @@ class DesktopContent extends React.Component {
             }
         `
 
-        // let b = baffle(document.querySelectorAll('.baffle'))
-        // b.set({
-        //     speed: 50,
-        //     characters: "AaBbCcDeEeFfGgHhIiJjKkLlMmNnOpPpQqRrSsTtUuVvWwXxYyZ",
-        //     obfuscate: false,
-        //     update: true,
-        //     revealDuration: 1000,
-        //     revealDelay: 0}).start()
-
         if (this.state.show) {
             return (
                 <>
                     <Heading>
-                        <div className="baffle">{this.props.text}</div>
-
-                        {/* <Baffle
-                            speed={50}
-                            characters="AaBbCcDeEeFfGgHhIiJjKkLlMmNnOpPpQqRrSsTtUuVvWwXxYyZ"
-                            obfuscate={false}
-                            update={true}
+                        <BaffleText
+                            text={this.props.text}
                             revealDuration={1000}
                             revealDelay={0}
-                        >
-                            {this.props.text}
-                        </Baffle> */}
+                        />
                     </Heading>
                     <SubHeading>
-                        <div className="baffle">{this.props.category}</div>
-                        {/* <Baffle
-                            speed={50}
-                            characters="AaBbCcDeEeFfGgHhIiJjKkLlMmNnOpPpQqRrSsTtUuVvWwXxYyZ"
-                            obfuscate={false}
-                            update={true}
+                        <BaffleText
+                            text={this.props.category}
                             revealDuration={1000}
                             revealDelay={0}
-                        >
-                            {this.props.category}
-                        </Baffle> */}
+                        />
                     </SubHeading>
                 </>
             )

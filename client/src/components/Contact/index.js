@@ -13,6 +13,7 @@ import {
     InfoLinkContainer,
     Icon,
 } from "./ContactSection"
+import AnimationContainer from "../animation-container";
 
 const Contact = (props) => {
     const strapiMyContact = props.data
@@ -28,17 +29,19 @@ const Contact = (props) => {
                         }
                         return (
                             <IconCol key={index} md={4}>
-                                <InfoPart>
-                                    <IconContainer>
-                                        <Icon src={c.attributes.source} alt={c.attributes.title}></Icon>
-                                    </IconContainer>
-                                    <Info>
-                                        <InfoTitle>{c.attributes.title}</InfoTitle>
-                                        <InfoLinkContainer>
-                                            <InfoLink href={c.attributes.value}>{text}</InfoLink>
-                                        </InfoLinkContainer>
-                                    </Info>
-                                </InfoPart>
+                                <AnimationContainer animation="fadeIn" delay={(index + 1) * 500} duration={2}>
+                                    <InfoPart>
+                                        <IconContainer>
+                                            <Icon src={c.attributes.source} alt={c.attributes.title}></Icon>
+                                        </IconContainer>
+                                        <Info>
+                                            <InfoTitle>{c.attributes.title}</InfoTitle>
+                                            <InfoLinkContainer>
+                                                <InfoLink href={c.attributes.value}>{text}</InfoLink>
+                                            </InfoLinkContainer>
+                                        </Info>
+                                    </InfoPart>
+                                </AnimationContainer>
                             </IconCol>
                         )
                     })}

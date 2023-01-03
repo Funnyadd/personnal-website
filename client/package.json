@@ -27,7 +27,8 @@
     "jquery": "^3.6.0",
     "prop-types": "^15.8.0",
     "react": "^17.0.1",
-    "react-bootstrap": "^2.1.2",
+    "react-bootstrap": "^2.7.0",
+    "react-countup": "^6.4.0",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1",
@@ -35,9 +36,11 @@
     "react-is": "^17.0.2",
     "react-parallax-tilt": "^1.6.0",
     "react-slick": "^0.28.1",
+    "react-tsparticles": "^2.7.1",
     "sass-loader": "^12.4.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.6",
+    "tsparticles-preset-triangles": "^2.7.1",
     "typewriter-effect": "^2.18.2"
   },
   "devDependencies": {

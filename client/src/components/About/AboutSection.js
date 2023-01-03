@@ -84,14 +84,32 @@ export const Image = styled.img`
 `
 
 export const CounterRow = styled.div`
-    margin-top: 100px;
+    margin-top: 8rem;
     background-color: rgb(0, 0, 0);
-    padding: 100px 0px;
+
+    position: relative;
+    overflow: hidden;
+    display: block;
+
+    #tsparticles {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    .container { 
+        padding-top: 12rem;
+    }
 `
 
 export const CounterComponent = styled.div`
     margin: 10px 0px;
     text-align: center;
+    height: 9rem;
+
+    @media screen and (max-width: 1000px) {
+        height: 11rem;
+    }
 `
 
 export const CounterContainer = styled.div`
@@ -109,6 +127,8 @@ export const CounterContainer = styled.div`
 
     .valueContainer {
         flex: 3 100%;
+        height: 0;
+        transform: translate(0, -6rem);
     }
 
     .value {
@@ -125,6 +145,8 @@ export const CounterContainer = styled.div`
 
     .textContainer {
         flex: 1 100%;
+        height: 0;
+        transform: translate(0, 0rem);
     }
 
     .text {
@@ -165,19 +187,23 @@ export const TabSelector = styled.button`
     border-bottom: 2px solid rgb(255, 255, 255);
     transition: 0.5s;
 
-    &:hover,
-    &.active {
+    &:hover, &.active {
         border-bottom-color: rgb(12, 148, 0);
     }
+
     &:focus {
         outline: none;
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: 860px) {
         font-size: 18px;
     }
 
-    @media (max-width: 420px) {
+    @media (max-width: 767px) {
+        font-size: 20px;
+    }
+
+    @media (max-width: 480px) {
         font-size: 16px;
     }
 
@@ -238,8 +264,7 @@ export const ProgressBarProgress = styled.div`
 export const RevealContainer = styled.div`
     position: relative;
 
-    //for future animation
-    /* &.animate::before {
+    &.animate::before {
         animation: 1.8s ease 0s 1 normal none running;
     }
 
@@ -263,5 +288,5 @@ export const RevealContainer = styled.div`
     &::after {
         background-color: rgb(255, 255, 255);
         animation-delay: 0.5s;
-    } */
+    }
 `

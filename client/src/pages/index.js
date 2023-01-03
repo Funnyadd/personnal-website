@@ -1,4 +1,4 @@
-import React, { useState }  from "react"
+import React, { useState, useEffect, useCallback }  from "react"
 import Seo from "../components/seo"
 import Layout from "../components/layout"
 import Hero from "../components/Hero"
@@ -10,10 +10,31 @@ import Portfolio from "../components/Portfolio"
 import { useQuery } from "@apollo/client"
 import { QUERY } from "../data/data"
 import PageRevealer from '../components/page-revealer'
+import Footer from "../components/Footer"
 
 const Index = () => {
-    const { loading, error, data } = useQuery(QUERY)    
-    const [isFrontPage, setIsFrontPage] = useState(true);
+    
+    const getLangs = (lngs) => {
+        if(lngs === 'fr-CA' || lngs === 'fr-FR' || lngs === 'fr') return 'fr'
+        else return 'en'
+    }
+
+    const [language, setLanguage] = useState(localStorage.getItem( 'Language' ) || getLangs(navigator.language))
+
+    const handleClick = useCallback(
+        () => {
+            setLanguage(language === 'en' ? 'fr' : 'en')
+            localStorage.setItem( 'Language', getLangs(language));
+        }, [language]
+    )
+
+    useEffect(() => {
+        localStorage.setItem( 'Language', getLangs(language));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    })
+
+    const { loading, error, data } = useQuery(QUERY(language))    
+    const [isFrontPage, setIsFrontPage] = useState(true)
 
     setTimeout(() => {
         setIsFrontPage(false)
@@ -48,11 +69,7 @@ const Index = () => {
 
     return (
         <Layout data={global}>
-            <Seo seo={{
-                    metaTitle: global.defaultSeo.metaTitle,
-                    metaDescription: global.defaultSeo.metaDescription,
-                }}
-            />
+            <Seo data={global} />
             <Navbar navLabels={navs} favicon={global.favicon.data.attributes.url} />
             <section id={navs[0]}>
                 <Hero data={hero} />
@@ -69,6 +86,7 @@ const Index = () => {
             <section id={navs[4]}>
                 <Contact data={contact} />
             </section>
+            <Footer changeLanguage={handleClick}/>
         </Layout>
     )
 }

@@ -47,6 +47,8 @@ const Navbar = (props) => {
                             <NavMenu className="navbar-nav">
                                 {props.navLabels.map((value, index) => {
                                     let link = `/#${value}`
+                                    value = value.replace(" ", "\u00A0")
+
                                     return (
                                         <NavItem key={index} to={link}>
                                             {value}

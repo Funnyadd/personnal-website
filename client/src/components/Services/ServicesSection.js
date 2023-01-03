@@ -9,7 +9,7 @@ export const BackgroundContainer = styled.div`
 `
 
 export const ServiceContainer = styled.div`
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 100px 0;
 `
 
@@ -61,6 +61,7 @@ export const ServiceElement = styled.div`
 
     &:hover::after {
         opacity: 1;
+        background-color: rgba(0, 0, 0);
     }
 `
 export const ServiceHeading = styled.h4`
