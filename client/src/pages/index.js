@@ -38,17 +38,16 @@ const Index = () => {
 
 
     // Query
-    const { loadingData, error, data } = useQuery(QUERY(language))    
+    const { loading, error, data } = useQuery(QUERY(language))    
 
-    // We need 2500ms or more to contain the animation on the front page
-    const DELAY_ANIMATION = 2500
     const [isFrontPage, setIsFrontPage] = useState(true)
 
+    // Need 2500ms or more to contain the animation on the front page
     setTimeout(() => {
         setIsFrontPage(false)
-    }, DELAY_ANIMATION)
-
-    if (loadingData || isFrontPage) {
+    }, 2500)
+    
+    if (loading || isFrontPage) {
         return (
             <div>
                 <PageRevealer />

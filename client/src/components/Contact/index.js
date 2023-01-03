@@ -29,7 +29,7 @@ const Contact = (props) => {
                         }
                         return (
                             <IconCol key={index} md={4}>
-                                <AnimationContainer animation="fadeIn" delay={(index + 1) * 500} duration={2}>
+                                <AnimationContainer animation="fadeIn" delay={(index * 500) + 100} duration={2}>
                                     <InfoPart>
                                         <IconContainer>
                                             <Icon src={c.attributes.source} alt={c.attributes.title}></Icon>
