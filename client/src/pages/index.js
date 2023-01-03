@@ -13,13 +13,12 @@ import PageRevealer from '../components/page-revealer'
 import Footer from "../components/Footer"
 
 const Index = () => {
-    
     const getLangs = (lngs) => {
         if(lngs === 'fr-CA' || lngs === 'fr-FR' || lngs === 'fr') return 'fr'
         else return 'en'
     }
 
-    const [language, setLanguage] = useState(localStorage.getItem( 'Language' ) || getLangs(navigator.language))
+    const [language, setLanguage] = useState(getLangs(navigator.language))
 
     const handleClick = useCallback(
         () => {
@@ -29,9 +28,12 @@ const Index = () => {
     )
 
     useEffect(() => {
+        if(!localStorage.getItem('Language')) {
+            localStorage.setItem('Language', getLangs(navigator.language))
+        }
         localStorage.setItem( 'Language', getLangs(language));
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    })
+    }, [language])
 
     const { loading, error, data } = useQuery(QUERY(language))    
     const [isFrontPage, setIsFrontPage] = useState(true)

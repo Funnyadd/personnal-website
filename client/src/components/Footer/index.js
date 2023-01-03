@@ -1,18 +1,23 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { faGithub, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons"
 import { LanguageButton, FooterMain, SocialIcons, SocialIcon, FooterText } from "./FooterSection"
 import english from '../../images/english.png'
 import french from '../../images/french.png'
 
 const Footer = (props) => {
-    const [flag, setFlag] = useState(localStorage.getItem('Language') === 'en' ? english : french);
-    const [rights, setRights] = useState(localStorage.getItem('Language') === 'en' ? "All rights reserved." : "Tous droits réservés")
+    const [flag, setFlag] = useState(undefined);
+    const [rights, setRights] = useState(undefined)
 
     const handleClick = () => {
         props.changeLanguage()
         setFlag(flag === english ? french : english)
         setRights(flag === english ? "All rights reserved." : "Tous droits réservés")
     }
+
+    useEffect(() => {
+        setRights(localStorage.getItem('Language') === 'en' ? "All rights reserved." : "Tous droits réservés")
+        setFlag(localStorage.getItem('Language') === 'en' ? english : french)
+      }, [flag, rights])
 
     return (
         <FooterMain>
