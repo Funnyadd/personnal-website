@@ -199,6 +199,14 @@ export const QUERY = (locale) => {
                     }
                 }
             }
+
+            myFooter (locale: "${locale}") {
+                data {
+                    attributes {
+                        copyrights
+                    }
+                }
+              }
         }`
     )
 }

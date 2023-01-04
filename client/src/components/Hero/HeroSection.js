@@ -26,7 +26,7 @@ const gradientAnimation = keyframes`
         background-position: 15% 0%;
     }
     50% {
-        background-position: 85% 100%;
+        background-position: 30% 30%;
     }
     100% {
         background-position: 15% 0%;

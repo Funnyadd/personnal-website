@@ -86,6 +86,7 @@ const Index = () => {
     const services = data.myService.data.attributes
     const projects = data.myProject.data.attributes
     const contact = data.myContact.data.attributes
+    const copyrights = data.myFooter.data.attributes.copyrights
 
     return (
         <Layout data={global}>
@@ -106,7 +107,7 @@ const Index = () => {
             <section id={navs[4]}>
                 <Contact data={contact} />
             </section>
-            <Footer changeLanguage={changeLanguage}/>
+            <Footer data={copyrights} changeLanguage={changeLanguage}/>
         </Layout>
     )
 }
