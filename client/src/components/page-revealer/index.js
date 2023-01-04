@@ -3,7 +3,7 @@ import BaffleText from '../baffle-text'
 import AnimationContainer from '../animation-container'
 import { RevealContainer, Reveal } from './PageRevealer'
 
-const PageRevealer = () => {
+const PageRevealer = (props) => {
     const [animation, setAnimation] = useState(false);
     const [complete, setComplete] = useState(false);
     const [hide, setHide] = useState(false);
@@ -35,8 +35,8 @@ const PageRevealer = () => {
         if (!complete) {
             return (
                 <AnimationContainer animation="fadeIn" duration={2}>
-                     <BaffleText
-                        text="Adam Mihajlovic"
+                        <BaffleText
+                        text={props.text}
                         revealDuration={500}
                         revealDelay={1000}
                         parentMethod={reveal}

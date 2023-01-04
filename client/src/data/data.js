@@ -169,16 +169,44 @@ export const QUERY = (locale) => {
                 }
             } 
 
-            contacts (locale: "${locale}") {
+            myContact (locale: "${locale}") {
                 data {
                     attributes {
                         title
-                        value
-                        textValue
-                        source
+                        nameField
+                        emailField
+                        phoneField
+                        messageField
+                        submitButton
+                        confirmation
+                        Map {
+                            city
+                            Province
+                            Country
+                            language
+                            z_index
+                        }
+                        contacts {
+                            data {
+                                attributes {
+                                    value
+                                    textValue
+                                    title
+                                    source
+                                }
+                            }
+                        }
                     }
                 }
             }
+
+            myFooter (locale: "${locale}") {
+                data {
+                    attributes {
+                        copyrights
+                    }
+                }
+              }
         }`
     )
 }

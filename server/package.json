@@ -1,8 +1,15 @@
 {
+  "name": "personal-website",
+  "private": true,
+  "description": "Strapi back-end of Adam Mihajlovic's personal website",
+  "main": "server.js",
+  "version": "1.0.0",
+  "author": "Adam Mihajlovic <mihajlovicadam@gmail.com>",
   "dependencies": {
     "@strapi/plugin-graphql": "^4.5.5",
     "@strapi/plugin-i18n": "^4.5.5",
     "@strapi/plugin-users-permissions": "4.5.5",
+    "@strapi/provider-email-sendgrid": "^4.5.5",
     "@strapi/provider-upload-cloudinary": "^4.5.5",
     "@strapi/strapi": "4.5.5",
     "@strapi/utils": "^4.5.5",

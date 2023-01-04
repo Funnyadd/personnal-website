@@ -39,7 +39,7 @@ export const Reveal = styled.div`
     width: 100%;
     pointer-events: none;
     height: 100%;
-    background-color: #00e5ff;
+    background-color: rgb(12,148,0);
     transform: translateX(100%);
     &.animate {
         animation: ${RevealAnimation} 1.1s cubic-bezier(0.2, 1, 0.3, 1) forwards;

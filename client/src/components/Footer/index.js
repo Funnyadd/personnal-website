@@ -5,19 +5,16 @@ import english from '../../images/english.png'
 import french from '../../images/french.png'
 
 const Footer = (props) => {
-    const [flag, setFlag] = useState(undefined);
-    const [rights, setRights] = useState(undefined)
+    const [flag, setFlag] = useState(undefined)
 
     const handleClick = () => {
         props.changeLanguage()
         setFlag(flag === english ? french : english)
-        setRights(flag === english ? "All rights reserved." : "Tous droits réservés")
     }
 
     useEffect(() => {
-        setRights(localStorage.getItem('Language') === 'en' ? "All rights reserved." : "Tous droits réservés")
         setFlag(localStorage.getItem('Language') === 'en' ? english : french)
-      }, [flag, rights])
+      }, [flag])
 
     return (
         <FooterMain>
@@ -27,7 +24,7 @@ const Footer = (props) => {
                 <SocialIcon hovercolor="#0077B5" icon={faLinkedin} className="social_icon" onClick={() => window.open("https://www.linkedin.com/in/adam-mihajlovic-865b7b198")} />
                 <LanguageButton onClick={handleClick} className="flag">{<img src={flag} alt='english_flag'/>}</LanguageButton>
             </SocialIcons>
-            <FooterText>@Copyrights 2021 - {new Date().getFullYear()} Adam Mihajlovic. {rights}</FooterText>
+            <FooterText>@Copyrights 2021 - {new Date().getFullYear()} Adam Mihajlovic. {props.data}</FooterText>
         </FooterMain>
     )
 }
