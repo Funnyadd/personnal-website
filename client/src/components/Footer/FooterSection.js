@@ -66,6 +66,7 @@ export const FooterText = styled.p`
     margin-top: 3px;
     text-align: center;
     margin-bottom: 0;
+    color: rgb(85, 85, 85);
 
     @media (max-width: 576px) {
         padding: 0 10px;

@@ -7,10 +7,6 @@ export const HeroContainer = styled.div`
     overflow: hidden;
     position: relative;
     height: 100vh;
-
-    @media (max-width: 576px) {
-        height: 400px;
-    }
 `
 
 export const Background = styled.video`
@@ -54,10 +50,6 @@ export const HeadingBox = styled.div`
         border-radius: 5px;
         background: linear-gradient(120deg, rgb(12, 148, 0), rgb(63, 142, 222), rgb(35, 98, 234)) 0% 0% / 300% 300%;
         /* animation: 5s ease-in-out 0s infinite normal none running ${gradientAnimation}; */
-    }
-
-    @media (max-width: 850px) {
-        height: 400px;
     }
 `
 

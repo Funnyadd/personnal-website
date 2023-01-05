@@ -65,6 +65,7 @@ export const Textarea = styled.textarea`
     margin-top: 0px;
     margin-bottom: 0px;
     height: 100px;
+    
     &:focus {
         border-bottom: 1px solid rgb(12, 148, 0);
         outline: none;

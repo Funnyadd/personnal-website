@@ -34,13 +34,13 @@ export const IconCol = styled(Col)`
 
 const gradientAnimation = keyframes`
     0% {
-        background-position: 0% 0%;
+        background-position: 15% 0%;
     }
     50% {
         background-position: 30% 30%;
     }
     100% {
-        background-position: 0% 0%;
+        background-position: 15% 0%;
     }
 `
 
