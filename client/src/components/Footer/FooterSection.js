@@ -17,6 +17,10 @@ export const SocialIcon = styled(FontAwesomeIcon)`
     color: rgb(85, 85, 85);
     margin: 0px 10px;
     cursor: pointer;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
     transition: all 0.5s ease 0s;
 
     &:hover {
@@ -32,25 +36,29 @@ export const SocialIcon = styled(FontAwesomeIcon)`
     }
 `
 
-export const LanguageButton = styled.button`
-    border: none;
-    background: none;
+export const LanguageButton = styled.img`
+    vertical-align: baseline;
     margin: 0px 10px;
     cursor: pointer;
-    transition: all 0.5s ease 0s;
     width: 24px;
 
-    img {
-        width: 24px;
-        padding-bottom: 0.5rem;
+    @media (max-width: 768px) {
+        width: 28px;
+    }
 
-        @media (max-width: 768px) {
-            width: 28px;
-        }
+    @media (max-width: 576px) {
+        width: 32px;
+    }
 
-        @media (max-width: 576px) {
-            width: 32px;
-        }
+    -webkit-filter: brightness(100%);
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    -ms-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+
+    &:hover {
+        -webkit-filter: brightness(70%);
     }
 `
 
