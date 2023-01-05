@@ -195,8 +195,28 @@ export const TabSelector = styled.button`
         outline: none;
     }
 
-    @media (max-width: 860px) {
+    @media (max-width: 1040px) {
+        font-size: 19px;
+    }
+
+    @media (max-width: 970px) {
         font-size: 18px;
+    }
+
+    @media (max-width: 920px) {
+        font-size: 17px;
+    }
+
+    @media (max-width: 870px) {
+        font-size: 16px;
+    }
+
+    @media (max-width: 830px) {
+        font-size: 15px;
+    }
+
+    @media (max-width: 800px) {
+        font-size: 14px;
     }
 
     @media (max-width: 767px) {
