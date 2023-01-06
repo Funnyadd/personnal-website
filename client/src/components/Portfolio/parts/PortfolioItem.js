@@ -22,10 +22,16 @@ class PortfolioItem extends React.Component {
             object-fit: cover;
             height: ${this.props.type !== "slider" ? "100%" : "600px"};
             transition: 0.5s;
-            height: 700px;
-            @media (max-width: 1500px) {
-                height: 600px;
+            vertical-align: middle;
+            
+            @media (max-width: 1400px) {
+                height: 90%;
             }
+
+            @media (max-width: 1200px) {
+                height: 80%;
+            }
+
             @media (max-width: 1024px) {
                 height: 400px;
             }
@@ -34,7 +40,7 @@ class PortfolioItem extends React.Component {
             return <Image src={this.props.image} alt={this.props.text} />
         } else {
             return (
-                <RevealContent callParentMethod={true} parentMethod={this.showContent}>
+                <RevealContent style={{ display: "flex", "justify-content": "center" }} callParentMethod={true} parentMethod={this.showContent}>
                     <Image src={this.props.image} alt={this.props.text} />
                 </RevealContent>
             )
@@ -82,32 +88,33 @@ class PortfolioItem extends React.Component {
             align-items: flex-end;
             visibility: visible;
             background-image: linear-gradient(to top, rgba(4, 229, 229, 1), rgba(255, 255, 255, 0));
+
             @media (min-width: 1025px) {
                 display: none !important;
             }
         `
         const Item = styled.div`
             position: relative;
-            min-height: 600px;
-            max-height: 600px;
-            @media (max-width: 1500px) {
-                min-height: 500px;
-                max-height: 500px;
-            }
+            height: 600px;
+
             @media (max-width: 1024px) {
-                min-height: 400px;
+                min-height: 300px;
                 max-height: 400px;
             }
+
             overflow: hidden;
             max-width: 95%;
             margin: 40px ${this.props.type !== "slider" ? "0" : "auto"};
             border-radius: 10px;
+
             &.move-up {
                 animation: ${MoveUp} 5s infinite alternate;
             }
+
             &.move-down {
                 animation: ${MoveDown} 5s infinite alternate;
             }
+            
             &:hover {
                 ${Text} {
                     transform: translateY(-10px);

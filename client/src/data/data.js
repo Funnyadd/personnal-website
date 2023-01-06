@@ -204,6 +204,9 @@ export const QUERY = (locale) => {
                 data {
                     attributes {
                         copyrights
+                        english
+                        french
+                        langue
                     }
                 }
               }

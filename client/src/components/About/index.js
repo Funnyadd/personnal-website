@@ -248,11 +248,11 @@ const About = (props) => {
                             c = c.attributes
                             return (
                                 <div key={index} className="col-md-3">
-                                    <AnimationContainer animation="fadeIn" delay={1000} duration={3}>
+                                    <AnimationContainer animation="fadeIn" delay={200} duration={2}>
                                         <CounterComponent>
                                             <CounterContainer>
                                                 <div className="valueContainer">
-                                                <CountUp className="value" start={0} delay={1} end={numberOfYear(c.startDate, c.endDate)} duration={5}/>
+                                                <CountUp className="value" start={0} delay={0.5} end={numberOfYear(c.startDate, c.endDate)} duration={5}/>
                                                 </div>
                                                 <div className="symbolContainer">
                                                     {checkIf6Months(c.startDate, c.isAge) 
