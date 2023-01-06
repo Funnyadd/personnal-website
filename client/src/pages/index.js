@@ -23,8 +23,6 @@ const Index = () => {
 
     const changeLanguage = useCallback(
         () => {
-            localStorage.setItem('Language', 
-                localStorage.getItem('Language') === 'en' ? 'fr' : 'en');
             setLanguage(localStorage.getItem('Language'))
 
             setIsReloadingLang(true)
@@ -86,7 +84,7 @@ const Index = () => {
     const services = data.myService.data.attributes
     const projects = data.myProject.data.attributes
     const contact = data.myContact.data.attributes
-    const copyrights = data.myFooter.data.attributes.copyrights
+    const copyrights = data.myFooter.data.attributes
 
     return (
         <Layout data={global}>

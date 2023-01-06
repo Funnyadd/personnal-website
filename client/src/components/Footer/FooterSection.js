@@ -1,5 +1,7 @@
 import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Dropdown, DropdownButton } from "react-bootstrap"
+
 
 export const FooterMain = styled.div`
     background-color: #111;
@@ -36,9 +38,8 @@ export const SocialIcon = styled(FontAwesomeIcon)`
     }
 `
 
-export const LanguageButton = styled.img`
-    vertical-align: baseline;
-    margin: 0px 10px;
+export const Flag = styled.img`
+    margin-right: 10px;
     cursor: pointer;
     width: 24px;
 
@@ -49,16 +50,50 @@ export const LanguageButton = styled.img`
     @media (max-width: 576px) {
         width: 32px;
     }
+`
 
-    -webkit-filter: brightness(100%);
-    -webkit-transition: all 0.5s ease 0s;
-    -moz-transition: all 0.5s ease 0s;
-    -o-transition: all 0.5s ease 0s;
-    -ms-transition: all 0.5s ease 0s;
-    transition: all 0.5s ease 0s;
+export const DropdownBTN = styled(DropdownButton)`
+    margin-bottom: 10px;
+    
+    .dropdown-menu {
+        padding: 0px;
+        min-width: 0 !important;
+        width: 120px !important;
+        background-color: #696969;
+    }
+
+    .dropdown-toggle {
+        width: 120px !important;
+        background-color: #696969 !important;
+        border-color: #696969 !important;
+        color: black !important;
+        padding-top: 3px;
+        padding-bottom: 3px;
+
+        &:hover {
+            background-color: #505050 !important;
+            border-color: #505050 !important;
+        }
+
+        &:active {
+            background-color: #303030 !important;
+            border-color: #303030 !important;
+        }
+    }
+`
+
+export const DropdownItem = styled(Dropdown.Item)`
+    padding: 5px  !important;
+    color: black !important;
 
     &:hover {
-        -webkit-filter: brightness(70%);
+        background-color: #505050 !important;
+        border-color: #505050 !important;
+    }
+
+    &:active {
+        background-color: #303030 !important;
+        border-color: #303030 !important;
     }
 `
 
@@ -66,6 +101,7 @@ export const FooterText = styled.p`
     margin-top: 3px;
     text-align: center;
     margin-bottom: 0;
+    color: rgb(85, 85, 85);
 
     @media (max-width: 576px) {
         padding: 0 10px;

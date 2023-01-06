@@ -30,10 +30,14 @@ const Hero = (props) => {
             var x = document.getElementsByClassName("parallax-hero-item");
             var i;
             for (i = 0; i < x.length; i++) {
-              x[i].style.transform='translate(' + amountMovedX + 'px,' + amountMovedY + 'px)'
+                if (window.innerWidth >= 850) {
+                    x[i].style.transform='translate(' + amountMovedX + 'px,' + amountMovedY + 'px)'
+                } else {
+                    x[i].style.transform='none'
+                }
             }
         });
-    })
+    }, [])
 
     return (
         <>
@@ -41,7 +45,7 @@ const Hero = (props) => {
                 <Background autoPlay muted loop id="backgroundVideo">
                     <source src={strapiHero.Background.data.attributes.url} type="video/mp4" />
                 </Background>
-                <HeadingBox className="parallax-hero-item">
+                <HeadingBox className={"parallax-hero-item"}>
                     <SubHeading>{strapiHero.beforeName}</SubHeading>
                     <Heading>
                         <HeadingText className="glitch" data-text={strapiHero.name}>
