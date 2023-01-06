@@ -59,6 +59,7 @@ export const DropdownBTN = styled(DropdownButton)`
         padding: 0px;
         min-width: 0 !important;
         width: 120px !important;
+        background-color: #696969;
     }
 
     .dropdown-toggle {
@@ -72,19 +73,28 @@ export const DropdownBTN = styled(DropdownButton)`
         &:hover {
             background-color: #505050 !important;
             border-color: #505050 !important;
-            color: black;
         }
 
         &:active {
             background-color: #303030 !important;
             border-color: #303030 !important;
-            color: black;
         }
     }
 `
 
 export const DropdownItem = styled(Dropdown.Item)`
     padding: 5px  !important;
+    color: black !important;
+
+    &:hover {
+        background-color: #505050 !important;
+        border-color: #505050 !important;
+    }
+
+    &:active {
+        background-color: #303030 !important;
+        border-color: #303030 !important;
+    }
 `
 
 export const FooterText = styled.p`
