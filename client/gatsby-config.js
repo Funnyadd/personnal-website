@@ -25,5 +25,11 @@ module.exports = {
                 icon: `src/images/personal-logo.png`,
             },
         },
+        {
+            resolve: `gatsby-plugin-google-gtag`,
+            options: {
+              trackingIds: ["G-G3VTCJ7KQL"]
+            },
+          },
     ],
 }
