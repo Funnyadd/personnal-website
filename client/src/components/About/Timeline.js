@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+
 class Timeline extends React.Component {
     constructor(props) {
         super(props)
@@ -24,6 +25,7 @@ class Timeline extends React.Component {
             justify-content: center;
             bottom: 50px;
             left: 20px;
+
             &::before {
                 content: "";
                 position: absolute;
@@ -44,9 +46,11 @@ class Timeline extends React.Component {
             border: none;
             margin: 10px 0px;
             transition: 0.5s;
+
             &:focus {
                 outline: none;
             }
+
             &.active,
             &:hover {
                 background-color: rgb(12, 148, 0);
@@ -71,9 +75,33 @@ class Timeline extends React.Component {
             margin-bottom: 5px;
         `
         const Text = styled.p`
-            font-size: 12px;
+            font-size: 11pt;
             font-weight: 300;
             color: #c5c5c5;
+
+            @media (max-width: 1400px) {
+                font-size: 10pt;
+            }
+
+            @media (max-width: 1000px) {
+                font-size: 9pt;
+            }
+
+            @media (max-width: 768px) {
+                font-size: 11pt;
+            }
+
+            @media (max-width: 576px) {
+                font-size: 10pt;
+            }
+
+            @media (max-width: 480px) {
+                font-size: 9pt;
+            }
+
+            @media (max-width: 400px) {
+                font-size: 8pt;
+            }
         `
 
         const Years = styled.h5`
@@ -84,11 +112,12 @@ class Timeline extends React.Component {
             position: absolute;
             top: -60px;
             opacity: 0.1;
-            @media (max-width: 767px) {
-                font-size: 45px;
+
+            @media (max-width: 768px) {
                 top: -35px;
             }
-            @media (max-width: 1439px) {
+
+            @media (max-width: 1400px) {
                 font-size: 40px;
                 top: -38px;
             }

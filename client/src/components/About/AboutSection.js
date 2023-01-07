@@ -42,14 +42,36 @@ export const Seperator = styled.div`
 `
 
 export const SummaryText = styled.p`
-    font-size: 12px;
+    font-size: 11pt;
     font-weight: 300;
     color: rgb(197, 197, 197);
 
-    @media screen and (max-width: 576px) {
+    @media (max-width: 1400px) {
+        font-size: 10pt;
+    }
+
+    @media (max-width: 1200px) {
+        font-size: 9pt;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 11pt;
+    }
+
+    @media (max-width: 576px) {
         padding: 0px 20px;
+        font-size: 10pt;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 9pt;
+    }
+
+    @media (max-width: 400px) {
+        font-size: 8pt;
     }
 `
+
 
 export const ImageContainer = styled.div`
     border-radius: 20px;
@@ -75,6 +97,10 @@ export const Image = styled.img`
     max-width: 400px;
 
     @media screen and (max-width: 1400px) {
+        max-width: 330px;
+    }
+
+    @media screen and (max-width: 1000px) {
         max-width: 280px;
     }
 
@@ -199,20 +225,12 @@ export const TabSelector = styled.button`
         font-size: 19px;
     }
 
-    @media (max-width: 970px) {
-        font-size: 18px;
-    }
-
-    @media (max-width: 920px) {
-        font-size: 17px;
-    }
-
-    @media (max-width: 870px) {
-        font-size: 16px;
-    }
-
-    @media (max-width: 830px) {
+    @media (max-width: 992px) {
         font-size: 15px;
+    }
+
+    @media (max-width: 860px) {
+        font-size: 14px;
     }
 
     @media (max-width: 800px) {
