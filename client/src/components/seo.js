@@ -1,5 +1,6 @@
 import React from "react"
 import { Helmet } from "react-helmet"
+import logo from "../images/personal-logo.png"
 
 const Seo = (props) => {
     const seo = props.data.defaultSeo
@@ -7,51 +8,50 @@ const Seo = (props) => {
     const getMetaTags = () => {
         const tags = []
 
-        if (seo.metaTitle) {
-            tags.push(
-                {
-                    property: "og:title",
-                    content: seo.metaTitle,
-                },
-                {
-                    name: "twitter:title",
-                    content: seo.metaTitle,
-                }
-            )
-        }
-        if (seo.metaDescription) {
-            tags.push(
-                {
-                    name: "description",
-                    content: seo.metaDescription,
-                },
-                {
-                    property: "og:description",
-                    content: seo.metaDescription,
-                },
-                {
-                    name: "twitter:description",
-                    content: seo.metaDescription,
-                }
-            )
-        }
-        if (seo.shareImage) {
-            const imageUrl = seo.shareImage.data.attributes.url
-            tags.push(
-                {
-                    name: "image",
-                    content: imageUrl,
-                },
-                {
-                    property: "og:image",
-                    content: imageUrl,
-                },
-                {
-                    name: "twitter:image",
-                    content: imageUrl,
-                }
-            )
-        }
+        // Title
+        tags.push(
+            {
+                property: "og:title",
+                content: "Adam Mihajlovic",
+            },
+            {
+                name: "twitter:title",
+                content: "Adam Mihajlovic",
+            }
+        )
+
+        // Description
+        tags.push(
+            {
+                name: "description",
+                content: "A personnal website to show my work.",
+            },
+            {
+                property: "og:description",
+                content: "A personnal website to show my work.",
+            },
+            {
+                name: "twitter:description",
+                content: "A personnal website to show my work.",
+            }
+        )
+        
+        // Website Icon
+        tags.push(
+            {
+                name: "image",
+                content: logo,
+            },
+            {
+                property: "og:image",
+                content: logo,
+            },
+            {
+                name: "twitter:image",
+                content: logo,
+            }
+        )
+
         if (seo.article) {
             tags.push({
                 property: "og:type",
@@ -67,11 +67,11 @@ const Seo = (props) => {
 
     return (
         <Helmet
-            title={seo.metaTitle}
+            title="Adam Mihajlovic"
             link={[
                 {
                     rel: "icon",
-                    href: props.data.favicon.data.attributes.url,
+                    href: logo,
                 },
             ]}
             meta={metaTags}
