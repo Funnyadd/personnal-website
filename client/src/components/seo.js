@@ -67,7 +67,7 @@ const Seo = (props) => {
 
     return (
         <Helmet
-            title="Adam Mihajlovic"
+            title="Adam Mihajlovic - Personal Website"
             link={[
                 {
                     rel: "icon",
