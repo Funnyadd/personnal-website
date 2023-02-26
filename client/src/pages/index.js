@@ -52,7 +52,7 @@ const Index = () => {
         setIsFrontPage(false)
     }, 2500)
     
-    if ((loading && isFrontPage) || (loading && isReloadingLang)) {
+    if (loading || isFrontPage || isReloadingLang) {
         return (
             <div>
                 <PageRevealer text={isReloadingLang ? 
