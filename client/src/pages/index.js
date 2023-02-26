@@ -13,6 +13,7 @@ import PageRevealer from '../components/page-revealer'
 import Footer from "../components/Footer"
 
 const Index = () => {
+    const LOADING_SCREEN_TIMEOUT = 3000
     const getLangs = (lngs) => {
         if(lngs === 'fr-CA' || lngs === 'fr-FR' || lngs === 'fr') return 'fr'
         else return 'en'
@@ -28,7 +29,7 @@ const Index = () => {
             setIsReloadingLang(true)
             setTimeout(() => {
                 setIsReloadingLang(false)
-            }, 2500)
+            }, LOADING_SCREEN_TIMEOUT)
 
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [language]
@@ -50,7 +51,7 @@ const Index = () => {
     // Need 2500ms or more to contain the animation on the front page
     setTimeout(() => {
         setIsFrontPage(false)
-    }, 2500)
+    }, LOADING_SCREEN_TIMEOUT)
     
     if (loading || isFrontPage || isReloadingLang) {
         return (
