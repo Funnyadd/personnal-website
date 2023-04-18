@@ -2,9 +2,7 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import logo from "../images/personal-logo.png"
 
-const Seo = (props) => {
-    const seo = props.data.defaultSeo
-
+const Seo = () => {
     const getMetaTags = () => {
         const tags = []
 
@@ -24,15 +22,15 @@ const Seo = (props) => {
         tags.push(
             {
                 name: "description",
-                content: "A personnal website to show my work.",
+                content: "Professional E-Portoflio of Adam Mihajlovic. This website show the work that I've done so far.",
             },
             {
                 property: "og:description",
-                content: "A personnal website to show my work.",
+                content: "Professional E-Portoflio of Adam Mihajlovic. This website show the work that I've done so far.",
             },
             {
                 name: "twitter:description",
-                content: "A personnal website to show my work.",
+                content: "Professional E-Portoflio of Adam Mihajlovic. This website show the work that I've done so far.",
             }
         )
         
@@ -52,12 +50,6 @@ const Seo = (props) => {
             }
         )
 
-        if (seo.article) {
-            tags.push({
-                property: "og:type",
-                content: "article",
-            })
-        }
         tags.push({ name: "twitter:card", content: "summary_large_image" })
 
         return tags

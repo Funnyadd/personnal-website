@@ -39,13 +39,6 @@ export const QUERY = (locale) => {
                             title
                             url
                         }
-                        Background {
-                            data {
-                                attributes {
-                                    url
-                                }
-                            }
-                        }
                     }
                 }
             }
