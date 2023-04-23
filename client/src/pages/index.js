@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback }  from "react"
+import { inject } from '@vercel/analytics';
 import Seo from "../components/seo"
 import Layout from "../components/layout"
 import Hero from "../components/Hero"
@@ -10,8 +11,11 @@ import Portfolio from "../components/Portfolio"
 import { useQuery } from "@apollo/client"
 import { QUERY } from "../data/data"
 import Footer from "../components/Footer"
-
+ 
 const Index = () => {
+    // Injects vercel's analytics
+    inject();
+
     const getLangs = (lngs) => {
         if(lngs === 'fr-CA' || lngs === 'fr-FR' || lngs === 'fr') return 'fr'
         else return 'en'
