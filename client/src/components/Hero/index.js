@@ -3,6 +3,7 @@ import "./HeroCSS.scss"
 import {
     HeroContainer,
     Background,
+    // BackgroundThumbnail,
     HeadingBox,
     Heading,
     SubHeading,
@@ -12,6 +13,7 @@ import {
 } from "./HeroSection"
 import Typewriter from "typewriter-effect"
 import background_loop from '../../images/background_loop.mp4'
+// import background_thumnail from '../../images/background-loop-thumbnail.png'
 
 const Hero = (props) => {
     const strapiHero = props.data
@@ -38,6 +40,7 @@ const Hero = (props) => {
                 <Background autoPlay muted loop id="backgroundVideo">
                     <source src={background_loop} type="video/mp4" />
                 </Background>
+                {/* <BackgroundThumbnail id="backgroundThumbnail" src={background_thumnail} type="png" /> */}
                 <HeadingBox className={"parallax-hero-item"}>
                     <SubHeading>{strapiHero.beforeName}</SubHeading>
                     <Heading>

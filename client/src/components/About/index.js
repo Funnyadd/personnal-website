@@ -56,12 +56,117 @@ const About = (props) => {
         await loadTrianglesPreset(engine)
     }, []);
 
+    const particleOptions = {
+        fullScreen: { enable: false },
+        preset: "triangles",
+        particles: {
+            number: {
+                value: 100,
+                density: {
+                enable: true,
+                value_area: 2000
+                }
+            },
+            color: {
+                value: ["#03afaf","#00e5ff"]
+            },
+            shape: {
+                type: "circle",
+                stroke: {
+                width: 0,
+                color: "#fff"
+                }
+            },
+            opacity: {
+                value: 0.5,
+                random: false,
+                anim: {
+                enable: true,
+                speed: 0.5,
+                opacity_min: 0.1,
+                sync: false
+                }
+            },
+            size: {
+                value: 8.017060304327615,
+                random: true,
+                anim: {
+                    enable: true,
+                    speed: 12.181158184520175,
+                    size_min: 0.1,
+                    sync: true
+                }
+            },
+            line_linked: {
+                enable: true,
+                distance: 150,
+                color: "#555",
+                opacity: 0.5,
+                width: 1
+            },
+            move: {
+                enable: true,
+                speed: 1,
+                direction: "none",
+                random: false,
+                straight: false,
+                out_mode: "bounce",
+                bounce: false,
+                attract: {
+                    enable: false,
+                    rotateX: 600,
+                    rotateY: 1200
+                }
+            }
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: {
+                onhover: {
+                    enable: false,
+                    mode: "repulse"
+                },
+                onclick: {
+                    enable: false,
+                    mode: "push"
+                },
+                resize: true
+            },
+            modes: {
+                grab: {
+                    distance: 400,
+                    line_linked: {
+                        opacity: 1
+                    }
+                },
+                bubble: {
+                    distance: 400,
+                    size: 40,
+                    duration: 2,
+                    opacity: 8,
+                    speed: 3
+                },
+                    repulse: {
+                    distance: 200,
+                    duration: 0.4
+                },
+                push: {
+                    particles_nb: 4
+                },
+                remove: {
+                    particles_nb: 2
+                }
+            },
+            detectRetina: true,
+        }
+    }
+
     return (
         <>
             <AboutContainer className="container">
                 <div className="row">
                     <LeftColumn className="col-md-6">
-                        <AnimationContainer animation="fadeIn" duration={2}>
+                        <AnimationContainer animation="fadeIn" duration={0.5}>
                             <ImageContainer>
                                     <RevealContent delay={500}>
                                         <Image src={strapiAbout.Photo.data.attributes.url} alt="Profile picture" />
@@ -137,110 +242,7 @@ const About = (props) => {
                 <Particles 
                     id="tsparticles"
                     init={particlesInit}
-                    options={{
-                        fullScreen: { enable: false },
-                        preset: "triangles",
-                        particles: {
-                            number: {
-                                value: 100,
-                                density: {
-                                enable: true,
-                                value_area: 2000
-                                }
-                            },
-                            color: {
-                                value: ["#03afaf","#00e5ff"]
-                            },
-                            shape: {
-                                type: "circle",
-                                stroke: {
-                                width: 0,
-                                color: "#fff"
-                                }
-                            },
-                            opacity: {
-                                value: 0.5,
-                                random: false,
-                                anim: {
-                                enable: true,
-                                speed: 0.5,
-                                opacity_min: 0.1,
-                                sync: false
-                                }
-                            },
-                            size: {
-                                value: 8.017060304327615,
-                                random: true,
-                                anim: {
-                                    enable: true,
-                                    speed: 12.181158184520175,
-                                    size_min: 0.1,
-                                    sync: true
-                                }
-                            },
-                            line_linked: {
-                                enable: true,
-                                distance: 150,
-                                color: "#555",
-                                opacity: 0.5,
-                                width: 1
-                            },
-                            move: {
-                                enable: true,
-                                speed: 1,
-                                direction: "none",
-                                random: false,
-                                straight: false,
-                                out_mode: "bounce",
-                                bounce: false,
-                                attract: {
-                                    enable: false,
-                                    rotateX: 600,
-                                    rotateY: 1200
-                                }
-                            }
-                        },
-                        interactivity: {
-                            detect_on: "canvas",
-                            events: {
-                                onhover: {
-                                    enable: false,
-                                    mode: "repulse"
-                                },
-                                onclick: {
-                                    enable: false,
-                                    mode: "push"
-                                },
-                                resize: true
-                            },
-                            modes: {
-                                grab: {
-                                    distance: 400,
-                                    line_linked: {
-                                        opacity: 1
-                                    }
-                                },
-                                bubble: {
-                                    distance: 400,
-                                    size: 40,
-                                    duration: 2,
-                                    opacity: 8,
-                                    speed: 3
-                                },
-                                    repulse: {
-                                    distance: 200,
-                                    duration: 0.4
-                                },
-                                push: {
-                                    particles_nb: 4
-                                },
-                                remove: {
-                                    particles_nb: 2
-                                }
-                            },
-                            detectRetina: true,
-                        }
-                    }}
+                    options={particleOptions}
                 />
                 <div className="container">
                     <div className="row">
