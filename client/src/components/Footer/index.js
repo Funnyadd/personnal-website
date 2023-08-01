@@ -9,6 +9,7 @@ const Footer = (props) => {
         if(language !== localStorage.getItem('Language')) {
             localStorage.setItem('Language', language)
             props.changeLanguage()
+            window.location.reload()
         }
     }
 
