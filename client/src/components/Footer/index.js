@@ -6,7 +6,7 @@ import french from '../../images/french.png'
 
 const Footer = (props) => {
     const handleClick = (language) => {
-        if(language !== localStorage.getItem('Language')) {
+        if (language !== localStorage.getItem('Language')) {
             localStorage.setItem('Language', language)
             props.changeLanguage()
         }

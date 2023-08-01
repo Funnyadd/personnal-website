@@ -6,18 +6,18 @@
   "version": "1.0.0",
   "author": "Adam Mihajlovic <mihajlovicadam@gmail.com>",
   "dependencies": {
-    "@strapi/plugin-graphql": "^4.9.2",
-    "@strapi/plugin-i18n": "^4.9.2",
-    "@strapi/plugin-users-permissions": "4.9.2",
-    "@strapi/provider-email-sendgrid": "^4.9.2",
-    "@strapi/provider-upload-cloudinary": "^4.9.2",
-    "@strapi/strapi": "4.9.2",
-    "@strapi/utils": "^4.9.2",
+    "@strapi/plugin-graphql": "^4.12.0",
+    "@strapi/plugin-i18n": "^4.12.0",
+    "@strapi/plugin-users-permissions": "4.12.0",
+    "@strapi/provider-email-sendgrid": "^4.12.0",
+    "@strapi/provider-upload-cloudinary": "^4.12.0",
+    "@strapi/strapi": "4.12.0",
+    "@strapi/utils": "^4.12.0",
     "babel-eslint": "^10.1.0",
     "fs-extra": "^11.1.1",
     "lodash.set": "^4.3.2",
     "mime-types": "^2.1.35",
-    "pg": "^8.10.0"
+    "pg": "^8.11.2"
   },
   "scripts": {
     "develop": "strapi develop",

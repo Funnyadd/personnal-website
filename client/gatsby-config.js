@@ -5,7 +5,7 @@ require("dotenv").config({
 module.exports = {
     siteMetadata: {
         title: `Professional E-Portoflio`,
-        description: `Professional E-Portoflio of Adam Mihajlovic. This website show the work that I've done so far.`,
+        description: `Professional E-Portoflio of Adam Mihajlovic. This website shows the work that I've done so far.`,
         author: `Adam Mihajlovic`,
         siteUrl: `https://adammihajlovic.ca`,
     },
@@ -30,7 +30,7 @@ module.exports = {
             resolve: `gatsby-plugin-google-gtag`,
             options: {
               trackingIds: ["G-G3VTCJ7KQL"]
-            },
-          },
-    ],
+            }
+          }
+    ]
 }

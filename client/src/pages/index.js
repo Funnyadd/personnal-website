@@ -18,7 +18,7 @@ const Index = () => {
     inject();
 
     const getLangs = (lngs) => {
-        if(lngs === 'fr-CA' || lngs === 'fr-FR' || lngs === 'fr') return 'fr'
+        if (lngs === 'fr-CA' || lngs === 'fr-FR' || lngs === 'fr') return 'fr'
         else return 'en'
     }
 
@@ -40,7 +40,7 @@ const Index = () => {
     )
 
     useEffect(() => {
-        if(!localStorage.getItem('Language')) {
+        if (!localStorage.getItem('Language')) {
             localStorage.setItem('Language', getLangs(navigator.language))
         }
         setLanguage(localStorage.getItem('Language'))
@@ -65,7 +65,7 @@ const Index = () => {
                     "Changing Language" :
                     "Changement de la langue"
                 ) : "Adam Mihajlovic"
-            } />
+                } />
             </div>
         )
     }

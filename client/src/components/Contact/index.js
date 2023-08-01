@@ -1,8 +1,6 @@
 import React from "react"
-// import ContactForm from '../ContactForm'
 import { AboutContainer } from "../About/AboutSection"
 import {
-    // FormContainer, Map, Gradient, ContactCol, FormRow,
     IconContainer,
     IconCol,
     IconRow,
