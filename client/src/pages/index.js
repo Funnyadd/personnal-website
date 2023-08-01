@@ -7,6 +7,7 @@ import Navbar from "../components/Navbar"
 import About from "../components/About"
 import Contact from "../components/Contact"
 import Services from "../components/Services"
+import PageRevealer from "../components/page-revealer"
 import Portfolio from "../components/Portfolio"
 import { useQuery } from "@apollo/client"
 import { QUERY } from "../data/data"
@@ -22,26 +23,51 @@ const Index = () => {
     }
 
     const [language, setLanguage] = useState('en')
+    const [isReloadingLang, setIsReloadingLang] = useState(false)
+    const [isFrontPage, setIsFrontPage] = useState(true)
 
     const changeLanguage = useCallback(
         () => {
             setLanguage(localStorage.getItem('Language'))
+
+            setIsReloadingLang(true)
+            setTimeout(() => {
+                setIsReloadingLang(false)
+            }, 2800)
+
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [language]
     )
 
     useEffect(() => {
-        if (!localStorage.getItem('Language')) {
+        if(!localStorage.getItem('Language')) {
             localStorage.setItem('Language', getLangs(navigator.language))
         }
         setLanguage(localStorage.getItem('Language'))
     }, [])
 
+
     // Query
     const { loading, error, data } = useQuery(QUERY(language))    
 
-    if (loading) {
-        return <div><Seo/></div>
+    // Need 2500ms or more to contain the animation on the front page
+    setTimeout(() => {
+        setIsFrontPage(false)
+    }, 2800)
+    
+    if (isFrontPage || loading || isReloadingLang) {
+        return (
+            <div>
+                <Seo/>
+                <PageRevealer text={isReloadingLang ? 
+                (
+                    language === 'en' ? 
+                    "Changing Language" :
+                    "Changement de la langue"
+                ) : "Adam Mihajlovic"
+            } />
+            </div>
+        )
     }
 
     if (error) {
