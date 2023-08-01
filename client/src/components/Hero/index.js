@@ -37,7 +37,7 @@ const Hero = (props) => {
     return (
         <>
             <HeroContainer>
-                <Background autoPlay muted loop id="backgroundVideo">
+                <Background autoPlay muted loop playsInline id="backgroundVideo">
                     <source src={background_loop} type="video/mp4" />
                 </Background>
                 {/* <BackgroundThumbnail id="backgroundThumbnail" src={background_thumnail} type="png" /> */}

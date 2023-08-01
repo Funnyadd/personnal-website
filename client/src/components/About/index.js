@@ -22,7 +22,7 @@ import Timeline from "./Timeline"
 import Particles from "react-tsparticles";
 import { loadTrianglesPreset } from "tsparticles-preset-triangles";
 import AnimationContainer from "../animation-container";
-import CountUp from 'react-countup'
+import CountUp, { useCountUp } from 'react-countup'
 import RevealContent from "../reveal-content";
 
 const About = (props) => {
@@ -54,7 +54,7 @@ const About = (props) => {
 
     const particlesInit = useCallback(async engine => {
         await loadTrianglesPreset(engine)
-    }, []);
+    }, [])
 
     const particleOptions = {
         fullScreen: { enable: false },
@@ -161,6 +161,13 @@ const About = (props) => {
         }
     }
 
+    useCountUp({
+        ref: 'counter',
+        enableScrollSpy: true,
+        scrollSpyDelay: 1000,
+        start: 0
+    })
+
     return (
         <>
             <AboutContainer className="container">
@@ -254,7 +261,7 @@ const About = (props) => {
                                         <CounterComponent>
                                             <CounterContainer>
                                                 <div className="valueContainer">
-                                                <CountUp className="value" start={0} delay={0.5} end={numberOfYear(c.startDate, c.endDate)} duration={5}/>
+                                                <CountUp className="value" enableScrollSpy duration={6} end={numberOfYear(c.startDate, c.endDate)}/>
                                                 </div>
                                                 <div className="symbolContainer">
                                                     {checkIf6Months(c.startDate, c.isAge) 
