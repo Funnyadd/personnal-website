@@ -11,7 +11,7 @@ const Course = (props) => {
     const courseData = props.data;
 
     return (
-        <CourseContainer md={2}>
+        <CourseContainer md={3}>
             <HyperlinkTile className="mb-2" href={COURSE_INFO_URL + courseData.courseId}>
                 <CourseId>{courseData.courseId}</CourseId>
                 <p>{courseData.name}</p>

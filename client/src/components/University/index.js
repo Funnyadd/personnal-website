@@ -9,8 +9,6 @@ import Semester from "./Semester"
 import AnimatedHeading from "../animated-heading"
 
 const University = (props) => {
-    const COURSE_INFO_URL = "https://www.etsmtl.ca/etudes/cours/"
-
     const strapiUniversity = props.data;
     const bachelorData = strapiUniversity.degrees.data[0].attributes
 

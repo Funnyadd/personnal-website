@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components"
+import styled from "styled-components"
 import { Row } from "react-bootstrap"
 
 export const SemesterContainer = styled(Row)`

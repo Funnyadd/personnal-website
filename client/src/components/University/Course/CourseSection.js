@@ -5,7 +5,7 @@ export const CourseContainer = styled(Col)`
     justify-content: center;
 `
 export const HyperlinkTile = styled.a`
-    /* text-align: center; */
+    height: 165px;
     padding: 10px 5px;
     transition: all 0.1s ease 0s;
     border-radius: 16px;
@@ -22,7 +22,7 @@ export const HyperlinkTile = styled.a`
         border-radius: 10px;
     }
 
-    /* &:before {
+    &:before {
         content: '';
         transition: all 0.1s ease 0s;
         position: absolute;
@@ -31,7 +31,7 @@ export const HyperlinkTile = styled.a`
         margin: -5px;
         border-radius: inherit;
         background: linear-gradient(120deg, rgb(12, 148, 40), rgb(63, 142, 222), rgb(35, 98, 234));
-    } */
+    }
 `
 
 export const CourseId = styled.h3`
