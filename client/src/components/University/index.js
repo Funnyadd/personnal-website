@@ -31,7 +31,12 @@ const University = (props) => {
                                 <h2>Semester {s.number} : {s.startSeason}</h2>
                                 {s.courses.data.map((c, i) => {
                                     c = c.attributes
-                                    return <a href={COURSE_INFO_URL + c.courseId}>{c.courseId} : {c.name}</a>
+                                    return (
+                                        <Row>
+                                            <a className="mb-2" href={COURSE_INFO_URL + c.courseId}>{c.courseId} : {c.name}</a>
+                                            <br />
+                                        </Row>
+                                    )
                                 })}
                             </Col>
                         )
