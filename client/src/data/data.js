@@ -193,6 +193,41 @@ export const QUERY = (locale) => {
                 }
             }
 
+            myUniversity (locale: "${locale}") {
+                data {
+                    attributes {
+                    title
+                        degrees {
+                            data {
+                                attributes {
+                                    title
+                                    semesters {
+                                        data {
+                                            attributes {
+                                                number
+                                                isCurrentSemester
+                                                isInternshipSemester
+                                                startSeason
+                                                year
+                                                courses {
+                                                    data {
+                                                        attributes {
+                                                            courseId
+                                                            name
+                                                            isDone
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
             myFooter (locale: "${locale}") {
                 data {
                     attributes {
@@ -202,7 +237,7 @@ export const QUERY = (locale) => {
                         langue
                     }
                 }
-              }
+            }
         }`
     )
 }

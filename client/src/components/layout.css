@@ -49,6 +49,14 @@ video {
   padding: 100px 0px !important;
 }
 
+#University {
+  position: relative;
+  overflow: hidden;
+  background-color: rgb(5, 5, 5);
+  background-size: cover;
+  padding: 100px 0px;
+}
+
 .sticky {
   position: fixed !important;
   background-color: rgba(0, 0, 0, 0.8) !important;
