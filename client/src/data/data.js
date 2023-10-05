@@ -14,17 +14,17 @@ export const QUERY = (locale) => {
             global (locale: "${locale}") {
                 data {
                     attributes {
-                    defaultSeo {
-                        metaTitle
-                        metaDescription
+                        defaultSeo {
+                            metaTitle
+                            metaDescription
                         }
-                    favicon {
-                        data {
-                        attributes {
-                            url
+                        favicon {
+                            data {
+                                attributes {
+                                    url
+                                }
+                            }
                         }
-                        }
-                    }
                     }
                 }
             }

@@ -11,8 +11,26 @@ module.exports = {
     },
     plugins: [
         `gatsby-plugin-styled-components`,
+        `gatsby-plugin-image`,
+        {
+            resolve: `gatsby-plugin-sharp`,
+            options: {
+                defaults: {
+                    formats: [`auto`, `jpg`, `png`],
+                    placeholder: `blurred`,
+                    quality: 50,
+                    breakpoints: [750, 1080, 1366, 1920],
+                    backgroundColor: `transparent`,
+                    tracedSVGOptions: {},
+                    blurredOptions: {},
+                    jpgOptions: {},
+                    pngOptions: {},
+                    webpOptions: {},
+                    avifOptions: {},
+                }
+            },
+        },
         `gatsby-transformer-sharp`,
-        `gatsby-plugin-sharp`,
         `gatsby-plugin-sass`,
         {
             resolve: `gatsby-plugin-manifest`,
