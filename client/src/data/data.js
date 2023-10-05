@@ -196,11 +196,12 @@ export const QUERY = (locale) => {
             myUniversity (locale: "${locale}") {
                 data {
                     attributes {
-                    title
+                        title
                         degrees {
                             data {
                                 attributes {
                                     title
+                                    cumulativeAverage
                                     semesters {
                                         data {
                                             attributes {

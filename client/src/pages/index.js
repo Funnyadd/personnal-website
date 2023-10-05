@@ -90,6 +90,7 @@ const Index = () => {
     const projects = data.myProject.data.attributes
     const contact = data.myContact.data.attributes
     const university = data.myUniversity.data.attributes
+    console.log(university)
     const copyrights = data.myFooter.data.attributes
 
     return (
