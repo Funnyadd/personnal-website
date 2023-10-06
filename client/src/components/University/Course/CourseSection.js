@@ -1,5 +1,5 @@
-import styled, { keyframes } from "styled-components"
-import { Row, Col, Container } from "react-bootstrap"
+import styled from "styled-components"
+import { Col } from "react-bootstrap"
 
 export const CourseContainer = styled(Col)`
     justify-content: center;
@@ -31,21 +31,40 @@ export const HyperlinkTile = styled.a`
         margin: -5px;
         border-radius: inherit;
         background: linear-gradient(120deg, rgb(12, 148, 40), rgb(63, 142, 222), rgb(35, 98, 234));
+        background-size: 300% 300%;
+    }
+
+    @media (max-width: 362px) {
+        height: 140px;
     }
 `
 
 export const CourseId = styled.h3`
     font-weight: bolder;
+
+    @media (max-width: 362px) {
+        font-size: 20px;
+    }
 `
 
-const gradientAnimation = keyframes`
-    0% {
-        background-position: 15% 0%;
+export const CourseName = styled.p`
+    @media (max-width: 768px) {
+        font-size: 13px;
     }
-    50% {
-        background-position: 30% 30%;
+
+    @media (max-width: 576px) {
+        font-size: 16px;
     }
-    100% {
-        background-position: 15% 0%;
+
+    @media (max-width: 504px) {
+        font-size: 14px;
+    }
+
+    @media (max-width: 408px) {
+        font-size: 12px;
+    }
+
+    @media (max-width: 362px) {
+        font-size: 10px;
     }
 `

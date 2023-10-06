@@ -57,6 +57,31 @@ video {
   padding: 100px 0px;
 }
 
+.accordion-button {
+  color: gray;
+  font-size: 18px;
+  background-color: #000;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-button:hover {
+  background-color: #272727;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #000;
+  box-shadow: none;
+  color: #fff;
+  font-size: 18px;
+}
+
+.accordion-button:not:hover {
+  background-color: #272727;
+}
+
 .sticky {
   position: fixed !important;
   background-color: rgba(0, 0, 0, 0.8) !important;

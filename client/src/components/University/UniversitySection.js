@@ -1,12 +1,12 @@
-import styled, { keyframes } from "styled-components"
-import { Row, Col, Container } from "react-bootstrap"
+import styled from "styled-components"
+import { Container, Accordion } from "react-bootstrap"
 
 export const UniversityContainer = styled(Container)`
 `
 
 export const BachelorContainer = styled(Container)`
     margin: 40px auto;
-    `
+`
 
 export const Heading = styled.h2`
     font-size: 70px;
@@ -30,4 +30,8 @@ export const Seperator = styled.div`
     @media screen and (max-width: 576px) {
         margin: 0px 20px 20px 20px;
     }
+`
+
+export const SemesterAccordion = styled(Accordion)`
+    
 `

@@ -4,6 +4,7 @@ import {
     BachelorContainer,
     Heading,
     Seperator,
+    SemesterAccordion
 } from "./UniversitySection"
 import Semester from "./Semester"
 import AnimatedHeading from "../animated-heading"
@@ -20,7 +21,9 @@ const University = (props) => {
                 <h2>Cumulative Average: {bachelorData.cumulativeAverage}/4.3</h2>
                 <Heading>Courses</Heading>
                 <Seperator />
-                {bachelorData.semesters.data.map((s, index) => <Semester index={index} data={s.attributes } />)}
+                <SemesterAccordion >
+                    {bachelorData.semesters.data.map((s, index) => <Semester key={index} index={index} data={s.attributes} />)}
+                </SemesterAccordion>
             </BachelorContainer>
         </UniversityContainer>
     )
