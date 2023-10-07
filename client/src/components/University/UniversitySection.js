@@ -41,7 +41,6 @@ export const Seperator = styled.div`
 `
 
 export const SemesterAccordion = styled(Accordion)`
-    /* border: 2px solid gray; */
 `
 
 export const InformationContainer = styled(Container)`

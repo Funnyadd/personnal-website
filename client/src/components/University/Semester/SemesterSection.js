@@ -6,9 +6,8 @@ export const SemesterContainer = styled(Accordion.Item)`
     color: #fff;
     padding: 1px;
     background-color: #000 !important;
-    border: 2px solid gray !important;
-    border-top: 0 !important;
-    border-bottom: 0 !important;
+    border: 2px solid #212529;
+    border-bottom: 0;
 `
 
 export const Title = styled(Accordion.Header)`
