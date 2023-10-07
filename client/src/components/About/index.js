@@ -261,7 +261,7 @@ const About = (props) => {
                                         <CounterComponent>
                                             <CounterContainer>
                                                 <div className="valueContainer">
-                                                <CountUp className="value" enableScrollSpy duration={6} end={numberOfYear(c.startDate, c.endDate)}/>
+                                                <CountUp className="value" enableScrollSpy duration={2} end={numberOfYear(c.startDate, c.endDate)}/>
                                                 </div>
                                                 <div className="symbolContainer">
                                                     {checkIf6Months(c.startDate, c.isAge) 

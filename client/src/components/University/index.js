@@ -15,7 +15,7 @@ import AnimationContainer from "../animation-container"
 
 const University = (props) => {
     const MAX_CUMULATIVE_AVERAGE = "4.3";
-    
+
     const strapiUniversity = props.data;
     const bachelorData = strapiUniversity.degrees.data[0].attributes
 
@@ -34,8 +34,8 @@ const University = (props) => {
                     <Heading>{strapiUniversity.informationTitle}</Heading>
                     <Seperator />
                     <InformationContainer>
-                        <Info><InfoTitle>{bachelorData.schoolNameTitle} :</InfoTitle> {bachelorData.schoolName}</Info>
-                        <Info><InfoTitle>{bachelorData.cumulativeAverageTitle} :</InfoTitle> {bachelorData.cumulativeAverage} / {MAX_CUMULATIVE_AVERAGE}</Info>
+                        <Info><InfoTitle>{bachelorData.schoolNameTitle} :</InfoTitle>{bachelorData.schoolName}</Info>
+                        <Info><InfoTitle>{bachelorData.cumulativeAverageTitle} :</InfoTitle>{bachelorData.cumulativeAverage} / {MAX_CUMULATIVE_AVERAGE}</Info>
                         <Info><InfoTitle>{bachelorData.expectedGraduationDateTitle} :</InfoTitle>{bachelorData.expectedGraduationDate}</Info>
                     </InformationContainer>
                 </AnimationContainer>
