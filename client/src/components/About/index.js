@@ -29,7 +29,7 @@ const About = (props) => {
     const strapiAbout = props.data
 
     const [tab, setTab] = useState("")
-    if(tab === "" || !strapiAbout.navigation.includes(tab)) setTab(strapiAbout.navigation[0])
+    if (tab === "" || !strapiAbout.navigation.includes(tab)) setTab(strapiAbout.navigation[0])
 
     const numberOfYear = (startDateString, endDateString) => {
         var endDate = new Date()

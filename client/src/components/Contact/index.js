@@ -23,11 +23,9 @@ const Contact = (props) => {
 
     const mapStringBuilder = () => {
         const map = contactInfo.Map[0]
-        let str = ''
-        str = str.concat(`https://maps.google.com/maps?width=500&height=500&`,
-                        `hl=${map.language}&q=${map.city}%2C%20${map.Province}`,
-                        `%2C%20${map.Country}&ie=UTF8&t=&z=${map.z_index}&iwloc=B&output=embed`)
-        return str;
+        return `https://maps.google.com/maps?width=500&height=500&`
+              +`hl=${map.language}&q=${map.city}%2C%20${map.Province}`
+              +`%2C%20${map.Country}&ie=UTF8&t=&z=${map.z_index}&iwloc=B&output=embed`
     }
 
     return (

@@ -43,10 +43,12 @@ export const Input = styled.input`
     border-radius: 0;
     color: #fff;
     transition: 0.5s;
+
     &:focus {
         border-bottom: 1px solid rgb(12, 148, 0);
         outline: none;
     }
+
     &.error {
         animation: ${ErrorInputAnimation} 1s forwards;
     }
@@ -70,6 +72,7 @@ export const Textarea = styled.textarea`
         border-bottom: 1px solid rgb(12, 148, 0);
         outline: none;
     }
+
     &.error {
         animation: ${ErrorInputAnimation} 1s forwards;
     }
@@ -88,6 +91,7 @@ export const Submit = styled.button`
     &:hover {
         background: #444;
     }
+    
     span {
         position: relative;
         top: 0;

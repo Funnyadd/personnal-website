@@ -52,7 +52,6 @@ export const IconContainer = styled.div`
     text-align: center;
     position: relative;
     bottom: 75px;
-    background-size: 300% 300%;
     border-radius: 150px;
     transition: 0.5s;
     background: linear-gradient(120deg, rgb(12, 148, 40), rgb(63, 142, 222), rgb(35, 98, 234));

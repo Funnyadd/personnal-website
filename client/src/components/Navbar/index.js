@@ -20,7 +20,7 @@ const Navbar = (props) => {
     return (
         <>
             <NavBar className={scroll ? "navbar navbar-expand-sm sticky smoothTransition" : "navbar navbar-expand-sm smoothTransition"}>
-                <NavbarContainer className="container">
+                <NavbarContainer>
                     <NavLogo href={"/#" + props.navLabels[0]}>
                         <img 
                             className={scroll ? "navSticky smoothTransition" : "smoothTransition"} 

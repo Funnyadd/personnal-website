@@ -12,6 +12,7 @@ import Portfolio from "../components/Portfolio"
 import { useQuery } from "@apollo/client"
 import { QUERY } from "../data/data"
 import Footer from "../components/Footer"
+import University from "../components/University";
  
 const Index = () => {
     // Injects vercel's analytics
@@ -88,6 +89,8 @@ const Index = () => {
     const services = data.myService.data.attributes
     const projects = data.myProject.data.attributes
     const contact = data.myContact.data.attributes
+    const university = data.myUniversity.data.attributes
+    console.log(university)
     const copyrights = data.myFooter.data.attributes
 
     return (
@@ -101,12 +104,15 @@ const Index = () => {
                 <About data={about} />
             </section>
             <section id={navs[2]}>
-                <Services data={services} />
+                <University data={university} />
             </section>
             <section id={navs[3]}>
-                <Portfolio data={projects} />
+                <Services data={services} />
             </section>
             <section id={navs[4]}>
+                <Portfolio data={projects} />
+            </section>
+            <section id={navs[5]}>
                 <Contact data={contact} />
             </section>
             <Footer data={copyrights} changeLanguage={changeLanguage}/>

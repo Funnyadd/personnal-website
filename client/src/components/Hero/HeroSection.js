@@ -15,25 +15,20 @@ export const Background = styled.video`
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
+    height: auto;
+    position: fixed;
+    z-index: -1000;
 `
-
-// export const BackgroundThumbnail = styled.img`
-//     position: fixed;
-//     right: 0;
-//     bottom: 0;
-//     min-width: 100%;
-//     min-height: 100%;
-// `
 
 const gradientAnimation = keyframes`
     0% {
-        background-position: 15% 0%;
+        background-position: 0% 0%;
     }
     50% {
-        background-position: 30% 30%;
+        background-position: 40% 40%;
     }
     100% {
-        background-position: 15% 0%;
+        background-position: 0% 0%;
     }
 `
 
@@ -57,7 +52,15 @@ export const HeadingBox = styled.div`
         clip-path: polygon(0% 100%, 10px 100%, 10px 10px, calc(100% - 10px) 10px, calc(100% - 10px) calc(100% - 10px), 10px calc(100% - 10px), 10px 100%, 100% 100%, 100% 0%, 0% 0%);
         border-radius: 5px;
         background: linear-gradient(120deg, rgb(12, 148, 0), rgb(63, 142, 222), rgb(35, 98, 234)) 0% 0% / 300% 300%;
-        /* animation: 5s ease-in-out 0s infinite normal none running ${gradientAnimation}; */
+        animation: 5s ease-in-out 0s infinite normal none running ${gradientAnimation};
+    }
+
+    @media (max-width: 720px) {
+        height: 450px;
+    }
+
+    @media (max-width: 576px) {
+        height: 80vh;
     }
 `
 
@@ -83,8 +86,18 @@ export const HeadingText = styled.p`
     font-weight: 600;
 
     @media (max-width: 850px) {
-        font-size: 40px;
+        font-size: 70px;
         line-height: 50px;
+    }
+
+    @media (max-width: 740px) {
+        font-size: 55px;
+        line-height: 40px;
+    }
+
+    @media (max-width: 550px) {
+        font-size: 40px;
+        line-height: 35px;
     }
 
     @media (max-width: 400px) {
