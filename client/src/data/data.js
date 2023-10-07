@@ -223,7 +223,6 @@ export const QUERY = (locale) => {
                                                         attributes {
                                                             courseId
                                                             name
-                                                            isDone
                                                         }
                                                     }
                                                 }

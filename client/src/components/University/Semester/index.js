@@ -18,8 +18,15 @@ const Semester = (props) => {
         startSeason = "Été" 
     }
 
+    const getSpecialClasses = () => {
+        let classes = ""
+        if (props.index === 0) classes += "border-top border-gray"
+        if (isActiveSemester) classes += "activeSemester"
+        return classes
+    }
+
     return (
-        <SemesterContainer eventKey={props.index.toString()} className={isActiveSemester ? "activeSemester" : ""} >
+        <SemesterContainer eventKey={props.index.toString()} className={getSpecialClasses()} >
             <Title>
                 {semesterData.title} {semesterData.number} : {startSeason} {semesterData.year} 
                 {isActiveSemester ? 
