@@ -4,9 +4,10 @@ require("dotenv").config({
 
 module.exports = {
     siteMetadata: {
-        title: `Personal website`,
-        description: `Personal website of Adam Mihajlovic`,
+        title: `Professional E-Portoflio`,
+        description: `Professional E-Portoflio of Adam Mihajlovic. This website shows the work that I've done so far.`,
         author: `Adam Mihajlovic`,
+        siteUrl: `https://adammihajlovic.ca`,
     },
     plugins: [
         `gatsby-plugin-styled-components`,
@@ -16,8 +17,8 @@ module.exports = {
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
-                name: `Personal Website of Adam Mihajlovic`,
-                short_name: `Personal Website`,
+                name: `Professional E-Portoflio of Adam Mihajlovic`,
+                short_name: `Professional E-Portoflio`,
                 start_url: `/`,
                 background_color: `#0c9400`,
                 theme_color: `#0c9400`,
@@ -29,7 +30,7 @@ module.exports = {
             resolve: `gatsby-plugin-google-gtag`,
             options: {
               trackingIds: ["G-G3VTCJ7KQL"]
-            },
-          },
-    ],
+            }
+          }
+    ]
 }

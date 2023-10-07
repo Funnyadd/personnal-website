@@ -17,6 +17,14 @@ export const Background = styled.video`
     min-height: 100%;
 `
 
+// export const BackgroundThumbnail = styled.img`
+//     position: fixed;
+//     right: 0;
+//     bottom: 0;
+//     min-width: 100%;
+//     min-height: 100%;
+// `
+
 const gradientAnimation = keyframes`
     0% {
         background-position: 15% 0%;

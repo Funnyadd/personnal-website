@@ -9,7 +9,9 @@
 
 Personal Website made to show my work resume in a more beautiful format. It uses the framework Gatsby for the front-end which is based on react but with styled-components. For the back-end, it's using strapi to manage the content of this website in relation with cloudinary to manage media and postgres to host the data itself.
 
-The front-end of the website is currently hosted on [vercel](https://vercel.com/docs) and the back-end is hosted on a home-server via http. To view it, go to [home.adammihajlovic.ca/admin](home.adammihajlovic.ca/admin) but login information is needed to access the interface.
+The front-end of the website is currently hosted on [vercel](https://vercel.com/docs) and the back-end is hosted on a home-server via http. To view it, go to [adammihajlovic.ca](adammihajlovic.ca).
+
+The Strapi back-end is hosted from home on [home.adammihajlovic.ca/admin](home.adammihajlovic.ca/admin) in order to make changes wherever I am.
 
 For more information please feel free to contact me with my information provided on the website: [adammihajlovic.ca](adammihajlovic.ca)
 
