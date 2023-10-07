@@ -96,12 +96,6 @@ class PortfolioItem extends React.Component {
         const Item = styled.div`
             position: relative;
             height: 600px;
-
-            @media (max-width: 1024px) {
-                min-height: 300px;
-                max-height: 400px;
-            }
-
             overflow: hidden;
             max-width: 95%;
             margin: 40px ${this.props.type !== "slider" ? "0" : "auto"};
@@ -119,12 +113,19 @@ class PortfolioItem extends React.Component {
                 ${Text} {
                     transform: translateY(-10px);
                 }
+
                 img {
                     transform: scale(1.1);
                 }
+
                 ${MobileContent} {
                     opacity: 1 !important;
                 }
+            }
+
+            @media (max-width: 1024px) {
+                min-height: 300px;
+                max-height: 400px;
             }
         `
 

@@ -1,5 +1,6 @@
 import { Link } from "gatsby"
 import styled from "styled-components"
+import { Container} from "react-bootstrap"
 
 export const Nav = styled.nav`
     flex: 0 0 80%;
@@ -25,13 +26,14 @@ export const NavBar = styled.div`
     z-index: 100;
     position: absolute;
 `
-export const NavbarContainer = styled.div`
+export const NavbarContainer = styled(Container)`
     background-color: transparent;
+    display: flex;
     position: relative;
-    justify-content: flex-end;
+    justify-content: flex-start;
 
     @media screen and (min-width: 576px) {
-        max-width: 540px;
+        max-width: 560px;
     }
 
     @media screen and (min-width: 768px) {
@@ -115,6 +117,10 @@ export const NavItem = styled(Link)`
 
     &:hover {
         color: rgb(12, 148, 0);
+    }
+    
+    @media screen and (max-width: 768px) {
+        font-size: 14px;
     }
 `
 

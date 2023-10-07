@@ -24,6 +24,7 @@ class Timeline extends React.Component {
             justify-content: center;
             bottom: 50px;
             left: 20px;
+
             &::before {
                 content: "";
                 position: absolute;
@@ -44,9 +45,11 @@ class Timeline extends React.Component {
             border: none;
             margin: 10px 0px;
             transition: 0.5s;
+
             &:focus {
                 outline: none;
             }
+
             &.active,
             &:hover {
                 background-color: rgb(12, 148, 0);
@@ -84,10 +87,12 @@ class Timeline extends React.Component {
             position: absolute;
             top: -60px;
             opacity: 0.1;
+            
             @media (max-width: 767px) {
                 font-size: 45px;
                 top: -35px;
             }
+
             @media (max-width: 1439px) {
                 font-size: 40px;
                 top: -38px;

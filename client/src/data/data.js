@@ -193,6 +193,49 @@ export const QUERY = (locale) => {
                 }
             }
 
+            myUniversity (locale: "${locale}") {
+                data {
+                    attributes {
+                        informationTitle
+                        coursesTitle
+                        degrees {
+                            data {
+                                attributes {
+                                    title
+                                    cumulativeAverage
+                                    cumulativeAverageTitle
+                                    expectedGraduationDate
+                                    expectedGraduationDateTitle
+                                    schoolName
+                                    schoolNameTitle
+                                    semesters {
+                                        data {
+                                            attributes {
+                                                number
+                                                title
+                                                activeSemesterTitle
+                                                isCurrentSemester
+                                                isInternshipSemester
+                                                startSeason
+                                                year
+                                                courses {
+                                                    data {
+                                                        attributes {
+                                                            courseId
+                                                            name
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
             myFooter (locale: "${locale}") {
                 data {
                     attributes {
@@ -202,7 +245,7 @@ export const QUERY = (locale) => {
                         langue
                     }
                 }
-              }
+            }
         }`
     )
 }

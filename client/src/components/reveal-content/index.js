@@ -88,11 +88,9 @@ class RC extends React.Component {
             0%{
                 opacity: 0;
             }
-            
             50% {
                 opacity: 0.5;
             }
-            
             100% {
                 opacity: 1;
             }
@@ -103,6 +101,7 @@ class RC extends React.Component {
             * {
                 opacity: 0;
             }
+
             &.animation-complete {
                 * {
                     opacity: 1;
@@ -127,13 +126,16 @@ class RC extends React.Component {
                 background-color: #fff;
                 animation-delay: 0.5s;
             }
+
             &.animate {
                 * {
                     animation: ${RevealText} 0.1s 1.1s forwards;
                 }
+
                 &:before {
                     animation: ${Animation} 1.8s ease;
                 }
+
                 &:after {
                     animation: ${Animation} 1s 0.6s ease;
                 }
