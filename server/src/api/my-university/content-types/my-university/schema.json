@@ -16,7 +16,12 @@
     }
   },
   "attributes": {
-    "title": {
+    "degrees": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::degree.degree"
+    },
+    "informationTitle": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -24,10 +29,13 @@
       },
       "type": "string"
     },
-    "degrees": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::degree.degree"
+    "coursesTitle": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }

@@ -2,7 +2,6 @@ import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Dropdown, DropdownButton } from "react-bootstrap"
 
-
 export const FooterMain = styled.div`
     background-color: #111;
     flex-direction: column;

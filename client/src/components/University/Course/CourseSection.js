@@ -7,6 +7,7 @@ export const CourseContainer = styled(Col)`
 export const HyperlinkTile = styled.a`
     height: 165px;
     padding: 10px 5px;
+    margin-bottom: 10px;
     transition: all 0.1s ease 0s;
     border-radius: 16px;
     text-decoration: none;
@@ -18,20 +19,10 @@ export const HyperlinkTile = styled.a`
 
     &:hover {
         transform: scale(1.1);
-        z-index: 5;
+        z-index: 10;
         border-radius: 10px;
-    }
-
-    &:before {
-        content: '';
         transition: all 0.1s ease 0s;
-        position: absolute;
-        top: 0; right: 0; bottom: 0; left: 0;
-        z-index: -1;
-        margin: -5px;
-        border-radius: inherit;
-        background: linear-gradient(120deg, rgb(12, 148, 40), rgb(63, 142, 222), rgb(35, 98, 234));
-        background-size: 300% 300%;
+        background: linear-gradient(120deg, rgb(12, 148, 40), rgb(15, 163, 138), rgb(35, 98, 234)) border-box;
     }
 
     @media (max-width: 362px) {

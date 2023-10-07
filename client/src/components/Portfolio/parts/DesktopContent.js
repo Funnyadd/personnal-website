@@ -26,9 +26,6 @@ class DesktopContent extends React.Component {
             }
         `
         const Text = styled.div`
-            @media (max-width: 1024px) {
-                display: none !important;
-            }
             position: absolute;
             height: 100%;
             width: 100%;
@@ -39,9 +36,14 @@ class DesktopContent extends React.Component {
             transition: 0.5s;
             text-align: center;
             display: flex;
+
             &.active {
                 animation: ${Animation} 1s forwards;
                 background-image: linear-gradient(to top, rgba(4, 229, 229, 1), rgba(255, 255, 255, 0));
+            }
+
+            @media (max-width: 1024px) {
+                display: none !important;
             }
         `
 
@@ -63,6 +65,7 @@ class DesktopContent extends React.Component {
             font-weight: 600;
             font-size: 25px;
             text-align: center;
+
             @media (max-width: 767px) {
                 font-size: 20px;
             }
@@ -74,6 +77,7 @@ class DesktopContent extends React.Component {
             font-weight: 400;
             text-transform: uppercase;
             text-align: center;
+            
             @media (max-width: 767px) {
                 font-size: 15px;
             }

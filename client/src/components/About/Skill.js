@@ -3,13 +3,11 @@ import { ProgressBarProgress, ProgressBarValue, ProgressBarText, ProgressBarCont
 
 const Skill = props => {
     return (
-        <>
-            <ProgressBarContainer>
-                <ProgressBarText>{props.header}</ProgressBarText>
-                <ProgressBarValue>{props.percentage}%</ProgressBarValue>
-                <ProgressBarProgress width={props.percentage}></ProgressBarProgress>
-            </ProgressBarContainer>
-        </>
+        <ProgressBarContainer>
+            <ProgressBarText>{props.header}</ProgressBarText>
+            <ProgressBarValue>{props.percentage}%</ProgressBarValue>
+            <ProgressBarProgress width={props.percentage}></ProgressBarProgress>
+        </ProgressBarContainer>
     )
 }
 
