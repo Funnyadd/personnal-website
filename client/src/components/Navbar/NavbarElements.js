@@ -10,7 +10,7 @@ export const Nav = styled.nav`
     justify-content: flex-end;
     padding: 0 1rem;
 
-    @media screen and (max-width: 576px) {
+    @media screen and (max-width: 575px) {
         flex: 0 0 100%;
         max-width: 100%;
         justify-content: center;
@@ -120,7 +120,11 @@ export const NavItem = styled(Link)`
     }
     
     @media screen and (max-width: 768px) {
-        font-size: 14px;
+        font-size: 13px;
+    }
+
+    @media screen and (max-width: 576px) {
+        font-size: 16px;
     }
 `
 

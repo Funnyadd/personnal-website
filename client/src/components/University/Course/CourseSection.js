@@ -3,11 +3,16 @@ import { Col } from "react-bootstrap"
 
 export const CourseContainer = styled(Col)`
     justify-content: center;
+    margin-bottom: 10px;
+
+    @media (max-width: 500px) {
+        padding-left: 7px !important;
+        padding-right: 7px !important;
+    }
 `
 export const HyperlinkTile = styled.a`
     height: 165px;
     padding: 10px 5px;
-    margin-bottom: 10px;
     transition: all 0.1s ease 0s;
     border-radius: 16px;
     text-decoration: none;

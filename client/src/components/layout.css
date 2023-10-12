@@ -64,8 +64,11 @@ body {
   color: gray;
   font-size: 18px;
   background-color: #000;
+  padding-right: 42px;
+}
 
-  @media screen and (max-width: 550px) {
+@media screen and (max-width: 550px) {
+  .accordion-button {
     display: block;
   }
 }
@@ -87,6 +90,19 @@ body {
 
 .accordion-button:not:hover {
   background-color: #272727;
+}
+
+.accordion-button::after {
+  background-image: url('data:image/svg+xml,\00003csvg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">\00003cpath fill="%239aa0a6" d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z">\00003c/path>\00003c/svg>') !important;
+  background-position: 50% 50%;
+  background-size: 30px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.accordion-button:not(.collapsed)::after {
+  transform: rotate(-180deg);
 }
 
 .accordion-item {
