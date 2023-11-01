@@ -39,6 +39,7 @@
     "react-parallax-tilt": "^1.7.155",
     "react-slick": "^0.29.0",
     "react-tsparticles": "^2.11.0",
+    "rooks": "^7.14.1",
     "sass-loader": "^13.3.2",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.10",

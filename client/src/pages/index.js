@@ -13,6 +13,7 @@ import { useQuery } from "@apollo/client"
 import { QUERY } from "../data/data"
 import Footer from "../components/Footer"
 import University from "../components/University";
+import FlappyBird from "../projects/FlappyBird";
  
 const Index = () => {
     // Injects vercel's analytics
@@ -56,46 +57,48 @@ const Index = () => {
         setIsFrontPage(false)
     }, 2800)
     
-    if (isFrontPage || loading || isReloadingLang) {
-        return (
-            <div>
-                <Seo/>
-                <PageRevealer text={isReloadingLang ? 
-                (
-                    language === 'en' ? 
-                    "Changing Language" :
-                    "Changement de la langue"
-                ) : "Adam Mihajlovic"
-                } />
-            </div>
-        )
-    }
+    // if (isFrontPage || loading || isReloadingLang) {
+    //     return (
+    //         <div>
+    //             <Seo/>
+    //             <PageRevealer text={isReloadingLang ? 
+    //             (
+    //                 language === 'en' ? 
+    //                 "Changing Language" :
+    //                 "Changement de la langue"
+    //             ) : "Adam Mihajlovic"
+    //             } />
+    //         </div>
+    //     )
+    // }
 
-    if (error) {
-        return (
-            <>
-                <div>Something broke...</div>
-                {error.graphQLErrors.map(({ message }, index) => (
-                    <p key={index}>{message}</p>
-                ))}
-            </>
-        )
-    }
+    // if (error) {
+    //     return (
+    //         <>
+    //             <div>Something broke...</div>
+    //             {error.graphQLErrors.map(({ message }, index) => (
+    //                 <p key={index}>{message}</p>
+    //             ))}
+    //         </>
+    //     )
+    // }
 
-    const global = data.global.data.attributes
-    const navs = data.myNav.data.attributes.navs
-    const hero = data.hero.data.attributes
-    const about = data.about.data.attributes
-    const services = data.myService.data.attributes
-    const projects = data.myProject.data.attributes
-    const contact = data.myContact.data.attributes
-    const university = data.myUniversity.data.attributes
-    console.log(university)
-    const copyrights = data.myFooter.data.attributes
+    // const global = data.global.data.attributes
+    // const navs = data.myNav.data.attributes.navs
+    // const hero = data.hero.data.attributes
+    // const about = data.about.data.attributes
+    // const services = data.myService.data.attributes
+    // const projects = data.myProject.data.attributes
+    // const contact = data.myContact.data.attributes
+    // const university = data.myUniversity.data.attributes
+    // console.log(university)
+    // const copyrights = data.myFooter.data.attributes
 
     return (
-        <Layout data={global}>
-            <Seo/>
+        <Layout>
+        {/* <Layout data={global}> */}
+            <FlappyBird />
+            {/* <Seo/>
             <Navbar navLabels={navs} favicon={global.favicon.data.attributes.url} />
             <section id={navs[0]}>
                 <Hero data={hero} />
@@ -115,7 +118,7 @@ const Index = () => {
             <section id={navs[5]}>
                 <Contact data={contact} />
             </section>
-            <Footer data={copyrights} changeLanguage={changeLanguage}/>
+            <Footer data={copyrights} changeLanguage={changeLanguage}/> */}
         </Layout>
     )
 }

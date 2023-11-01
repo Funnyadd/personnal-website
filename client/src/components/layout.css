@@ -145,6 +145,16 @@ body {
 }
 /* END of Nav Section */
 
+
+/* GAME section */
+.topBar {
+  top: 0;
+}
+
+.bottomBar { 
+  bottom : 0;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar-track
 {
