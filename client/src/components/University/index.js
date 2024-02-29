@@ -1,17 +1,17 @@
 import React from "react"
-import {
-    UniversityContainer,
-    BachelorContainer,
-    InformationContainer,
-    InfoTitle,
-    Info,
-    Heading,
-    Seperator,
-    SemesterAccordion
-} from "./UniversitySection"
-import Semester from "./Semester"
 import AnimatedHeading from "../animated-heading"
 import AnimationContainer from "../animation-container"
+import Semester from "./Semester"
+import {
+    BachelorContainer,
+    Heading,
+    Info,
+    InfoTitle,
+    InformationContainer,
+    SemesterAccordion,
+    Seperator,
+    UniversityContainer
+} from "./UniversitySection"
 
 const University = (props) => {
     const MAX_CUMULATIVE_AVERAGE = "4.3";

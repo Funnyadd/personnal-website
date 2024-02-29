@@ -1,7 +1,7 @@
-import React, { useState, useCallback, useEffect, useRef } from 'react'
-import BaffleText from '../baffle-text'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import AnimationContainer from '../animation-container'
-import { RevealContainer, Reveal } from './PageRevealer'
+import BaffleText from '../baffle-text'
+import { Reveal, RevealContainer } from './PageRevealer'
 
 const PageRevealer = (props) => {
     const [animation, setAnimation] = useState(false);

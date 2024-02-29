@@ -1,12 +1,13 @@
 import React from "react"
-import { Container, Col } from "react-bootstrap"
+import Col from "react-bootstrap/Col"
+import Container from "react-bootstrap/Container"
+import Slider from "react-slick"
+import "slick-carousel/slick/slick-theme.css"
+import "slick-carousel/slick/slick.css"
 import AnimatedHeading from "../animated-heading"
 import AnimationContainer from "../animation-container"
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
-import Slider from "react-slick"
-import PortfolioItem from "./parts/PortfolioItem.js"
 import { PortfolioContainer } from "./PortfolioSection"
+import PortfolioItem from "./parts/PortfolioItem.js"
 
 const Portfolio = (props) => {
     const strapiMyProject = props.data

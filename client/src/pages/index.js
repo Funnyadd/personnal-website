@@ -1,18 +1,18 @@
-import React, { useState, useEffect, useCallback }  from "react"
+import { useQuery } from "@apollo/client";
 import { inject } from '@vercel/analytics';
-import Seo from "../components/seo"
-import Layout from "../components/layout"
-import Hero from "../components/Hero"
-import Navbar from "../components/Navbar"
-import About from "../components/About"
-import Contact from "../components/Contact"
-import Services from "../components/Services"
-import PageRevealer from "../components/page-revealer"
-import Portfolio from "../components/Portfolio"
-import { useQuery } from "@apollo/client"
-import { QUERY } from "../data/data"
-import Footer from "../components/Footer"
+import React, { useCallback, useEffect, useState } from "react";
+import About from "../components/About";
+import Contact from "../components/Contact";
+import Footer from "../components/Footer";
+import Hero from "../components/Hero";
+import Navbar from "../components/Navbar";
+import Portfolio from "../components/Portfolio";
+import Services from "../components/Services";
 import University from "../components/University";
+import Layout from "../components/layout";
+import PageRevealer from "../components/page-revealer";
+import Seo from "../components/seo";
+import { QUERY } from "../data/data";
  
 const Index = () => {
     // Injects vercel's analytics
@@ -74,6 +74,7 @@ const Index = () => {
     if (error) {
         return (
             <>
+                <Seo/>
                 <div>Something broke...</div>
                 {error.graphQLErrors.map(({ message }, index) => (
                     <p key={index}>{message}</p>

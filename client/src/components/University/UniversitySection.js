@@ -1,5 +1,6 @@
+import Accordion from "react-bootstrap/Accordion"
+import Container from "react-bootstrap/Container"
 import styled from "styled-components"
-import { Container, Accordion } from "react-bootstrap"
 
 export const UniversityContainer = styled(Container)`
 `

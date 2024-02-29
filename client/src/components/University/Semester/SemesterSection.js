@@ -1,5 +1,5 @@
+import Accordion from "react-bootstrap/Accordion"
 import styled from "styled-components"
-import { Accordion } from "react-bootstrap"
 
 export const SemesterContainer = styled(Accordion.Item)`
     text-align: center;

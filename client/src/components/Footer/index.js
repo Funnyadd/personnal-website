@@ -1,8 +1,8 @@
+import { faGithub, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import React from "react"
-import { faGithub, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons"
-import { Flag, FooterMain, SocialIcons, SocialIcon, FooterText, DropdownItem, DropdownBTN } from "./FooterSection"
 import english from '../../images/english.png'
 import french from '../../images/french.png'
+import { DropdownBTN, DropdownItem, Flag, FooterMain, FooterText, SocialIcon, SocialIcons } from "./FooterSection"
 
 const Footer = (props) => {
     const handleClick = (language) => {

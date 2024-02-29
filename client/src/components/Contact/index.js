@@ -1,22 +1,22 @@
-import React from "react"
-import { AboutContainer } from "../About/AboutSection"
+import React from "react";
+import { AboutContainer } from "../About/AboutSection";
+import ContactForm from "../ContactForm";
+import AnimationContainer from "../animation-container";
 import {
-    IconContainer,
+    ContactCol,
+    FormRow,
+    Gradient,
+    Icon,
     IconCol,
+    IconContainer,
     IconRow,
-    InfoPart,
     Info,
-    InfoTitle,
     InfoLink,
     InfoLinkContainer,
-    Icon,
-    FormRow,
-    ContactCol,
-    Gradient,
+    InfoPart,
+    InfoTitle,
     Map,
-} from "./ContactSection"
-import AnimationContainer from "../animation-container";
-import ContactForm from "../ContactForm";
+} from "./ContactSection";
 
 const Contact = (props) => {
     const contactInfo = props.data

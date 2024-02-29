@@ -1,29 +1,29 @@
-import React, { useState, useCallback } from "react"
+import React, { useCallback, useState } from "react";
+import CountUp, { useCountUp } from 'react-countup';
+import Particles from "react-tsparticles";
+import { loadTrianglesPreset } from "tsparticles-preset-triangles";
+import AnimationContainer from "../animation-container";
+import RevealContent from "../reveal-content";
 import {
     AboutContainer,
-    LeftColumn,
     Content,
-    Heading,
-    Seperator,
-    SummaryText,
-    ImageContainer,
-    Image,
-    CounterRow,
     CounterComponent,
     CounterContainer,
+    CounterRow,
+    Heading,
+    Image,
+    ImageContainer,
+    LeftColumn,
+    Seperator,
+    SummaryText,
+    Tab,
     TabContainer,
     TabSelector,
     TabSelectors,
     Tabs,
-    Tab,
-} from "./AboutSection"
-import Skill from "./Skill"
-import Timeline from "./Timeline"
-import Particles from "react-tsparticles";
-import { loadTrianglesPreset } from "tsparticles-preset-triangles";
-import AnimationContainer from "../animation-container";
-import CountUp, { useCountUp } from 'react-countup'
-import RevealContent from "../reveal-content";
+} from "./AboutSection";
+import Skill from "./Skill";
+import Timeline from "./Timeline";
 
 const About = (props) => {
     const strapiAbout = props.data

@@ -1,9 +1,9 @@
 import React from "react"
 import {
     CourseContainer,
-    HyperlinkTile,
     CourseId,
-    CourseName
+    CourseName,
+    HyperlinkTile
 } from "./CourseSection"
 
 const Course = (props) => {

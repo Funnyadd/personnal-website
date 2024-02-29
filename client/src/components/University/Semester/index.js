@@ -1,13 +1,13 @@
-import React from "react"
+import React from "react";
+import Row from "react-bootstrap/Row";
+import Course from "../Course";
 import {
-    SemesterContainer,
-    Title,
-    Courses,
     ActiveSemester,
-    ActiveSemesterSeperator
-} from "./SemesterSection"
-import Course from "../Course"
-import { Row } from "react-bootstrap";
+    ActiveSemesterSeperator,
+    Courses,
+    SemesterContainer,
+    Title
+} from "./SemesterSection";
 
 const Semester = (props) => {
     const semesterData = props.data;

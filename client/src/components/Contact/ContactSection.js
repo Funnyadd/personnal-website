@@ -1,6 +1,8 @@
-import styled, { keyframes } from "styled-components"
-import { Row, Col, Container } from "react-bootstrap"
+import Col from "react-bootstrap/Col"
+import Container from "react-bootstrap/Container"
+import Row from "react-bootstrap/Row"
 import handleViewport from "react-in-viewport"
+import styled, { keyframes } from "styled-components"
 
 export const FormRow = styled(Row)`
     background-color: #111;

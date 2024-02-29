@@ -1,6 +1,6 @@
 import { Link } from "gatsby"
+import Container from "react-bootstrap/Container"
 import styled from "styled-components"
-import { Container} from "react-bootstrap"
 
 export const Nav = styled.nav`
     flex: 0 0 80%;

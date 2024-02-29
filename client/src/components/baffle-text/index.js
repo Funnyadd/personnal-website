@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
 import baffle from 'baffle';
+import React, { useEffect } from 'react';
 
 const BaffleText = (props) => {
     useEffect(() => {

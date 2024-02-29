@@ -1,17 +1,17 @@
 import React, { useEffect } from "react"
-import "./HeroCSS.scss"
-import {
-    HeroContainer,
-    Background,
-    HeadingBox,
-    Heading,
-    SubHeading,
-    HeadingText,
-    Type,
-    ResumeLink,
-} from "./HeroSection"
 import Typewriter from "typewriter-effect"
 import background_loop from '../../images/background_loop.mp4'
+import "./HeroCSS.scss"
+import {
+    Background,
+    Heading,
+    HeadingBox,
+    HeadingText,
+    HeroContainer,
+    ResumeLink,
+    SubHeading,
+    Type,
+} from "./HeroSection"
 
 const Hero = (props) => {
     const strapiHero = props.data

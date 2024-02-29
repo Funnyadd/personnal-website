@@ -1,8 +1,10 @@
 import React from "react"
-import { ServiceContainer, ServiceElement, ServiceIcon, ServiceHeading, ServiceSeparator, ServiceList, ServiceListElement, BackgroundContainer } from "./ServicesSection"
-import { Container, Row, Col } from "react-bootstrap"
+import Col from "react-bootstrap/Col"
+import Container from "react-bootstrap/Container"
+import Row from "react-bootstrap/Row"
 import AnimatedHeading from "../animated-heading"
 import AnimationContainer from "../animation-container"
+import { BackgroundContainer, ServiceContainer, ServiceElement, ServiceHeading, ServiceIcon, ServiceList, ServiceListElement, ServiceSeparator } from "./ServicesSection"
 
 const Services = (props) => {
     const strapiMyService = props.data

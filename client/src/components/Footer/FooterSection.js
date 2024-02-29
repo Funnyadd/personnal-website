@@ -1,6 +1,7 @@
-import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { Dropdown, DropdownButton } from "react-bootstrap"
+import Dropdown from "react-bootstrap/Dropdown"
+import DropdownButton from "react-bootstrap/DropdownButton"
+import styled from "styled-components"
 
 export const FooterMain = styled.div`
     background-color: #111;

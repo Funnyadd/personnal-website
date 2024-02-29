@@ -1,6 +1,6 @@
+import { gql, useMutation } from "@apollo/client"
 import React, { useState } from "react"
-import { ContactFormContainer, Heading, Separator, InputElement, Input, Submit, Textarea } from "./FormElements"
-import { useMutation , gql } from "@apollo/client"
+import { ContactFormContainer, Heading, Input, InputElement, Separator, Submit, Textarea } from "./FormElements"
 
 const ContactForm = (props) => {
     const fields = props.data
