@@ -11,12 +11,12 @@ const AnimationContainer = ({ children, delay, height, id, animation, duration }
     const { inViewport } = useInViewport(state, {}, { disconnectOnLeave: false });
 
     useEffect(() => {
-        if (!state.classChanged && state.inViewport !== inViewport && !state.animationComplete) {
+        if (!state.current.classChanged && state.current.inViewport !== inViewport && !state.current.animationComplete) {
             state.inViewport = inViewport;
             setTimeout(() => {
-                state.classChanged = true
+                state.current.classChanged = true
             }, delay)
-            state.animationComplete = true;
+            state.current.animationComplete = true;
         }
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -26,8 +26,8 @@ const AnimationContainer = ({ children, delay, height, id, animation, duration }
         <div
             ref={state}
             style={{
-                animation: state.classChanged ? `${animation} ${duration || 1}s` : "",
-                opacity: state.classChanged ? 1 : 0,
+                animation: state.current.classChanged ? `${animation} ${duration || 1}s` : "",
+                opacity: state.current.classChanged ? 1 : 0,
                 height: height ? height : "auto",
             }}
             id={id}

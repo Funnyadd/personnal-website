@@ -33,7 +33,7 @@ export const RevealContainer = styled.div`
         opacity: 0;
     }
 
-    &.animation-complete {
+    &.animationComplete {
         * {
             opacity: 1;
         }

@@ -1,5 +1,5 @@
 import React from "react"
-import AnimatedHeading from "../animated-heading"
+import AnimatedHeading from "../AnimatedHeading"
 import AnimationContainer from "../AnimationContainer"
 import Semester from "./Semester"
 import {
