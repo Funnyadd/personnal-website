@@ -29,7 +29,7 @@ const RevealContent = ({ children, className, parentMethod, delay = 0, callParen
 
 
     useEffect(() => {
-        if (!state.animationComplete && state.inViewport !== inViewport && !state.animationComplete) {
+        if (!state.animationComplete && !inViewport && state.inViewport !== inViewport) {
             state.inViewport = inViewport;
             if (!state.delay) state.delay = 0
 
@@ -44,13 +44,13 @@ const RevealContent = ({ children, className, parentMethod, delay = 0, callParen
                     state.running = false;
                 })
             }, delay)
-        }
 
-        if (!state.animationComplete && state.inViewport !== inViewport && state.running) {
-            state.animationComplete = true;
-            state.animate = false;
-            state.running = false;
-            callParent();
+            if (state.running) {
+                state.animationComplete = true;
+                state.animate = false;
+                state.running = false;
+                callParent();
+            }
         }
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -58,7 +58,7 @@ const RevealContent = ({ children, className, parentMethod, delay = 0, callParen
 
     return (
         <div className={className} ref={state}>
-            <RevealContainer className={!state.animationComplete ? (state.animate && state.running ? "animate" : "") : "animation-complete"}>
+            <RevealContainer className={!state.animationComplete ? (state.animate && state.running ? "animate" : "") : "animationComplete"}>
                 {children}
             </RevealContainer>
         </div>

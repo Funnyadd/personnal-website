@@ -1,6 +1,6 @@
 import React from "react"
 import styled, { keyframes } from "styled-components"
-import BaffleText from '../../baffle-text'
+import BaffleText from '../../BaffleText'
 
 class DesktopContent extends React.Component {
     constructor(props) {

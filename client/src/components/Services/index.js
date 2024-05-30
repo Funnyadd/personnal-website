@@ -2,7 +2,7 @@ import React from "react"
 import Col from "react-bootstrap/Col"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
-import AnimatedHeading from "../animated-heading"
+import AnimatedHeading from "../AnimatedHeading"
 import AnimationContainer from "../AnimationContainer"
 import { BackgroundContainer, ServiceContainer, ServiceElement, ServiceHeading, ServiceIcon, ServiceList, ServiceListElement, ServiceSeparator } from "./ServicesSection"
 

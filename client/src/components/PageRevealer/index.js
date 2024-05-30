@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import AnimationContainer from '../AnimationContainer'
-import BaffleText from '../baffle-text'
+import BaffleText from '../BaffleText'
 import { Reveal, RevealContainer } from './PageRevealer'
 
 const PageRevealer = (props) => {
@@ -35,7 +35,7 @@ const PageRevealer = (props) => {
         if (!complete) {
             return (
                 <AnimationContainer animation="fadeIn" duration={2}>
-                        <BaffleText
+                    <BaffleText
                         text={props.text}
                         revealDuration={500}
                         revealDelay={1000}
