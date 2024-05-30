@@ -514,6 +514,10 @@ export interface PluginContentReleasesRelease extends Schema.CollectionType {
     releasedAt: Attribute.DateTime;
     scheduledAt: Attribute.DateTime;
     timezone: Attribute.String;
+    status: Attribute.Enumeration<
+      ['ready', 'blocked', 'failed', 'done', 'empty']
+    > &
+      Attribute.Required;
     actions: Attribute.Relation<
       'plugin::content-releases.release',
       'oneToMany',
@@ -568,6 +572,7 @@ export interface PluginContentReleasesReleaseAction
       'manyToOne',
       'plugin::content-releases.release'
     >;
+    isEntryValid: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -843,7 +848,7 @@ export interface ApiAboutAbout extends Schema.SingleType {
           localized: true;
         };
       }>;
-    Photo: Attribute.Media &
+    Photo: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1303,7 +1308,7 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
           localized: true;
         };
       }>;
-    favicon: Attribute.Media &
+    favicon: Attribute.Media<'images' | 'files' | 'videos'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1380,7 +1385,7 @@ export interface ApiHeroHero extends Schema.SingleType {
           localized: true;
         };
       }>;
-    Background: Attribute.Media &
+    Background: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1773,7 +1778,7 @@ export interface ApiMyServiceMyService extends Schema.SingleType {
       'oneToMany',
       'api::service.service'
     >;
-    background: Attribute.Media &
+    background: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1894,7 +1899,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    source: Attribute.Media &
+    source: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -2035,7 +2040,7 @@ export interface ApiServiceService extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    image: Attribute.Media &
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

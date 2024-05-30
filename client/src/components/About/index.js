@@ -2,8 +2,8 @@ import React, { useCallback, useState } from "react";
 import CountUp, { useCountUp } from 'react-countup';
 import Particles from "react-tsparticles";
 import { loadTrianglesPreset } from "tsparticles-preset-triangles";
-import AnimationContainer from "../animation-container";
-import RevealContent from "../reveal-content";
+import AnimationContainer from "../AnimationContainer";
+import RevealContent from "../RevealContent";
 import {
     AboutContainer,
     Content,

@@ -19,13 +19,19 @@ const Semester = (props) => {
     }
 
     const getSpecialClasses = () => {
-        let classes = ""
-        if (props.index === 0) classes += "border-dark"
+        let classes = "border-dark "
+        if (props.index === 0) classes += ""
+        else {
+            classes += "border-top-0 "
+            if (!props.isLastSemester) classes += "border-bottom-0 "
+        }
 
-        if (isActiveSemester) classes += "activeSemester"
-        else classes += "border-top-0"
+        if (isActiveSemester) classes += "activeSemester "
+        else classes += "border-right border-left "
 
-        return classes
+        if (props.isLastSemester) classes += "border-bottom border-2 "
+
+        return classes.trim()
     }
 
     return (

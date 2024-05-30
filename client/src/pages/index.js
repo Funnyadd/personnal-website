@@ -1,5 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { inject } from '@vercel/analytics';
+import { SpeedInsights } from "@vercel/speed-insights/react"
 import React, { useCallback, useEffect, useState } from "react";
 import About from "../components/About";
 import Contact from "../components/Contact";
@@ -10,7 +11,7 @@ import Portfolio from "../components/Portfolio";
 import Services from "../components/Services";
 import University from "../components/University";
 import Layout from "../components/layout";
-import PageRevealer from "../components/page-revealer";
+import PageRevealer from "../components/PageRevealer";
 import Seo from "../components/seo";
 import { QUERY } from "../data/data";
  
@@ -91,12 +92,12 @@ const Index = () => {
     const projects = data.myProject.data.attributes
     const contact = data.myContact.data.attributes
     const university = data.myUniversity.data.attributes
-    console.log(university)
     const copyrights = data.myFooter.data.attributes
 
     return (
         <Layout data={global}>
             <Seo/>
+            <SpeedInsights/>
             <Navbar navLabels={navs} favicon={global.favicon.data.attributes.url} />
             <section id={navs[0]}>
                 <Hero data={hero} />
