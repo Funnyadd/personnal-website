@@ -5,7 +5,7 @@ import Slider from "react-slick"
 import "slick-carousel/slick/slick-theme.css"
 import "slick-carousel/slick/slick.css"
 import AnimatedHeading from "../animated-heading"
-import AnimationContainer from "../animation-container"
+import AnimationContainer from "../AnimationContainer"
 import { PortfolioContainer } from "./PortfolioSection"
 import PortfolioItem from "./parts/PortfolioItem.js"
 

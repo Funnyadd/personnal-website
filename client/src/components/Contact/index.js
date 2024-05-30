@@ -1,7 +1,7 @@
 import React from "react";
 import { AboutContainer } from "../About/AboutSection";
 import ContactForm from "../ContactForm";
-import AnimationContainer from "../animation-container";
+import AnimationContainer from "../AnimationContainer";
 import {
     ContactCol,
     FormRow,

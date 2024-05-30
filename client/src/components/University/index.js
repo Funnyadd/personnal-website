@@ -1,6 +1,6 @@
 import React from "react"
 import AnimatedHeading from "../animated-heading"
-import AnimationContainer from "../animation-container"
+import AnimationContainer from "../AnimationContainer"
 import Semester from "./Semester"
 import {
     BachelorContainer,
@@ -43,8 +43,9 @@ const University = (props) => {
                     <Heading>{strapiUniversity.coursesTitle}</Heading>
                     <Seperator />
                     <SemesterAccordion defaultActiveKey={activeSemester.toString()} >
-                        {bachelorData.semesters.data.map((s, index) => 
-                            <Semester key={index} index={index} activeSemester={activeSemester} data={s.attributes} />
+                        {bachelorData.semesters.data.map((s, index) =>
+                            // Do not change de "==" to a "===" because it will break the condition here
+                            <Semester key={index} index={index} activeSemester={activeSemester} data={s.attributes} isLastSemester={s.attributes.number == bachelorData.semesters.data.length} />
                         )}
                     </SemesterAccordion>
                 </AnimationContainer>

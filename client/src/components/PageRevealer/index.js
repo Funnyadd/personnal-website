@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import AnimationContainer from '../animation-container'
+import AnimationContainer from '../AnimationContainer'
 import BaffleText from '../baffle-text'
 import { Reveal, RevealContainer } from './PageRevealer'
 
