@@ -11,7 +11,8 @@ Personal Website made to show my work resume in a more beautiful format. It uses
 
 The front-end of the website is currently hosted on [vercel](https://vercel.com/docs) and the back-end is hosted on a home-server via http. To view it, go to [adammihajlovic.ca](adammihajlovic.ca).
 
-The Strapi back-end is hosted from home on [home.adammihajlovic.ca/admin](home.adammihajlovic.ca/admin) in order to make changes wherever I am.
+The Strapi back-end is hosted from home on [home.adammihajlovic.ca/admin](home.adammihajlovic.ca/admin) in order to make changes wherever I am.\
+(Needs a password for access by the way :wink:)
 
 For more information please feel free to contact me with my information provided on the website: [adammihajlovic.ca](adammihajlovic.ca)
 
