@@ -217,7 +217,7 @@ const About = (props) => {
                                                 e = e.attributes
                                                 return {
                                                     title: e.title,
-                                                    institution: e.instittution,
+                                                    institution: e.institution,
                                                     description: e.description,
                                                     startDate: e.startDate,
                                                     endDate: e.endDate,
@@ -231,7 +231,7 @@ const About = (props) => {
                                                 e = e.attributes
                                                 return {
                                                     title: e.title,
-                                                    institution: e.instittution,
+                                                    institution: e.institution,
                                                     description: e.description,
                                                     startDate: e.startDate,
                                                     endDate: e.endDate,
