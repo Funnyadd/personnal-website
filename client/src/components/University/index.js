@@ -44,7 +44,6 @@ const University = (props) => {
                     <Seperator />
                     <SemesterAccordion defaultActiveKey={activeSemester.toString()} >
                         {bachelorData.semesters.data.map((s, index) =>
-                            // Do not change de "==" to a "===" because it will break the condition here
                             <Semester key={index} index={index} activeSemester={activeSemester} data={s.attributes} isLastSemester={s.attributes.number.toString() === bachelorData.semesters.data.length.toString()} />
                         )}
                     </SemesterAccordion>
