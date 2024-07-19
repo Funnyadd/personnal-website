@@ -74,6 +74,7 @@ export const MobileIcon = styled.button`
     display: none;
     border: none !important;
     box-shadow: none !important;
+    text-shadow: none !important;
     z-index: 1100;
 
     &:hover {

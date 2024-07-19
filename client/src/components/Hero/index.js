@@ -12,6 +12,7 @@ import {
     SubHeading,
     Type,
 } from "./HeroSection"
+import AnimatedArrow from "../AnimatedArrow"
 
 const Hero = (props) => {
     const strapiHero = props.data
@@ -23,7 +24,7 @@ const Hero = (props) => {
             var x = document.getElementsByClassName("parallax-hero-item");
             var i;
             for (i = 0; i < x.length; i++) {
-                if (window.innerWidth >= 850) {
+                if (window.innerWidth >= 950) {
                     x[i].style.transform='translate(' + amountMovedX + 'px,' + amountMovedY + 'px)'
                 } else {
                     x[i].style.transform='none'
@@ -56,6 +57,7 @@ const Hero = (props) => {
                     </Type>
                     <ResumeLink href={strapiHero.Download.url}>{strapiHero.Download.title}</ResumeLink>
                 </HeadingBox>
+                <AnimatedArrow />
             </HeroContainer>
         </>
     )

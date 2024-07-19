@@ -7,6 +7,7 @@ export const HeroContainer = styled.div`
     overflow: hidden;
     position: relative;
     height: 100vh;
+    flex-direction: column;
 `
 
 export const Background = styled.video`
@@ -33,7 +34,7 @@ const gradientAnimation = keyframes`
 `
 
 export const HeadingBox = styled.div`
-    height: 570px;
+    height: 600px;
     width: 900px;
     margin: auto;
     position: relative;
@@ -55,12 +56,17 @@ export const HeadingBox = styled.div`
         animation: 5s ease-in-out 0s infinite normal none running ${gradientAnimation};
     }
 
+    @media (max-width: 950px) {
+        width: 95%;
+    }
+
     @media (max-width: 720px) {
         height: 450px;
     }
 
     @media (max-width: 576px) {
-        height: 80vh;
+        height: 70vh;
+        width: 100%;
     }
 `
 

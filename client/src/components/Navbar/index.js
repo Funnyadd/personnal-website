@@ -40,7 +40,7 @@ const Navbar = (props) => {
                         aria-expanded="false"
                         aria-label="Toggle navigation"
                     >
-                        <span className="navbar-toggler-icon">{isMenuVisible ? <FaTimes /> : <FaBars />}</span>
+                        <span>{isMenuVisible ? <FaTimes /> : <FaBars />}</span>
                     </MobileIcon>
                     <Nav className="navbar navbar-expand-sm">
                         <NavInner className="navbar-collapse collapse" id="myNavbar">
