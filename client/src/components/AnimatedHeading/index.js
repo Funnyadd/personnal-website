@@ -42,7 +42,6 @@ const AnimatedHeading = ({ text, color, fontSize, lineHeight, space }) => {
         return text.split(" ").map((value, index) => {
             return value.split("").map((v, i) => {
                 ++time
-                console.log(state.animationComplete)
                 return i + 1 !== value.length ? (
                     <AnimatedLetter
                         lineHeight={lineHeight}

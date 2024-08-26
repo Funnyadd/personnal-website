@@ -32,7 +32,7 @@ export const NavbarContainer = styled(Container)`
     position: relative;
     justify-content: flex-start;
 
-    @media screen and (min-width: 576px) {
+    @media screen and (min-width: 575px) {
         max-width: 560px;
     }
 
@@ -61,7 +61,7 @@ export const NavLogo = styled.a`
     max-width: 20%;
     z-index: 1000;
 
-    @media screen and (max-width: 576px) {
+    @media screen and (max-width: 575px) {
         max-width: 100%;
         justify-content: center;
         right: 50%;
@@ -81,7 +81,7 @@ export const MobileIcon = styled.button`
         cursor: pointer;
     }
 
-    @media screen and (max-width: 576px) {
+    @media screen and (max-width: 575px) {
         display: block;
         position: absolute;
         top: 0;
@@ -124,7 +124,7 @@ export const NavItem = styled(Link)`
         font-size: 13px;
     }
 
-    @media screen and (max-width: 576px) {
+    @media screen and (max-width: 575px) {
         font-size: 16px;
     }
 `
