@@ -3,15 +3,19 @@ import Row from "react-bootstrap/Row";
 import Course from "../Course";
 import {
     ActiveSemester,
-    ActiveSemesterSeperator,
     Courses,
+    InternshipSemester,
     SemesterContainer,
+    SpecialSemesterSeperator,
     Title
 } from "./SemesterSection";
 
 const Semester = (props) => {
     const semesterData = props.data;
+    const isInternshipSemester = semesterData.isInternshipSemester;
     const isActiveSemester = props.activeSemester === props.index;
+    const isActiveSemesterBefore = props.activeSemester - props.index === -1;
+    const isActiveSemesterAfter = props.activeSemester - props.index === 1;
 
     let startSeason = semesterData.startSeason;
     if (semesterData.startSeason === "Ete") {
@@ -27,6 +31,11 @@ const Semester = (props) => {
         }
 
         if (isActiveSemester) classes += "activeSemester "
+        else if (isInternshipSemester) {
+            classes += "internshipSemester "
+            if (isActiveSemesterBefore) classes += "internshipSemesterBefore "
+            if (isActiveSemesterAfter) classes += "internshipSemesterAfter "
+        }
         else classes += "border-right border-left "
 
         if (props.isLastSemester) classes += "border-bottom border-2 "
@@ -40,8 +49,13 @@ const Semester = (props) => {
                 {semesterData.title} {semesterData.number} : {startSeason} {semesterData.year} 
                 {isActiveSemester ? 
                     <ActiveSemester>
-                        <ActiveSemesterSeperator>-</ActiveSemesterSeperator>{semesterData.activeSemesterTitle}
+                        <SpecialSemesterSeperator>-</SpecialSemesterSeperator>{semesterData.activeSemesterTitle}
                     </ActiveSemester>
+                :
+                isInternshipSemester ?
+                    <InternshipSemester>
+                        <SpecialSemesterSeperator>-</SpecialSemesterSeperator>{semesterData.internshipSemesterTitle}
+                    </InternshipSemester>
                 : <></>}
             </Title>
             <Courses>

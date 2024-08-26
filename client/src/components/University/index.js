@@ -44,7 +44,12 @@ const University = (props) => {
                     <Seperator />
                     <SemesterAccordion defaultActiveKey={activeSemester.toString()} >
                         {bachelorData.semesters.data.map((s, index) =>
-                            <Semester key={index} index={index} activeSemester={activeSemester} data={s.attributes} isLastSemester={s.attributes.number.toString() === bachelorData.semesters.data.length.toString()} />
+                            <Semester
+                            key={index}
+                            index={index}
+                            activeSemester={activeSemester}
+                            data={s.attributes}
+                            isLastSemester={s.attributes.number.toString() === bachelorData.semesters.data.length.toString()} />
                         )}
                     </SemesterAccordion>
                 </AnimationContainer>

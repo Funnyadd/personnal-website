@@ -23,7 +23,12 @@ export const ActiveSemester = styled.div`
     align-items: center;
 `
 
-export const ActiveSemesterSeperator = styled.div`
+export const InternshipSemester = styled.div`
+    color: rgb(63, 142, 222);
+    align-items: center;
+`
+
+export const SpecialSemesterSeperator = styled.div`
     display: inline-block;
     padding-left: 5px;
     padding-right: 5px;
