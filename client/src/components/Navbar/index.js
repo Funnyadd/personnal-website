@@ -6,16 +6,34 @@ const Navbar = (props) => {
 
     const [isMenuVisible, setIsMenuVisible] = useState(false)
     const [scroll, setScroll] = useState(false)
+    const [isMobileFormat, setIsMobileFormat] = useState(false)
+
+    const handleLinkClick = (link) => {
+        window.location.href = link
+        getNavButtonState();
+    }
+
+    const getNavButtonState = async () => {
+        setIsMenuVisible(!isMenuVisible)
+        await new Promise(res => setTimeout(res, 400)) // value in milliseconds (ms)
+        .then(() => setIsMenuVisible(document.getElementById("myNavbar").classList.value.includes("show")))
+    }
+
+    const fixMobileFormat = () => {
+        if (window.innerWidth > 576) setIsMobileFormat(false)
+        else setIsMobileFormat(true)
+    }
 
     useEffect(() => {
         window.addEventListener("scroll", () => {
             setScroll(window.scrollY > 50)
         })
+        
+        fixMobileFormat()
+        window.addEventListener("resize", () => {
+            fixMobileFormat()
+        })
     }, [])
-
-    const handleClick = () => {
-        setIsMenuVisible(!isMenuVisible)
-    }
 
     return (
         <>
@@ -30,7 +48,7 @@ const Navbar = (props) => {
                         />
                     </NavLogo>
                     <MobileIcon
-                        onClick={handleClick}
+                        onClick={getNavButtonState}
                         id="mobileBTN"
                         className="navbar-toggler"
                         type="button"
@@ -45,16 +63,32 @@ const Navbar = (props) => {
                     <Nav className="navbar navbar-expand-sm">
                         <NavInner className="navbar-collapse collapse" id="myNavbar">
                             <NavMenu className="navbar-nav">
-                                {props.navLabels.map((value, index) => {
-                                    let link = `/#${value}`
-                                    value = value.replace(" ", "\u00A0")
-
-                                    return (
-                                        <NavItem key={index} to={link}>
-                                            {value}
-                                        </NavItem>
-                                    )
-                                })}
+                                {
+                                    props.navLabels.map((value, index) => {
+                                        let link = `/#${value}`
+                                        value = value.replace(" ", "\u00A0")
+                                        
+                                        return (
+                                            isMobileFormat ?
+                                            <NavItem
+                                                key={index}
+                                                to={link}
+                                                onClick={() => handleLinkClick(link)}
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#myNavbar"
+                                                aria-controls="navbarSupportedContent"
+                                                aria-expanded="false"
+                                                aria-label="Toggle navigation"
+                                            >
+                                                {value}
+                                            </NavItem>
+                                            :
+                                            <NavItem key={index} to={link}>
+                                                {value}
+                                            </NavItem>
+                                        )
+                                    })
+                                }
                             </NavMenu>
                         </NavInner>
                     </Nav>
