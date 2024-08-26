@@ -112,6 +112,21 @@ body {
 .activeSemester {
   border: 2px solid rgb(12, 148, 0) !important;
 }
+
+.internshipSemester {
+  border-right: 2px solid rgb(63, 142, 222) !important;
+  border-left: 2px solid rgb(63, 142, 222) !important;
+}
+
+.internshipSemesterAfter {
+  border-top: 2px solid rgb(63, 142, 222) !important;
+  border-bottom: 0 !important;
+}
+
+.internshipSemesterBefore {
+  border-bottom: 2px solid rgb(63, 142, 222) !important;
+  border-top: 0 !important;
+}
 /* END of University Section */
 
 /* Nav Section */

@@ -214,6 +214,7 @@ export const QUERY = (locale) => {
                                                 number
                                                 title
                                                 activeSemesterTitle
+                                                internshipSemesterTitle
                                                 isCurrentSemester
                                                 isInternshipSemester
                                                 startSeason
