@@ -127,6 +127,11 @@ body {
   border-bottom: 2px solid rgb(63, 142, 222) !important;
   border-top: 0 !important;
 }
+
+.internshipSemesterOffActive {
+  border-top: 2px solid rgb(63, 142, 222) !important;
+  border-bottom: 2px solid rgb(63, 142, 222) !important;
+}
 /* END of University Section */
 
 /* Nav Section */
