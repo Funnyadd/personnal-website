@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components"
 
 export const BackgroundContainer = styled.div`
-    background-image: url(${props => props.url});
+    background-image: url(${$props => $props.imageurl});
     position: relative;
     overflow: hidden;
     background-color: #111;

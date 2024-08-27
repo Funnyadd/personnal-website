@@ -12,7 +12,7 @@ const Services = (props) => {
     const animations = ["fadeInLeft", "fadeInUp", "fadeInRight"]
 
     return (
-        <BackgroundContainer url={strapiMyService.background.data.attributes.url}>
+        <BackgroundContainer $imageurl={strapiMyService.background.data.attributes.url}>
             <ServiceContainer>
                 <Container>
                     <AnimatedHeading text={strapiMyService.title} />
