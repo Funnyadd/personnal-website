@@ -34,7 +34,8 @@ const Semester = (props) => {
         else if (isInternshipSemester) {
             classes += "internshipSemester "
             if (isActiveSemesterBefore) classes += "internshipSemesterBefore "
-            if (isActiveSemesterAfter) classes += "internshipSemesterAfter "
+            else if (isActiveSemesterAfter) classes += "internshipSemesterAfter "
+            else classes += "internshipSemesterOffActive "
         }
         else classes += "border-right border-left "
 
