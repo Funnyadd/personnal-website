@@ -47,7 +47,8 @@ const Semester = (props) => {
     return (
         <SemesterContainer eventKey={props.index.toString()} className={getSpecialClasses()} >
             <Title>
-                {semesterData.title} {semesterData.number} : {startSeason} {semesterData.year} 
+                {semesterData.number === 0 ? semesterData.title
+                : semesterData.title + " " + semesterData.number + " : " + startSeason + " " + semesterData.year}
                 {isActiveSemester ? 
                     <ActiveSemester>
                         <SpecialSemesterSeperator>-</SpecialSemesterSeperator>{semesterData.activeSemesterTitle}
