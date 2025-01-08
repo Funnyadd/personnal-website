@@ -11,7 +11,7 @@ export const CourseContainer = styled(Col)`
     }
 `
 export const HyperlinkTile = styled.a`
-    height: 165px;
+    height: 160px;
     padding: 10px 5px;
     transition: all 0.1s ease 0s;
     border-radius: 16px;
@@ -30,8 +30,16 @@ export const HyperlinkTile = styled.a`
         background: linear-gradient(120deg, rgb(12, 148, 40), rgb(15, 163, 138), rgb(35, 98, 234)) border-box;
     }
 
+    @media (max-width: 1200px) {
+        height: 180px;
+    }
+
+    @media (max-width: 545px) {
+        height: 165px;
+    }
+
     @media (max-width: 362px) {
-        height: 140px;
+        font-size: 20px;
     }
 `
 

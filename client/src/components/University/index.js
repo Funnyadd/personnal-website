@@ -22,7 +22,7 @@ const University = (props) => {
     let activeSemester = 0
     bachelorData.semesters.data.forEach(semester => {
         if (semester.attributes.isCurrentSemester) {
-            activeSemester = semester.attributes.number - 1
+            activeSemester = semester.attributes.number
         }
     })
 
@@ -45,11 +45,11 @@ const University = (props) => {
                     <SemesterAccordion defaultActiveKey={activeSemester.toString()} >
                         {bachelorData.semesters.data.map((s, index) =>
                             <Semester
-                            key={index}
-                            index={index}
-                            activeSemester={activeSemester}
-                            data={s.attributes}
-                            isLastSemester={s.attributes.number.toString() === bachelorData.semesters.data.length.toString()} />
+                                key={index}
+                                index={index}
+                                activeSemester={activeSemester}
+                                data={s.attributes}
+                                isLastSemester={s.attributes.number === bachelorData.semesters.data.length.toString()} />
                         )}
                     </SemesterAccordion>
                 </AnimationContainer>

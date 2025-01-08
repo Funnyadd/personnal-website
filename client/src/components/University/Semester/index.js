@@ -13,9 +13,9 @@ import {
 const Semester = (props) => {
     const semesterData = props.data;
     const isInternshipSemester = semesterData.isInternshipSemester;
-    const isActiveSemester = props.activeSemester === props.index - 1;
-    const isActiveSemesterBefore = props.activeSemester - props.index === -2;
-    const isActiveSemesterAfter = props.activeSemester - props.index === 0;
+    const isActiveSemester = props.activeSemester === props.index.toString();
+    const isActiveSemesterBefore = props.activeSemester - props.index === -1;
+    const isActiveSemesterAfter = props.activeSemester - props.index === 1;
 
     let startSeason = semesterData.startSeason;
     if (semesterData.startSeason === "Ete") {
