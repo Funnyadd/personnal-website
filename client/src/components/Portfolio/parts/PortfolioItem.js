@@ -1,5 +1,5 @@
 import React from "react"
-import Tilt from "react-parallax-tilt"
+// import Tilt from "react-parallax-tilt"
 import styled, { keyframes } from "styled-components"
 import RevealContent from "../../RevealContent"
 import DesktopContent from "./DesktopContent.js"

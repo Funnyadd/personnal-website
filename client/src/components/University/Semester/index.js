@@ -13,9 +13,9 @@ import {
 const Semester = (props) => {
     const semesterData = props.data;
     const isInternshipSemester = semesterData.isInternshipSemester;
-    const isActiveSemester = props.activeSemester === props.index;
-    const isActiveSemesterBefore = props.activeSemester - props.index === -1;
-    const isActiveSemesterAfter = props.activeSemester - props.index === 1;
+    const isActiveSemester = props.activeSemester === props.index - 1;
+    const isActiveSemesterBefore = props.activeSemester - props.index === -2;
+    const isActiveSemesterAfter = props.activeSemester - props.index === 0;
 
     let startSeason = semesterData.startSeason;
     if (semesterData.startSeason === "Ete") {
@@ -47,8 +47,7 @@ const Semester = (props) => {
     return (
         <SemesterContainer eventKey={props.index.toString()} className={getSpecialClasses()} >
             <Title>
-                {semesterData.number === "0" ? semesterData.title
-                : semesterData.title + " " + semesterData.number + " : " + startSeason + " " + semesterData.year}
+                {semesterData.title}{semesterData.number !== "0" ? " " + semesterData.number : ""} : {startSeason} {semesterData.year}
                 {isActiveSemester ? 
                     <ActiveSemester>
                         <SpecialSemesterSeperator>-</SpecialSemesterSeperator>{semesterData.activeSemesterTitle}

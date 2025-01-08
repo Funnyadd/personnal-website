@@ -30,7 +30,7 @@ const University = (props) => {
         <UniversityContainer>
             <AnimatedHeading text={bachelorData.title} />
             <BachelorContainer>
-                <AnimationContainer animation={"fadeInLeft"} delay={200} duration={2}>
+                <AnimationContainer animation={"fadeInLeft"} delay={100} duration={1}>
                     <Heading>{strapiUniversity.informationTitle}</Heading>
                     <Seperator />
                     <InformationContainer>
@@ -39,7 +39,7 @@ const University = (props) => {
                         <Info><InfoTitle>{bachelorData.expectedGraduationDateTitle} :</InfoTitle>{bachelorData.expectedGraduationDate}</Info>
                     </InformationContainer>
                 </AnimationContainer>
-                <AnimationContainer animation={"fadeInLeft"} delay={600} duration={2}>
+                <AnimationContainer animation={"fadeInLeft"} delay={400} duration={1}>
                     <Heading>{strapiUniversity.coursesTitle}</Heading>
                     <Seperator />
                     <SemesterAccordion defaultActiveKey={activeSemester.toString()} >
