@@ -43,6 +43,8 @@ For more information please feel free to contact me with my information provided
     JWT_SECRET=""
     ADMIN_JWT_SECRET=""
     API_TOKEN_SALT=""
+    TRANSFER_TOKEN_SALT=""
+    RESEND_API_KEY=""
     
     CLOUDINARY_NAME=""
     CLOUDINARY_KEY=""
@@ -59,6 +61,7 @@ For more information please feel free to contact me with my information provided
 
     ```shell
     STRAPI_TOKEN=""
+    GATSBY_STRAPI_URL=""
     ```
 
 1.  **Installing dependencies and building project**
