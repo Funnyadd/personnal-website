@@ -89,7 +89,7 @@ For more information please feel free to contact me with my information provided
     # start in development mode (with schema modifications enabled)
     npm run develop
     ```
-    Your Strapi content-manager should now be running at `http://localhost:1338`!
+    Your Strapi content-manager should now be running at http://localhost:1338!
 
 1.  **Running the front-end**
 
@@ -104,9 +104,11 @@ For more information please feel free to contact me with my information provided
     npm run develop
     ```
     
-    Your site is now running at `http://localhost:8000`!
+    Your site is now running at http://localhost:8000!
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby Tutorial](https://www.gatsbyjs.com/docs/tutorial/part-4/#use-graphiql-to-explore-the-data-layer-and-write-graphql-queries)._
+    _Note: You'll also see a second link: http://localhost:8000/\_\_\_graphql. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby Tutorial](https://www.gatsbyjs.com/docs/tutorial/part-4/#use-graphiql-to-explore-the-data-layer-and-write-graphql-queries)._
+
+    _Note: The way to actually work with graphql in this project is through strapi directly and should be available on the following link: http://localhost:1338/graphql_
 
 ## 🧐 What's inside?
 
@@ -122,8 +124,7 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
     ├── gatsby-ssr.js
     ├── LICENSE
     ├── package-lock.json
-    ├── package.json
-    └── README.md
+    └── package.json
 
 1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
 
@@ -144,8 +145,6 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 9.  **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
 
 10. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-
-11. **`README.md`**: A text file containing useful reference information about your project.
 
 ## 🎓 Useful information
 
