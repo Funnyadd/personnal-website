@@ -84,21 +84,21 @@ const Index = () => {
         )
     }
 
-    const global = data.global.data.attributes
-    const navs = data.myNav.data.attributes.navs
-    const hero = data.hero.data.attributes
-    const about = data.about.data.attributes
-    const services = data.myService.data.attributes
-    const projects = data.myProject.data.attributes
-    const contact = data.myContact.data.attributes
-    const university = data.myUniversity.data.attributes
-    const copyrights = data.myFooter.data.attributes
+    const global = data.global
+    const navs = data.myNav.navs
+    const hero = data.hero
+    const about = data.about
+    const services = data.myService
+    const projects = data.myProject
+    const contact = data.myContact
+    const university = data.myUniversity
+    const copyrights = data.myFooter
 
     return (
         <Layout data={global}>
             <Seo/>
             <SpeedInsights/>
-            <Navbar navLabels={navs} favicon={global.favicon.data.attributes.url} />
+            <Navbar navLabels={navs} favicon={global.favicon.url} />
             <section id={navs[0]}>
                 <Hero data={hero} />
             </section>

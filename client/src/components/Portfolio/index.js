@@ -49,13 +49,12 @@ const Portfolio = (props) => {
             <PortfolioContainer>
                 <AnimationContainer animation="fadeIn" duration={2}>
                     <Slider {...settings}>
-                        {strapiMyProject.projects.data.map((p, index) => {
-                            p = p.attributes
+                        {strapiMyProject.projects.map((p, index) => {
                             return (
                                 <PortfolioItem 
                                     key={index} 
                                     index={index} 
-                                    image={p.source.data.attributes.url} 
+                                    image={p.source.url} 
                                     text={p.title} category={p.category} 
                                     link={p.link} 
                                     type="slider" />
