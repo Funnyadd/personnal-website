@@ -13,8 +13,7 @@ module.exports = ({ strapi }) => ({
                 .sendTemplatedEmail(
                 {
                     to,
-                    //from, < should be set in /config/plugins.js email.settings.defaultFrom
-                    //replyTo < should be set in /config/plugins.js email.settings.defaultReplyTo
+                    // from and replyTo should be set in /config/plugins.js email.settings.defaultFrom and defaultReplyTo
                 },
                 {
                     templateReferenceId: templateReferenceId,
@@ -22,8 +21,6 @@ module.exports = ({ strapi }) => ({
                 },
                 {
                     ...info,
-                    // this equals to apply all the data you have in tenant
-                    // this may need to be aligned between your tenant and template
                 });
     
             return { message: "Email sent!" };

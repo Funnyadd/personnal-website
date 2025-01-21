@@ -17,7 +17,6 @@ module.exports = ({ env }) => ({
       config: {
         endpoint: '/graphql',
         shadowCRUD: true,
-        // landingPage: false,
         depthLimit: 20,
         amountLimit: 100,
         apolloServer: {
@@ -37,5 +36,5 @@ module.exports = ({ env }) => ({
           defaultReplyTo: 'noreply@adammihajlovic.ca',
         },
       }
-    },    
+    },
 });
