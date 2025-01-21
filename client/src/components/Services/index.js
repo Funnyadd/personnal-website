@@ -12,19 +12,18 @@ const Services = (props) => {
     const animations = ["fadeInLeft", "fadeInUp", "fadeInRight"]
 
     return (
-        <BackgroundContainer $imageurl={strapiMyService.background.data.attributes.url}>
+        <BackgroundContainer $imageurl={strapiMyService.background.url}>
             <ServiceContainer>
                 <Container>
                     <AnimatedHeading text={strapiMyService.title} />
                     <Row>
-                        {strapiMyService.services.data.map((e, index) => {
-                            e = e.attributes
+                        {strapiMyService.services.map((e, index) => {
                             return (
                                 <Col key={index} md={4}>
                                     <AnimationContainer animation={animations[index]} delay={(index + 1) * 200} duration={2}>
                                         <ServiceElement>
                                             <ServiceIcon>
-                                                <img src={e.image.data.attributes.url} alt={e.title} />
+                                                <img src={e.image.url} alt={e.title} />
                                             </ServiceIcon>
                                             <ServiceHeading>{e.title}</ServiceHeading>
                                             <ServiceSeparator />

@@ -46,10 +46,7 @@ const About = (props) => {
     const checkIf6Months = (dateString, isAge) => {
         if (isAge) return false
         var m = new Date().getMonth() - new Date(dateString).getMonth()
-        if (m <= 5 && m >= -5) {
-            return true
-        }
-        return false
+        return m <= 5 && m >= -5
     }
 
     const particlesInit = useCallback(async engine => {
@@ -176,7 +173,7 @@ const About = (props) => {
                         <AnimationContainer animation="fadeIn" duration={0.5}>
                             <ImageContainer>
                                     <RevealContent delay={500}>
-                                        <Image src={strapiAbout.Photo.data.attributes.url} alt="Profile picture" />
+                                        <Image src={strapiAbout.Photo.url} alt="Profile picture" />
                                     </RevealContent>
                             </ImageContainer>
                         </AnimationContainer>
@@ -198,14 +195,12 @@ const About = (props) => {
                                 </TabSelectors>
                                 <Tabs>
                                     <Tab style={{ display: tab === strapiAbout.navigation[0] ? "block" : "none" }}>
-                                        {strapiAbout.skills.data.map((s, index) => {
-                                            s = s.attributes
+                                        {strapiAbout.skills.map((s, index) => {
                                             return <Skill key={index} header={s.title} percentage={s.percentage}></Skill>
                                         })}
                                     </Tab>
                                     <Tab style={{ display: tab === strapiAbout.navigation[3] ? "block" : "none" }}>
-                                        {strapiAbout.languages.data.map((l, index) => {
-                                            l = l.attributes
+                                        {strapiAbout.languages.map((l, index) => {
                                             return <Skill key={index} header={l.title} percentage={l.percentage}></Skill>
                                         })}
                                     </Tab>
@@ -213,8 +208,7 @@ const About = (props) => {
                                 <Tabs>
                                     <Tab style={{ display: tab === strapiAbout.navigation[1] ? "block" : "none" }}>
                                         <Timeline
-                                            data={strapiAbout.experiences.data.map(e => {
-                                                e = e.attributes
+                                            data={strapiAbout.experiences.map(e => {
                                                 return {
                                                     title: e.title,
                                                     institution: e.institution,
@@ -227,8 +221,7 @@ const About = (props) => {
                                     </Tab>
                                     <Tab style={{ display: tab === strapiAbout.navigation[2] ? "block" : "none" }}>
                                         <Timeline
-                                            data={strapiAbout.educations.data.map(e => {
-                                                e = e.attributes
+                                            data={strapiAbout.educations.map(e => {
                                                 return {
                                                     title: e.title,
                                                     institution: e.institution,
@@ -253,8 +246,7 @@ const About = (props) => {
                 />
                 <div className="container">
                     <div className="row">
-                        {strapiAbout.about_counters.data.map((c, index) => {
-                            c = c.attributes
+                        {strapiAbout.about_counters.map((c, index) => {
                             return (
                                 <div key={index} className="col-md-3">
                                     <AnimationContainer animation="fadeIn" delay={200} duration={2}>
@@ -264,11 +256,11 @@ const About = (props) => {
                                                     <CountUp className="value" enableScrollSpy duration={2} end={numberOfYear(c.startDate, c.endDate)} />
                                                 </div>
                                                 <div className="symbolContainer">
-                                                    {checkIf6Months(c.startDate, c.isAge) 
-                                                    ? 
-                                                    <span className="symbol">+</span> 
-                                                    : 
-                                                    <></>}
+                                                    {
+                                                        checkIf6Months(c.startDate, c.isAge) 
+                                                        ? <span className="symbol">+</span> 
+                                                        : <></>
+                                                    }
                                                 </div>
                                                 <div className="textContainer">
                                                     <span className="text">{c.fullText}</span>

@@ -46,8 +46,7 @@ const Contact = (props) => {
                     </FormRow>
                 </AnimationContainer>
                 <IconRow>
-                    {contactInfo.contacts.data.map((c, index) => {
-                        c = c.attributes
+                    {contactInfo.contacts.map((c, index) => {
                         var text = c.textValue
 
                         if (c.textValue.includes("@")) {
