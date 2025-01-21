@@ -3,16 +3,14 @@
  * Any modifications made will be discarded.
  */
 import graphql from "@strapi/plugin-graphql/strapi-admin";
-import i18N from "@strapi/plugin-i18n/strapi-admin";
 import usersPermissions from "@strapi/plugin-users-permissions/strapi-admin";
-import emailDesigner from "strapi-plugin-email-designer/strapi-admin";
+import emailDesigner5 from "strapi-plugin-email-designer-5/strapi-admin";
 import { renderAdmin } from "@strapi/strapi/admin";
 
 renderAdmin(document.getElementById("strapi"), {
   plugins: {
     graphql: graphql,
-    i18n: i18N,
     "users-permissions": usersPermissions,
-    "email-designer": emailDesigner,
+    "email-designer-5": emailDesigner5,
   },
 });

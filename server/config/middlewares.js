@@ -25,7 +25,7 @@ module.exports = [
             "s3.amazonaws.com"
           ],
           'media-src': ["'self'", 'data:', 'blob:', 'res.cloudinary.com'],
-          "script-src": ["'self'", "editor.unlayer.com"],
+          "script-src": ["'self'", "'unsafe-inline'" ,"editor.unlayer.com"],
           "frame-src": ["'self'", "editor.unlayer.com"],
           upgradeInsecureRequests: null,
         },

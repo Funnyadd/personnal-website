@@ -61,7 +61,7 @@ const Semester = (props) => {
             </Title>
             <Courses>
                 <Row>
-                    {semesterData.courses.data.map((c, index) => <Course key={index} data={c.attributes} /> )}
+                    {semesterData.courses.map((c, index) => <Course key={index} data={c} /> )}
                 </Row>
             </Courses>
         </SemesterContainer>

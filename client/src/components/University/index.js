@@ -17,12 +17,12 @@ const University = (props) => {
     const MAX_CUMULATIVE_AVERAGE = "4.3";
 
     const strapiUniversity = props.data;
-    const bachelorData = strapiUniversity.degrees.data[0].attributes
+    const bachelorData = strapiUniversity.degrees[0]
 
     let activeSemester = 0
-    bachelorData.semesters.data.forEach(semester => {
-        if (semester.attributes.isCurrentSemester) {
-            activeSemester = semester.attributes.number
+    bachelorData.semesters.forEach(semester => {
+        if (semester.isCurrentSemester) {
+            activeSemester = semester.number
         }
     })
 
@@ -43,13 +43,13 @@ const University = (props) => {
                     <Heading>{strapiUniversity.coursesTitle}</Heading>
                     <Seperator />
                     <SemesterAccordion defaultActiveKey={activeSemester.toString()} >
-                        {bachelorData.semesters.data.map((s, index) =>
+                        {bachelorData.semesters.map((s, index) =>
                             <Semester
                                 key={index}
                                 index={index}
                                 activeSemester={activeSemester}
-                                data={s.attributes}
-                                isLastSemester={s.attributes.number === bachelorData.semesters.data.length.toString()} />
+                                data={s}
+                                isLastSemester={s.number === bachelorData.semesters.length.toString()} />
                         )}
                     </SemesterAccordion>
                 </AnimationContainer>

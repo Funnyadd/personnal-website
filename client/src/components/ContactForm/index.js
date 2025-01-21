@@ -23,12 +23,10 @@ const ContactForm = (props) => {
                 body: $body
             }) {
                 data {
-                    attributes {
-                        name
-                        email
-                        phone
-                        body
-                    }
+                    name
+                    email
+                    phone
+                    body
                 }
             }
         }`

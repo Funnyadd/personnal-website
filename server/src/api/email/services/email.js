@@ -8,7 +8,7 @@ module.exports = ({ strapi }) => ({
 
             console.log(data)
             await strapi
-                .plugin("email-designer")
+                .plugin("email-designer-5")
                 .service("email")
                 .sendTemplatedEmail(
                 {
