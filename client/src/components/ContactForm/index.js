@@ -55,7 +55,8 @@ const ContactForm = (props) => {
                 sendEmail(3, "adam@adammihajlovic.ca", contactInfo)
 
                 // Send confirmation notification to user
-                sendEmail(1, contactInfo.email)
+                let isEnglish = fields.nameField === "Name";
+                sendEmail(isEnglish ? 1 : 2, contactInfo.email)
             }
             catch(e) {
                 console.log("Error sending email.")
