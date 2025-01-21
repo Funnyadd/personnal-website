@@ -1,6 +1,7 @@
 import { gql, useMutation } from "@apollo/client"
 import React, { useState } from "react"
 import { ContactFormContainer, Heading, Input, InputElement, Separator, Submit, Textarea } from "./FormElements"
+import { sendEmail } from "../../email/emailSender"
 
 const ContactForm = (props) => {
     const fields = props.data
@@ -40,13 +41,25 @@ const ContactForm = (props) => {
                 error: true,
             })
         } else {
-            createMessage({ variables: { 
-                name: contactInfo.name ,
-                email: contactInfo.email,
-                phone: contactInfo.phone,
-                body: contactInfo.body
+            createMessage({
+                variables: { 
+                    name: contactInfo.name ,
+                    email: contactInfo.email,
+                    phone: contactInfo.phone,
+                    body: contactInfo.body
+                }
+            })
 
-            } })
+            try {
+                // Send contact info email to me
+                sendEmail(3, "adam@adammihajlovic.ca", contactInfo)
+
+                // Send confirmation notification to user
+                sendEmail(1, contactInfo.email)
+            }
+            catch(e) {
+                console.log("Error sending email.")
+            }
 
             setShow("block")
             setContactInfo({
@@ -123,7 +136,9 @@ const ContactForm = (props) => {
                 <Submit onClick={() => FormSubmit()}>
                     <span>{fields.submitButton}</span>
                 </Submit>
-                <div className={show === "block" ? "align-middle text-white p-2 my-1 me-3 d-block" : "align-middle text-white p-2 my-1 me-3 d-none"}>{fields.confirmation}!</div>
+                <div className={`align-middle text-white p-2 my-1 me-3 ${show === "block" ? "d-block" : "d-none"}`}>
+                    {fields.confirmation}!
+                </div>
             </div>
         </ContactFormContainer>
     )

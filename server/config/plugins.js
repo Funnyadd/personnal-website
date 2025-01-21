@@ -28,14 +28,14 @@ module.exports = ({ env }) => ({
     },
     email: {
       config: {
-        provider: 'sendgrid',
+        provider: 'strapi-provider-email-resend',
         providerOptions: {
-          apiKey: env('SENDGRID_API_KEY')
+          apiKey: env('RESEND_API_KEY'),
         },
         settings: {
-          defaultFrom: 'funnyadd2002@gmail.com',
-          defaultReplyTo: 'funnyadd2002@gmail.com'
-        }
+          defaultFrom: 'noreply@adammihajlovic.ca',
+          defaultReplyTo: 'noreply@adammihajlovic.ca',
+        },
       }
-    }
+    },    
 });
