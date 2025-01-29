@@ -22,12 +22,10 @@ const ContactForm = (props) => {
                 phone: $phone,
                 body: $body
             }) {
-                data {
-                    name
-                    email
-                    phone
-                    body
-                }
+                name
+                email
+                phone
+                body
             }
         }`
     );
