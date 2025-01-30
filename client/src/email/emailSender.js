@@ -1,12 +1,13 @@
 export const sendEmail = async (templateId, recipient, info = {}) => {
     
     const url = `${process.env.GATSBY_STRAPI_URL}/api/email/send`;
+    const bearerToken = `Bearer ${process.env.STRAPI_TOKEN}`;
 
     await fetch(url, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${process.env.STRAPI_TOKEN}`
+            "Authorization": bearerToken
         },
         body: JSON.stringify({
             data: {
