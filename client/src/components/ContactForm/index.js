@@ -23,9 +23,7 @@ const ContactForm = (props) => {
                 body: $body
             }) {
                 name
-                email
-                phone
-                body
+                documentId
             }
         }`
     );
@@ -45,34 +43,33 @@ const ContactForm = (props) => {
                     body: contactInfo.body
                 }
             })
+            .catch(_ => console.log("Error creating message in strapi."))
+        
+            // Send contact info email to me
+            sendEmail(3, "adam@adammihajlovic.ca", contactInfo)
+            .catch(_ => console.log("Error sending email to admin."))
 
-            try {
-                // Send contact info email to me
-                sendEmail(3, "adam@adammihajlovic.ca", contactInfo)
-
-                // Send confirmation notification to user
-                let isEnglish = fields.nameField === "Name";
-                sendEmail(isEnglish ? 1 : 2, contactInfo.email)
-            }
-            catch(e) {
-                console.log("Error sending email.")
-            }
-
-            setShow("block")
-            setContactInfo({
-                name: "",
-                email: "",
-                phone: "",
-                body: "",
-                error: false,
+            // Send confirmation notification to user
+            let isEnglish = fields.nameField === "Name";
+            sendEmail(isEnglish ? 1 : 2, contactInfo.email)
+            .catch(_ => console.log("Error sending email to user."))
+            .then(_ => {
+                setShow("block")
+                setContactInfo({
+                    name: "",
+                    email: "",
+                    phone: "",
+                    body: "",
+                    error: false,
+                })
+                setTimeout(() => setShow("none"), 3500)
             })
-            setTimeout(() => setShow("none"), 3500)
         }
     }
 
     const check = val => {
         if (contactInfo.error && val === "") return false
-        else return true
+        return true
     }
 
     return (
@@ -85,15 +82,17 @@ const ContactForm = (props) => {
                     value={contactInfo.name}
                     className={`name ${check(contactInfo.name) ? "" : "error"}`}
                     placeholder={fields.nameField}
+                    required
                     onChange={e => setContactInfo({ ...contactInfo, name: e.target.value })}
                 />
             </InputElement>
             <InputElement>
                 <Input
-                    type="text"
+                    type="email"
                     value={contactInfo.email}
                     className={`email ${check(contactInfo.email) ? "" : "error"}`}
                     placeholder={fields.emailField}
+                    required
                     onChange={e =>
                         setContactInfo({
                             ...contactInfo,
@@ -104,7 +103,7 @@ const ContactForm = (props) => {
             </InputElement>
             <InputElement>
                 <Input
-                    type="text"
+                    type="tel"
                     value={contactInfo.phone}
                     className="phone"
                     placeholder={fields.phoneField}
@@ -121,6 +120,7 @@ const ContactForm = (props) => {
                     placeholder={fields.messageField}
                     value={contactInfo.body}
                     className={`message ${check(contactInfo.message) ? "" : "error"}`}
+                    required
                     onChange={e =>
                         setContactInfo({
                             ...contactInfo,
