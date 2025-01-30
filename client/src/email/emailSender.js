@@ -1,4 +1,4 @@
-export const sendEmail = async (templateId, recipient, info = {}) => {
+export const sendEmail = async (templateId, recipient = process.env.GATSBY_CONTACT_INFO_RECEIVE_EMAIL, info = {}) => {
     
     const url = `${process.env.GATSBY_STRAPI_URL}/api/email/send`;
     const bearerToken = `Bearer ${process.env.GATSBY_STRAPI_TOKEN}`;
