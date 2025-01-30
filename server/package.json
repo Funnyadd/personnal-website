@@ -3,7 +3,7 @@
   "private": true,
   "description": "Strapi back-end of Adam Mihajlovic's personal website",
   "main": "server.js",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "author": "Adam Mihajlovic <mihajlovicadam@gmail.com>",
   "dependencies": {
     "@strapi/plugin-graphql": "^5.8.0",
