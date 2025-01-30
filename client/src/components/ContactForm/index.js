@@ -46,7 +46,7 @@ const ContactForm = (props) => {
             .catch(_ => console.log("Error creating message in strapi."))
         
             // Send contact info email to me
-            sendEmail(3, "adam@adammihajlovic.ca", contactInfo)
+            sendEmail(3, process.env.CONTACT_INFO_RECEIVE_EMAIL, contactInfo)
             .catch(_ => console.log("Error sending email to admin."))
 
             // Send confirmation notification to user

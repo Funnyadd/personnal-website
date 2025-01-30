@@ -37,31 +37,32 @@ For more information please feel free to contact me with my information provided
     Navigate to the `/server` folder and make sure you have a `.env` file containing the following:
 
     ```shell
-    APP_KEYS=""
+    APP_KEYS=
     HOST=127.0.0.1
     PORT=1338
-    JWT_SECRET=""
-    ADMIN_JWT_SECRET=""
-    API_TOKEN_SALT=""
-    TRANSFER_TOKEN_SALT=""
-    RESEND_API_KEY=""
+    JWT_SECRET=
+    ADMIN_JWT_SECRET=
+    API_TOKEN_SALT=
+    TRANSFER_TOKEN_SALT=
+    RESEND_API_KEY=
     
-    CLOUDINARY_NAME=""
-    CLOUDINARY_KEY=""
-    CLOUDINARY_SECRET=""
+    CLOUDINARY_NAME=
+    CLOUDINARY_KEY=
+    CLOUDINARY_SECRET=
 
-    DATABASE_HOST=""
+    DATABASE_HOST=
     DATABASE_PORT=
-    DATABASE_NAME=""
-    DATABASE_USERNAME=""
-    DATABASE_PASSWORD=""
+    DATABASE_NAME=
+    DATABASE_USERNAME=
+    DATABASE_PASSWORD=
     ```
     
     When this is done, navigate back to the source folder and go to `/client` and make sure you `.env` file contains the following:
 
     ```shell
-    STRAPI_TOKEN=""
-    GATSBY_STRAPI_URL=""
+    STRAPI_TOKEN=
+    CONTACT_INFO_RECEIVE_EMAIL=
+    GATSBY_STRAPI_URL=
     ```
 
 1.  **Installing dependencies and building project**
